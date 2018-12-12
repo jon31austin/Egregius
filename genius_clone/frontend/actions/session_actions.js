@@ -27,20 +27,20 @@ const receiveErrors = (errors) => {
 export const login = (user) => dispatch => {
   return SessionApiUtil.login(user)
     .then( user2 => dispatch(receiveCurrentUser(user2)),
-           errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
          )
 };
 
 export const logout = () => dispatch => {
   return SessionApiUtil.logout()
     .then( () => dispatch(logoutCurrentUser()),
-           errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
          )
 };
 
 export const signup = (user) => dispatch => {
   return SessionApiUtil.signup(user)
     .then( user2 => dispatch(receiveCurrentUser(user2)),
-           errors => dispatch(receiveErrors(errors))
+    errors => dispatch(receiveErrors(errors.responseJSON))
          )
 };

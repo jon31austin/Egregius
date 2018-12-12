@@ -9,7 +9,22 @@ import rootReducer from "./reducers/root_reducer";
 //ENDING HERE
 
 document.addEventListener('DOMContentLoaded', () => {
-  const store = configureStore();
+  //START BOOTSTRAPPING CURRENT USER
+  let store;
+  if (window.currentUser) {
+    const preloadedState = {
+      entities: {
+        users: { [window.currentUser.id]: window.currentUser }
+      },
+      session: { id: window.currentUser.id }
+    };
+    store = configureStore(preloadedState);
+    delete window.currentUser;
+  } else {
+    store = configureStore();
+  }
+  //FINISH BOOTSTRAPPING 
+
   const root = document.getElementById('root');
 
   // DELETE TEST MATERIAL STARTING 
