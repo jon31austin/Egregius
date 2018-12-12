@@ -37,22 +37,32 @@ class SessionForm extends React.Component {
   render() {
     return (
       <div>
-        <h3>{this.props.formtype}</h3>
-        {this.renderErrors()}
-        <form onSubmit={this.handleSubmit}>  
-          <label>
-            Username:
-            <input onChange={this.update("username")} type="text" value={this.state.username} />
-          </label>
-          <br></br>
-          <label>
-            Password:
-            <input onChange={this.update("password")} type="password" value={this.state.password} />
-          </label>
-          <br></br>
-          <input type="submit" value={this.props.formType} />
-        </form>
-        {this.props.navLink}
+        
+        <div className="modal-form">
+          <span class="modal-close js-modal-close">&times;</span>
+          
+          <h3>{this.props.formtype}</h3>
+          {this.renderErrors()}
+          <form onSubmit={this.handleSubmit}>
+            <label>
+              Username:
+              <input className="input" onChange={this.update("username")} type="text" value={this.state.username} />
+            </label>
+            <br></br>
+            <label>
+              Password:
+              <input className="input" onChange={this.update("password")} type="password" value={this.state.password} />
+            </label>
+            <br></br>
+            <input className="submit" type="submit" value={this.props.formType} />
+          </form>
+          {this.props.navLink}
+        
+        </div>
+
+      
+
+        <div className="modal-screen"></div>
       </div>
       
     )

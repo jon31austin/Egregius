@@ -8,10 +8,12 @@ import SignupFormContainer from "./session_forms/signup_form_container";
 
 const App = () => (
   <div>
-    <header className="header">
-      <Link to="/" className="header-link">
-        <h1>Genius</h1>
-      </Link>
+    <header className="main-header">
+        <div className="genius-logo">
+          <Link to="/" className="header-link">
+            <h1>Genius</h1>
+          </Link>
+        </div>
       <GreetingContainer />
     </header>
 

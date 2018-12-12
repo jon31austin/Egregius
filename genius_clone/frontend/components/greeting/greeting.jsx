@@ -5,9 +5,9 @@ const Greeting = (props) => {
 
   const sessionLinks = () => {
     return (
-      <div>
-        <Link to="/signup">Sign Up!</Link>
-        <Link to="/login">Login</Link>
+      <div className="greeting">
+        <Link className="greeting-action" to="/signup">Sign Up</Link>
+        <Link className="greeting-action" to="/login">Log In</Link>
       </div>
     )
   };
