@@ -15,32 +15,32 @@ const logoutCurrentUser = () => {
   return {
     type: LOGOUT_CURRENT_USER
   }
-}
+};
 
 const receiveErrors = (errors) => {
   return {
     type: RECEIVE_ERRORS,
     errors
   }
-}
+};
 
 export const login = (user) => dispatch => {
   return SessionApiUtil.login(user)
     .then( user2 => dispatch(receiveCurrentUser(user2)),
-          errors => dispatch(receiveErrors(errors))
+           errors => dispatch(receiveErrors(errors))
          )
-}
+};
 
 export const logout = () => dispatch => {
   return SessionApiUtil.logout()
     .then( () => dispatch(logoutCurrentUser()),
-          errors => dispatch(receiveErrors(errors))
+           errors => dispatch(receiveErrors(errors))
          )
-}
+};
 
 export const signup = (user) => dispatch => {
   return SessionApiUtil.signup(user)
     .then( user2 => dispatch(receiveCurrentUser(user2)),
            errors => dispatch(receiveErrors(errors))
          )
-}
+};

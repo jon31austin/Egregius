@@ -1,4 +1,7 @@
 class ApplicationController < ActionController::Base
+  # DELETE BELOW, TESTING ONLY 
+  skip_before_action :verify_authenticity_token
+  # DELETE ABOVE, TESTING ONLY
 
   helper_method :current_user, :logged_in?
 
