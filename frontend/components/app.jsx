@@ -5,6 +5,7 @@ import { AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import GreetingContainer from "./greeting/greeting_container";
 import NoMatch from "./no_match/no_match";
+import Footer from "./footer/footer";
 
 const App = () => (
   <div>
@@ -24,6 +25,7 @@ const App = () => (
       <Route path="*" component={NoMatch} />
     </Switch>
 
+    <Footer />
   </div>
 );
 
