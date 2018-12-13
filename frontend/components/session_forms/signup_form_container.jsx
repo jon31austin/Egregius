@@ -1,20 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+
 import { connect } from "react-redux";
 import SessionForm from "./session_form";
 import { signup } from "../../actions/session_actions";
+import { openModal, closeModal } from "../../actions/modal_actions";
 
 const msp = (state) => {
   return {
     errors: state.errors.session,
-    formType: "signup",
-    navLink: <Link to="/login">Already a member? Log in!</Link>
+    formType: "signup"
   }
 };
 
 const mdp = (dispatch) => {
   return {
-    processForm: (user) => dispatch(signup(user))
+    processForm: (user) => dispatch(signup(user)),
+    otherForm: (
+      <button onClick={() => dispatch(openModal("login"))}>
+        Signup
+      </button>
+    ),
+    closeModal: () => dispatch(closeModal())
   }
 };
 

@@ -40,9 +40,7 @@ class SessionForm extends React.Component {
     return (
       <div>
         
-        <div className="modal-form">
-          <span class="modal-close js-modal-close">&times;</span>
-
+        <div>
           <h3>{this.props.formtype}</h3>
           {this.renderErrors()}
           <form onSubmit={this.handleSubmit}>
@@ -61,10 +59,6 @@ class SessionForm extends React.Component {
           {this.props.navLink}
         
         </div>
-
-      
-
-        <div className="modal-screen"></div>
       </div>
     )
   }
