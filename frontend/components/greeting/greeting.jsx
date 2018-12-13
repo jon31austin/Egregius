@@ -7,7 +7,6 @@ const Greeting = (props) => {
 
   const sessionLinks = () => {
     
-    
     return (
       <div className="greeting">
         <div className="greeting-action" onClick={() => dispatch(openModal("signup"))}>Sign Up</div>
@@ -18,9 +17,9 @@ const Greeting = (props) => {
 
   const greetingWelcome = () => {
     return (
-      <div>
-        <h3>Welcome, {props.currentUser.username}!</h3>
-        <button onClick={props.logout}>Log Out</button>
+      <div className="greeting">
+        <h3 className="greeting-message">Welcome, {props.currentUser.username}!</h3>
+        <div className="greeting-action" onClick={props.logout}>Log Out</div>
       </div>
     )
   };
