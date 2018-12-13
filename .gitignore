@@ -36,7 +36,7 @@ Temporary Items
 
 ### Ruby ###
 
-Gemfile.lock
+# Gemfile.lock
 *.gem
 *.rbc
 /.config
