@@ -24,40 +24,39 @@ class SessionForm extends React.Component {
 
   renderErrors() {
     return (
-      <ul>
-        {this.props.errors.map( (error, i) => (
-          <li key={`error-${i}`}>
-            {error}
-          </li>
-        ))}
-      </ul>
+      <div className="errors">
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`error-${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      </div>
     );
   }
-
-  // DELETE ALL PREVIOUS WORK ON MODAL FORM!
 
   render() {
     return (
       <div>
-        
-        <div>
+        <div className="session-form">
           <h3>{this.props.formtype}</h3>
           {this.renderErrors()}
+
           <form onSubmit={this.handleSubmit}>
             <label>
               Username:
-              <input className="input" onChange={this.update("username")} type="text" value={this.state.username} />
+              <input className="input" onChange={this.update("username")} type="text" placeholder="Username" value={this.state.username} />
             </label>
             <br></br>
             <label>
               Password:
-              <input className="input" onChange={this.update("password")} type="password" value={this.state.password} />
+              <input className="input" onChange={this.update("password")} type="password" placeholder="Password" value={this.state.password} />
             </label>
             <br></br>
             <input className="submit" type="submit" value={this.props.formType} />
-          </form>
-          {this.props.navLink}
-        
+          </form>   
+
         </div>
       </div>
     )

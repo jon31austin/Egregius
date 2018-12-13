@@ -10,7 +10,7 @@
 
 .modal-child {
   position: absolute;
-  top: 50%;
+  top: 20%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -23,6 +23,9 @@
   line-height: 1;
   cursor: pointer;
   color: #ff1464;
+  border: 1px solid #ff1464;
+  border-radius: 5px;
+  padding: 0 7px 0 7px;
 }
 
 .modal-close:hover {

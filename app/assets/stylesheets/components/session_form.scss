@@ -1,0 +1,26 @@
+.session-form {
+  display: flex;
+  min-width: 200px;
+  min-height: 200px;
+  background-color: white;
+  box-shadow: -20px 20px 10px black;
+  box-sizing: border-box;
+  padding: 10px;
+}
+
+.session-form .input {
+  width: 100%;
+  border: 2px solid gray;
+  padding: 3px;
+  margin: 5px;
+}
+
+.submit {
+  padding: 3px;
+  margin: 5px;
+  border: 2px solid black;
+}
+
+.errors {
+  color: red;
+}
