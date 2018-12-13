@@ -34,13 +34,15 @@ class SessionForm extends React.Component {
     );
   }
 
+  // DELETE ALL PREVIOUS WORK ON MODAL FORM!
+
   render() {
     return (
       <div>
         
         <div className="modal-form">
           <span class="modal-close js-modal-close">&times;</span>
-          
+
           <h3>{this.props.formtype}</h3>
           {this.renderErrors()}
           <form onSubmit={this.handleSubmit}>
@@ -64,7 +66,6 @@ class SessionForm extends React.Component {
 
         <div className="modal-screen"></div>
       </div>
-      
     )
   }
 }
