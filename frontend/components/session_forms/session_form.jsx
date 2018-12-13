@@ -37,6 +37,9 @@ class SessionForm extends React.Component {
   }
 
   render() {
+
+    const demoUser = {username: "Happy Wanderer", password:"justlooking!"}
+
     return (
       <div>
         <div className="session-form-container">
@@ -54,10 +57,12 @@ class SessionForm extends React.Component {
             </label>
             <br></br>
             <input className="submit" type="submit" value={this.props.formType} />
+            <input className="submit" type="submit" value="Demo User" onClick={() => dispatch(login(demoUser))} />
           </form>   
 
           <br></br>
           {this.props.otherForm}
+          
         </div>
       </div>
     )

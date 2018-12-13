@@ -14,7 +14,7 @@ const App = () => (
     <header className="main-header">
         <div className="genius-logo">
           <Link to="/" className="header-link">
-            <h1>Genius</h1>
+            <h1>Egregius</h1>
           </Link>
         </div>
       <GreetingContainer />
@@ -23,7 +23,6 @@ const App = () => (
     <Switch>
     </Switch>
 
-    
   </div>
 );
 
