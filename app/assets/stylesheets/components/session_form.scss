@@ -1,26 +1,52 @@
-.session-form {
-  display: flex;
+.session-form-container {
+  display: block;
   min-width: 200px;
   min-height: 200px;
   background-color: white;
   box-shadow: -20px 20px 10px black;
   box-sizing: border-box;
-  padding: 10px;
+  padding: 15px;
+  box-sizing: border-box;
 }
 
-.session-form .input {
-  width: 100%;
-  border: 2px solid gray;
-  padding: 3px;
-  margin: 5px;
-}
-
-.submit {
-  padding: 3px;
-  margin: 5px;
-  border: 2px solid black;
+.form-prompt {
+  color: #99a7ee;
+  height: 25px;
+  text-transform: uppercase;
+  border-bottom: 2px solid #99a7ee;
+  font-size: 15px;
 }
 
 .errors {
-  color: red;
+  display: block;
+  color: white;
+  background-color: #ff1414;
+}
+
+.errors > ul > li {
+  padding: 3px;
+  display: block;
+  color: white;
+  background-color: #ff1414;
+}
+
+.input {
+  width: 100%;
+  height: 35px;
+  border: 2px solid gray;
+  margin-top: 15px;
+  padding-left: 5px;
+}
+
+.submit {
+  padding: 5px;
+  margin-top: 15px;
+  border: 2px solid black;
+}
+
+.switch-session-form {
+  display: inline-block;
+  text-transform: uppercase;
+  color: gray;
+  border-bottom: 1px solid gray;
 }
