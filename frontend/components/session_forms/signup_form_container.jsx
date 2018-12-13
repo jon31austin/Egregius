@@ -9,7 +9,7 @@ const msp = (state) => {
   return {
     errors: state.errors.session,
     formType: "Sign Up",
-    formPrompt: "Sign up for Genius"
+    formPrompt: "Sign up for Egregius"
   }
 };
 

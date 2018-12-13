@@ -8,8 +8,8 @@ import { openModal, closeModal } from "../../actions/modal_actions";
 const msp = (state) => {
   return {
     errors: state.errors.session,
-    formType: "Log In",
-    formPrompt: "Sign in to Genius"
+    formType: "Sign In",
+    formPrompt: "Sign in to Egregius"
   };
 };
 
