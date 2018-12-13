@@ -1,7 +1,7 @@
 .main-header {
   width: 100%;
   height: 41px;
-  background-color: #ffff64;
+  background-color: $genius-yellow;
   font-family: Programme, sans-serif;
 
   display: flex;
@@ -22,7 +22,7 @@
   text-transform: uppercase;
   font-size: 23px;
   font-family: 'Courier New', Courier, monospace;
-  color: #ffff64;
+  color: $genius-yellow;
   font-weight: 900;
   text-shadow: -2px 2px 0px black;
 }
