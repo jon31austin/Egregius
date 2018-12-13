@@ -4,8 +4,7 @@ import { AuthRoute } from "../util/route_util";
 
 import Modal from "./modal/modal";
 import GreetingContainer from "./greeting/greeting_container";
-import LoginFormContainer from "./session_forms/login_form_container";
-import SignupFormContainer from "./session_forms/signup_form_container";
+import NoMatch from "./no_match/no_match";
 
 const App = () => (
   <div>
@@ -21,6 +20,8 @@ const App = () => (
     </header>
 
     <Switch>
+      <Route exact path="/" />
+      <Route path="*" component={NoMatch} />
     </Switch>
 
   </div>

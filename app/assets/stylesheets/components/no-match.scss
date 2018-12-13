@@ -1,0 +1,32 @@
+.no-match-container {
+  box-sizing: border-box;
+  padding: 100px;
+}
+
+.giant-sideways-e {
+  text-align: center;
+  transform: rotate(.75turn);
+  font-size: 150px;
+  font-weight: 999;
+  color: white;
+  text-shadow: -7px 7px 0px black;
+}
+
+.no-match-text {
+  text-align: center;
+  font-weight: 900;
+}
+
+.no-match-text > h1 {
+  font-size: 40px;
+  margin: 15px;
+}
+
+.no-match-text > p {
+  margin: 15px;
+}
+
+.no-match-link {
+  color: #7d8fe8;
+  cursor: pointer;
+}
