@@ -1,4 +1,4 @@
-.song-info-bar {
+.track-info-bar {
   box-sizing: border-box;
   height: 280px;
   background: #000;
@@ -7,12 +7,10 @@
   display: flex;
 }
 
-.song-info-bar > h1 {
-  text-transform: uppercase;
-  color: $genius-yellow;
-  font-size: 30px;
-  padding-top: 25px;
-  padding-bottom: 25px;
+.track-detail-bucket {
+  margin-top: 25px;
+  margin-bottom: 25px;
+  display: flex;
 }
 
 .album-image {
@@ -20,4 +18,27 @@
   width: 220px;
   height: 220px;
   background: gray;
+}
+
+.track-info {
+  margin-left: 15px;
+}
+
+.track-info > h1 {
+  text-transform: uppercase;
+  color: $genius-yellow;
+  font-size: 30px;
+  margin-top: 10px;
+}
+
+.track-info > h2 {
+  text-transform: capitalize;
+  color: white;
+  font-size: 23px;
+}
+
+.track-info > h4 {
+  margin-top: 15px;
+  color: gray;
+  font-size: 18px;
 }
