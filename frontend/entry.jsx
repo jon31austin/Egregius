@@ -5,7 +5,7 @@ import Root from "./components/root";
 
 //DELETE TEST MATERIAL STARTING
 import { signup, login, logout } from "./actions/session_actions";
-import rootReducer from "./reducers/root_reducer";
+import { getTracks } from "./actions/track_actions";
 //ENDING HERE
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.logout = logout;
   window.getState = store.getState;
   window.dispatch = store.dispatch;
-  window.rootReducer = rootReducer;
+  window.getTracks = getTracks;
   // ENDING HERE
 
   ReactDOM.render(< Root store={store} />, root);

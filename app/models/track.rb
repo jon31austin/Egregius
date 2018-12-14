@@ -14,9 +14,13 @@
 class Track < ApplicationRecord 
   validates :title, :lyrics, :artist_id, :album_id, presence: true
 
-
   belongs_to :artist 
   belongs_to :album
-
   #has_many :annotations
+
+  def self.get_top_songs(offset)
+    Track.limit(6).offset(offset)
+    #.pluck(:id, :title, :artist_id, :album_id, :lyrics)
+  end
+
 end
