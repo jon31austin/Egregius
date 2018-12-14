@@ -7,6 +7,10 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
+# DON'T DELETE DEMO USER
+User.create!(username: "Happy Wanderer", password: "justlooking!")
+# DON'T DELETE ABOVE
+
 #CREATE USERS
 User.create!(username: "Adam", password: "AdamPass")
 User.create!(username: "Bob", password: "BobPass")

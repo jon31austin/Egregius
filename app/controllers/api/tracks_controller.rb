@@ -1,7 +1,6 @@
 class Api::TracksController < ApplicationController 
 
   def index
-    debugger
     offset = params[:offset]
     @next_tracks = Track.get_top_songs(offset)
     render "api/tracks/index"

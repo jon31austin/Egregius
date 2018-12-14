@@ -1,24 +1,25 @@
 import * as TrackApiUtil from "../util/track_api_util";
 
 export const RECEIVE_NEXT_TRACKS = "RECEIVE_NEXT_TRACKS";
+export const RECEIVE_TRACKS_ERRORS = "RECEIVE_TRACKS_ERRORS";
 
 const receiveTracks = (tracks) => {
   return {
     type: RECEIVE_NEXT_TRACKS,
     tracks
   }
-}
+};
 
 const receiveErrors = (errors) => {
   return {
-    type: RECEIVE_ERRORS,
+    type: RECEIVE_TRACKS_ERRORS,
     errors
   }
 };
 
-export const getTracks = (offset) => {
+export const getTracks = (offset) => dispatch => {
   return TrackApiUtil.getTracks(offset)
     .then( tracks => dispatch(receiveTracks(tracks)),
            err => dispatch(receiveErrors(err))
     )
-}
+};

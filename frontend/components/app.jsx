@@ -4,6 +4,7 @@ import { AuthRoute } from "../util/route_util";
 
 import Modal from "./modal/modal";
 import Header from "./header/header";
+import HomePage from "./home/home_page";
 import NoMatch from "./no_match/no_match";
 import Footer from "./footer/footer";
 
@@ -15,7 +16,7 @@ const App = () => (
     <Header />
 
     <Switch>
-      <Route exact path="/" />
+      <Route exact path="/" component={HomePage} />
       <Route path="*" component={NoMatch} />
     </Switch>
 

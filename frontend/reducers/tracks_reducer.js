@@ -5,10 +5,11 @@ const tracksReducer = (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEXT_TRACKS:
-      return merge({}, state, action.tracks)
+      const newState = merge({}, state, action.tracks);
+      return newState;
     default:
       return state;
   }
-}
+};
 
 export default tracksReducer;
