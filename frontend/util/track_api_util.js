@@ -5,3 +5,10 @@ export const getTracks = (offset) => {
     data: { offset: offset }
   })
 };
+
+export const getSingleTrack = (id) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/tracks/${id}`
+  })
+};

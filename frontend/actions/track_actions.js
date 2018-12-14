@@ -23,3 +23,10 @@ export const getTracks = (offset) => dispatch => {
            err => dispatch(receiveErrors(err))
     )
 };
+
+export const getSingleTrack = (id) => dispatch => {
+  return TrackApiUtil.getSingleTrack(id)
+    .then( track => dispatch(receiveTracks(track)),
+          err => dispatch(receiveErrors(err))
+    )
+};

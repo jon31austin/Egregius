@@ -24,7 +24,8 @@ class TrackIndex extends React.Component {
     });
 
     return (
-      <div>
+      <div className="track-index" >
+        <h2 className="track-index-header">Top Songs</h2> 
         <ul>
           {trackList}
         </ul>

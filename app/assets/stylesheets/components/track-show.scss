@@ -1,0 +1,23 @@
+.song-info-bar {
+  box-sizing: border-box;
+  height: 280px;
+  background: #000;
+  padding-left: 100px;
+  padding-right: 100px;
+  display: flex;
+}
+
+.song-info-bar > h1 {
+  text-transform: uppercase;
+  color: $genius-yellow;
+  font-size: 30px;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+
+.album-image {
+  box-sizing: border-box;
+  width: 220px;
+  height: 220px;
+  background: gray;
+}

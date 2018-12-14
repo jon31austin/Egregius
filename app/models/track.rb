@@ -19,8 +19,7 @@ class Track < ApplicationRecord
   #has_many :annotations
 
   def self.get_top_songs(offset)
-    Track.limit(6).offset(offset)
-    #.pluck(:id, :title, :artist_id, :album_id, :lyrics)
+    Track.includes(:artist, :album).limit(6).offset(offset)
   end
 
 end

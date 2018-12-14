@@ -1,0 +1,23 @@
+.track-index-header {
+  padding: 10px;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+}
+
+.track-index {
+  margin: 20px;
+}
+
+.track-index-item {
+  box-sizing: border-box;
+  padding: 10px;
+  border-bottom: 1px solid gray;
+}
+
+.track-index-item:hover {
+  background-color: gray;
+}
+
+.track-index-item > h2 {
+  font-size: 30px;
+}

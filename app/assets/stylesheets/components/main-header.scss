@@ -8,12 +8,11 @@
 }
 
 /* BELOW IS FOR GENIUS LOGO */
-
 .genius-logo {
   height: 41px;
-  width: 150px;
-  margin-left: auto;
-  margin-right: auto;
+  // width: 150px;
+  margin: 0 auto;
+  text-align: center;
 
   display: flex;
   justify-content: center;
@@ -26,11 +25,9 @@
   font-weight: 900;
   text-shadow: -2px 2px 0px black;
 }
-
 /* ABOVE IS FOR GENIUS LOGO */
 
 /* BELOW IS FOR RIGHT NAV*/
-
 .greeting {
   display: flex;
 
@@ -56,5 +53,4 @@
   height: 41px;
   padding-top: 15px;
 }
-
 /* ABOVE IS FOR RIGHT NAV */

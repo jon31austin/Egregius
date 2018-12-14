@@ -1,4 +1,4 @@
-class Api::TracksController < ApplicationController 
+class Api::TracksController < ApplicationController
 
   def index
     offset = params[:offset]
