@@ -5,6 +5,7 @@ class NewTrackForm extends React.Component {
     super(props);
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    
     this.state = {
       title: "",
       artist: "",
@@ -15,14 +16,25 @@ class NewTrackForm extends React.Component {
   }
 
   update(field) {
-    return (e) => {
-      this.setState({ [field]: e.target.value });
-    };
+    if (field === "textarea") {
+      return (e) => {
+        this.setState({ [field]: e.target.innerHTML });
+      };
+    } else {
+      return (e) => {
+        this.setState({ [field]: e.target.value });
+      };
+    }  
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createTrack(this.state).then(() => this.props.history.push('/'));
+    this.props.createTrack(this.state)
+      .then((action) => {
+        const id = Object.keys(action.tracks)[0];
+        return this.props.history.push(`/tracks/${id}`)
+      }
+    );
   }
 
   handleErrors() {
@@ -32,11 +44,11 @@ class NewTrackForm extends React.Component {
   render() {
     return (
       
-      <form className="new-song-form" onClick={this.handleSubmit}>
+      <form className="new-song-form" onSubmit={this.handleSubmit}>
         
         <div className="new-song-lyrics">
           <h2>Lyrics</h2>
-          <textarea className="new-song-textarea"></textarea>
+          <textarea onChange={this.update("lyrics")} className="new-song-textarea" value={this.state.lyrics}></textarea>
         </div>
 
         <div className="new-song-info">

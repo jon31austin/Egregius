@@ -19,4 +19,4 @@ export const createTrack = (track) => {
     url: "api/tracks",
     data: { track }
   })
-}
+};

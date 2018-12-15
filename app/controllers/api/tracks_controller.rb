@@ -8,6 +8,8 @@ class Api::TracksController < ApplicationController
 
   def show
     @track = Track.find_by(id: params[:id])
+    @track.artist = @track.artist
+    @track.album = @track.album
     if @track
       render "api/tracks/show"
     else 
@@ -16,14 +18,14 @@ class Api::TracksController < ApplicationController
   end
 
   def create
-    @track = Track.new(title: params[:track][:title])
+    @track = Track.new(title: params[:track][:title], lyrics: params[:track][:lyrics])
     
     artist_name = params[:track][:artist]
     artist = Artist.find_by(name: artist_name)
     if artist 
       @track.artist_id = artist.id 
     else 
-      artist = Artist.create(name: artist_name).id 
+      artist = Artist.create(name: artist_name) 
       @track.artist_id = artist.id
     end
 
@@ -32,7 +34,7 @@ class Api::TracksController < ApplicationController
     if album
       @track.album_id = album.id 
     else 
-      album = Album.create(name: album_name, artist_id: artist.id, year: params[:track][:year]).id 
+      album = Album.create(name: album_name, artist_id: artist.id, year: params[:track][:year]) 
       @track.album_id = album.id
     end
     
