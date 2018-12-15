@@ -30,3 +30,10 @@ export const getSingleTrack = (id) => dispatch => {
           err => dispatch(receiveErrors(err))
     )
 };
+
+export const createTrack = (track) => dispatch => {
+  return TrackApiUtil.createTrack(track)
+    .then(track => dispatch(receiveTracks(track)),
+      err => dispatch(receiveErrors(err))
+    )
+};

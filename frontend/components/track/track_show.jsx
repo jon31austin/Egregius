@@ -1,6 +1,7 @@
 import React from "react";
 
 import TrackShowHeader from "./track_show_header";
+import TrackShowMain from "./track_show_main";
 
 class TrackShow extends React.Component{
   constructor(props) {
@@ -8,7 +9,7 @@ class TrackShow extends React.Component{
   }
 
   componentDidMount() {
-    this.props.track || this.props.getSingleTrack(this.props.match.params.trackId)
+    this.props.getSingleTrack(this.props.match.params.trackId)
   }
 
   componentDidUpdate(prevProps) {
@@ -20,9 +21,11 @@ class TrackShow extends React.Component{
   render() {
     if (!this.props.track) return null;
 
+
     return(
       <div>
         <TrackShowHeader track={this.props.track} />
+        <TrackShowMain track={this.props.track} />
       </div>
     )
   }

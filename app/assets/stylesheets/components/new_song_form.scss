@@ -1,0 +1,60 @@
+.new-song-form {
+  width: 100%;
+  min-height: 700px;
+  box-sizing: border-box;
+
+  background: $genius-black;
+  color: white;
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.new-song-form h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+.new-song-form h3 {
+  font-size: 15px;
+  text-transform: uppercase;
+  margin: 10px;
+}
+
+.new-song-lyrics {
+  box-sizing: border-box;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  margin: 20px;
+}
+
+.new-song-textarea {
+  background-color: white;
+  color: black;
+  padding: 5px;
+  height: 500px;
+  width: 100%;
+}
+
+.new-song-info {
+  box-sizing: border-box;
+  width: 400px;
+  height: 100%;
+  padding: 20px;
+  margin: 20px;
+}
+
+.new-song-info input {
+  background-color: white;
+  color: black;
+  height: 20px;
+  padding: 5px;
+}
+
+.new-song-submit {
+  background-color: $genius-yellow;
+  color: $genius-black;
+}
+

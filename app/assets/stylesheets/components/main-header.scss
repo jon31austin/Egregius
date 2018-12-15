@@ -32,7 +32,6 @@
   display: flex;
 
   height: 41px;
-  font-size: .75em;
 }
 
 .greeting-action {
@@ -42,6 +41,7 @@
   text-transform: uppercase;
   padding: 5px;
   cursor: pointer;
+  font-size: 12px;
 }
 
 .greeting-action:hover {
