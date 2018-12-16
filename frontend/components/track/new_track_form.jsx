@@ -1,4 +1,7 @@
 import React from "react";
+import TrackFormErrorModal from "../modal/track_form_error_modal";
+
+import { openModal } from "../../actions/modal_actions";
 
 class NewTrackForm extends React.Component {
   constructor(props) {
@@ -33,17 +36,15 @@ class NewTrackForm extends React.Component {
       .then( (action) => {
         const id = Object.keys(action.tracks)[0];
         return this.props.history.push(`/tracks/${id}`)
-      }
+      },
+        () => dispatch(openModal("track_form_error"))
     );
   }
 
-  handleErrors() {
-    // WRITE THIS FOR WHEN THE CREATION FAILS
-  }
-
   render() {
+
     return (
-      
+
       <form className="new-song-form" onSubmit={this.handleSubmit}>
         
         <div className="new-song-lyrics">
@@ -68,9 +69,12 @@ class NewTrackForm extends React.Component {
             <h3>Year Released</h3>
             <input onChange={this.update("year")} type="text" value={this.state.year} />
           </div>
-          <div>
+
+          <div className="track-submit-bucket">
+            <TrackFormErrorModal errors={this.props.errors} />
             <input type="submit" className="new-song-submit" value="Create New Song" />
           </div>
+
         </div>
 
       </form>
