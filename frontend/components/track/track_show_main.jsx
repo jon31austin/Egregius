@@ -4,9 +4,13 @@ class TrackShowMain extends React.Component {
   render() {
     const lyricArray = this.props.track.lyrics.split("\n")
 
-    const formattedLyrics = lyricArray.map( (line, i) => (
-      <li key={`line-${i}`}>{line}</li>
-    ));
+    const formattedLyrics = lyricArray.map( (line, i) => {
+      if (line === "") {
+        return <br></br>
+      } else {
+        return <li key={`line-${i}`}>{line}</li>
+      }
+    });
 
     return (
       <div>
