@@ -30,7 +30,7 @@ class NewTrackForm extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.createTrack(this.state)
-      .then((action) => {
+      .then( (action) => {
         const id = Object.keys(action.tracks)[0];
         return this.props.history.push(`/tracks/${id}`)
       }

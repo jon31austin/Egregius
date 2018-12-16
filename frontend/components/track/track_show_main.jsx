@@ -6,14 +6,15 @@ class TrackShowMain extends React.Component {
 
     const formattedLyrics = lyricArray.map( (line, i) => {
       if (line === "") {
-        return <br></br>
+        return <br key={`line-${i}`}></br>
       } else {
         return <li key={`line-${i}`}>{line}</li>
       }
     });
-
+  
     return (
-      <div>
+      <div className="track-main-bucket">
+        <h3 className="lyrics-header">{this.props.track.title} LYRICS</h3>
         <ul>
           {formattedLyrics}
         </ul>
