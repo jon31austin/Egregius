@@ -1,6 +1,6 @@
 .new-song-form {
   width: 100%;
-  min-height: 700px;
+  height: 600px;
   box-sizing: border-box;
 
   background: $genius-black;
@@ -23,9 +23,9 @@
 }
 
 .new-song-lyrics {
+  height: 100%;
   box-sizing: border-box;
-  width: 400px;
-  height: 500px;
+  width: 500px;
   padding: 20px;
   margin: 20px;
 }
@@ -34,7 +34,7 @@
   background-color: white;
   color: black;
   padding: 5px;
-  height: 500px;
+  height: 90%;
   width: 100%;
 }
 
@@ -43,18 +43,28 @@
   width: 400px;
   height: 100%;
   padding: 20px;
-  margin: 20px;
+  margin-top: 25px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .new-song-info input {
   background-color: white;
   color: black;
-  height: 20px;
+  height: 30px;
   padding: 5px;
+  display: block;
 }
 
 .new-song-submit {
+  margin-top: 20px;
   background-color: $genius-yellow;
   color: $genius-black;
+}
+
+.new-song-submit:hover {
+  background-color: $genius-yellow;
 }
 
