@@ -1,23 +1,26 @@
 import React from "react";
 
 class TrackShowMain extends React.Component {
-  render() {
-    const lyricArray = this.props.track.lyrics.split("\n")
+  constructor(props) {
+    super(props);
 
-    const formattedLyrics = lyricArray.map( (line, i) => {
-      if (line === "") {
-        return <br key={`line-${i}`}></br>
-      } else {
-        return <li key={`line-${i}`}>{line}</li>
-      }
-    });
+    this.handleSelection = this.handleSelection.bind(this);
+  }
+  
+  handleSelection(e) {
+    let text = window.getSelection();
+    console.log(text);
+    console.log("SELECTED TEXT:", text.toString())
+  }
+
+  render() {
   
     return (
       <div className="track-main-bucket">
         <h3 className="lyrics-header">{this.props.track.title} LYRICS</h3>
-        <ul>
-          {formattedLyrics}
-        </ul>
+        <p className="lyrics-text" onMouseUp={this.handleSelection}>
+          {this.props.track.lyrics}
+        </p>
       </div>
     )
   }
