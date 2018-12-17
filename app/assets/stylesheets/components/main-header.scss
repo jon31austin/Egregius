@@ -5,12 +5,12 @@
   font-family: Programme, sans-serif;
 
   display: flex;
+  justify-content: center;
 }
 
 /* BELOW IS FOR GENIUS LOGO */
 .genius-logo {
   height: 41px;
-  margin: 0 auto;
   text-align: center;
 
   display: flex;
@@ -30,17 +30,23 @@
 .greeting {
   display: flex;
   justify-content: space-between;
+  
+  position: absolute;
+  right: 0;
+
   height: 41px;
 }
 
 .greeting-action {
   display: block;
-  margin-top: 10px;
   box-sizing: border-box;
-  text-transform: uppercase;
+
+  margin-top: 10px;
   padding: 5px;
-  cursor: pointer;
+
+  text-transform: uppercase;
   font-size: 11px;
+  cursor: pointer;
 }
 
 .greeting-action:hover {
@@ -54,3 +60,27 @@
   font-size: 10px;
 }
 /* ABOVE IS FOR RIGHT NAV */
+
+.left-nav {
+  display: flex;
+  justify-content: space-between;
+
+  height: 41px;
+  position: absolute;
+  left: 0;
+}
+
+.add-song-link {
+  display: block;
+  box-sizing: border-box;
+
+  margin-top: 10px;
+  padding: 5px;
+
+  text-transform: uppercase;
+  font-size: 11px;
+}
+
+.add-song-link:hover {
+  border-bottom: 5px solid #ff1464;
+}
