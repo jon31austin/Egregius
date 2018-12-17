@@ -1,7 +1,7 @@
 class Api::AnnotationsController < ApplicationController 
 
   def index
-    @annotations = Annotation.find_by_user_id(params[:annotation][:user_id])
+    @annotations = Annotation.find_track_annotations(params[:track_id])
     render "api/annotations/index"
   end
 
@@ -11,7 +11,7 @@ class Api::AnnotationsController < ApplicationController
     if @annotation.save 
       render "api/annotations/show"
     else 
-      render json: @annotation.errors.full_messages
+      render json: @annotation.errors.full_messages, status: 401
     end
   end 
 

@@ -1,7 +1,7 @@
 import React from "react";
 
 import TrackShowHeader from "./track_show_header";
-import TrackShowMain from "./track_show_main";
+import TrackShowMain from "./track_show_main_container";
 
 class TrackShow extends React.Component{
   constructor(props) {

@@ -15,7 +15,11 @@ class TrackShowMain extends React.Component {
     };
 
     this.handleSelection = this.handleSelection.bind(this);
-  }
+  };
+
+  componentDidMount() {
+    this.props.fetchAnnotations(this.props.track.id);
+  };
   
   handleSelection(e) {
 
@@ -31,7 +35,7 @@ class TrackShowMain extends React.Component {
         openAnno: true,
         selection: text.toString()
       });
-    } else if (e.target.className != "anno-session"){
+    } else if (e.target.className === "lyrics-text"){
       this.setState({
         startIndex: null,
         endIndex: null,
@@ -40,6 +44,10 @@ class TrackShowMain extends React.Component {
       })
     }
   };
+
+  formatLyrics() {
+
+  }
 
   render() {
 
