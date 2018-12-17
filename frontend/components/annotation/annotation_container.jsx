@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import { withRouter } from "react-router"
 
 import Annotation from "./annotation";
 import { openModal } from "../../actions/modal_actions";
@@ -18,7 +19,8 @@ const msp = (state, ownProps) => {
     startIndex: start_index,
     endIndex: end_index,
     loggedIn: loggedIn,
-    currentUser: state.session.id
+    currentUser: state.session.id,
+    track_id: ownProps.lyrics.track_id
   }
 };
 
@@ -30,4 +32,4 @@ const mdp = (dispatch) => {
   }
 };
 
-export default connect(msp, mdp)(Annotation);
+export default withRouter(connect(msp, mdp)(Annotation));

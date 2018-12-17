@@ -19,6 +19,8 @@ class Annotation extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
+    debugger
+
     this.setState({
       start_index: this.props.startIndex,
       end_index: this.props.endIndex,
@@ -26,6 +28,7 @@ class Annotation extends React.Component {
       user_id: this.props.currentUser
     }, 
       () => this.props.submitAnnotation(this.state)
+        .then(this.props.history.push(`/tracks/${this.props.lyrics.songId}`))
     );
 
   };
@@ -61,7 +64,6 @@ class Annotation extends React.Component {
     };
 
     const annoList = () => {
-
       const trackAnnos = this.props.annotations.map(ann => {
         return (
           <AnnotationIndexItem key={ann.id} ann={ann} />
