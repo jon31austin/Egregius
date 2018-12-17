@@ -11,6 +11,7 @@ const msp = (state, ownProps) => {
   const start_index = ownProps.lyrics.startIndex;
   const end_index = ownProps.lyrics.endIndex;
   const loggedIn = !!(state.session.id);
+  
   return {
     open: openAnno,
     selection: annoSelection,

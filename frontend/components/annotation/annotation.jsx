@@ -1,5 +1,5 @@
 import React from "react";
-import merge from "lodash/merge";
+import AnnotationIndexItem from "./annotation_index_item";
 
 class Annotation extends React.Component {
   constructor(props) {
@@ -60,13 +60,27 @@ class Annotation extends React.Component {
       )
     };
 
+    const annoList = () => {
+
+      const trackAnnos = this.props.annotations.map(ann => {
+        return (
+          <AnnotationIndexItem key={ann.id} ann={ann} />
+        )
+      });
+
+      return (
+        <div>
+          {trackAnnos}
+        </div>
+      )
+    };
+
     if (this.props.open && this.props.loggedIn) {
       return annoForm();
     } else if (this.props.open && !this.props.loggedIn) {
       return loginPrompt();
     } else {
-      // NEED TO LIST ALL ANNOTATIONS AS BASE CASE, NOT RETURN NULL
-      return null;
+      return annoList();
     }
   }
 };

@@ -64,7 +64,7 @@ class TrackShowMain extends React.Component {
         </div>
 
         <div className="anno-main-bucket">
-          <Annotation lyrics={annoProps}/>
+          <Annotation lyrics={annoProps} annotations={this.props.annotations}/>
         </div>
 
       </div>

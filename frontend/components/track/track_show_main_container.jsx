@@ -5,8 +5,9 @@ import TrackShowMain from "./track_show_main";
 import { fetchAnnotations } from "../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
+  const trackAnnos = Object.values(state.entities.annotations);
   return {
-
+    annotations: trackAnnos
   };
 };
 
