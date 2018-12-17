@@ -18,7 +18,7 @@ const mdp = (dispatch) => {
     processForm: (user) => dispatch(login(user)),
     otherForm: (
       <button className="switch-session-form" onClick={() => dispatch(openModal("signup"))}>
-        Don't yet have an account? Sign up!
+        Create an account
       </button>
     ),
     closeModal: () => dispatch(closeModal())

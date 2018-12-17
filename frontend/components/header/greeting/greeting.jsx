@@ -9,7 +9,7 @@ const Greeting = (props) => {
     return (
       <div className="greeting">
         <div className="greeting-action" onClick={() => dispatch(openModal("signup"))}>Sign Up</div>
-        <div className="greeting-action" onClick={() => dispatch(openModal("login"))}>Log In</div>
+        <div className="greeting-action" onClick={() => dispatch(openModal("login"))}>Sign In</div>
       </div>
     )
   };

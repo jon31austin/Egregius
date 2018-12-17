@@ -10,7 +10,6 @@
 /* BELOW IS FOR GENIUS LOGO */
 .genius-logo {
   height: 41px;
-  // width: 150px;
   margin: 0 auto;
   text-align: center;
 
@@ -30,7 +29,7 @@
 /* BELOW IS FOR RIGHT NAV*/
 .greeting {
   display: flex;
-
+  justify-content: space-between;
   height: 41px;
 }
 
@@ -41,7 +40,7 @@
   text-transform: uppercase;
   padding: 5px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .greeting-action:hover {
@@ -52,5 +51,6 @@
   color: #ff1464;
   height: 41px;
   padding-top: 15px;
+  font-size: 10px;
 }
 /* ABOVE IS FOR RIGHT NAV */
