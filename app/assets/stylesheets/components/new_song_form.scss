@@ -8,6 +8,8 @@
 
   display: flex;
   justify-content: space-around;
+
+  position: static;
 }
 
 .new-song-form h2 {
@@ -73,8 +75,28 @@
 }
 
 .track-error-popup {
-  position: relative;
-  z-index: 3;
   background-color: red;
+  position: absolute;
+  z-index: 3;
+  bottom: 20%;
+  right: 40%;
+
+  padding: 30px;
+  border: 1px solid $genius-yellow;
+  border-radius: 20px;
+}
+
+.track-error-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 40px;
+  line-height: 1;
+  cursor: pointer;
+  color: white;
+}
+
+.track-error-close:hover {
+  color: black;
 }
 

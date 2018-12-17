@@ -71,10 +71,10 @@ class NewTrackForm extends React.Component {
           </div>
 
           <div className="track-submit-bucket">
-            <TrackFormErrorModal errors={this.props.errors} />
             <input type="submit" className="new-song-submit" value="Create New Song" />
           </div>
 
+          <TrackFormErrorModal errors={this.props.errors} />
         </div>
 
       </form>

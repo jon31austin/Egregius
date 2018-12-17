@@ -14,7 +14,7 @@ const TrackFormErrorModal = ({ modal, closeModal, errors }) => {
 
     return (
       <div className="track-error-popup" onClick={closeModal}>
-        <span className="modal-close">&times;</span>
+        <span className="track-error-close">&times;</span>
         <ul>
           {listedErrors}
         </ul>
