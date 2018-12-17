@@ -6,6 +6,7 @@ import Root from "./components/root";
 //DELETE TEST MATERIAL STARTING
 import { signup, login, logout } from "./actions/session_actions";
 import { getTracks } from "./actions/track_actions";
+import { createAnnotation } from "./actions/annotation_actions";
 //ENDING HERE
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -34,7 +35,10 @@ document.addEventListener('DOMContentLoaded', () => {
   window.getState = store.getState;
   window.dispatch = store.dispatch;
   window.getTracks = getTracks;
+  window.createAnnotation = createAnnotation;
   // ENDING HERE
 
   ReactDOM.render(< Root store={store} />, root);
 });
+
+// body: "window test", start_index: 0, end_index: 10, user_id: 1, track_id: 1

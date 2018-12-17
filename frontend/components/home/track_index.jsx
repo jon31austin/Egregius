@@ -9,7 +9,6 @@ class TrackIndex extends React.Component {
   }
 
   componentDidMount() {
-    this.props.sayHello();
     this.props.getTracks(this.state.offset);
   }
 

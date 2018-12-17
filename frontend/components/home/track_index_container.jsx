@@ -16,7 +16,6 @@ const msp = (state) => {
 
 const mdp = (dispatch) => {
   return {
-    sayHello: () => console.log("it's working"),
     getTracks: (offset) => dispatch(getTracks(offset))
   }
 };
