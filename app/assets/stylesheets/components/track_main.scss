@@ -1,3 +1,7 @@
+.track-show-content {
+  display: flex;
+}
+
 .track-main-bucket {
   width: 40%;
   padding-top: 30px;
@@ -18,4 +22,31 @@
 
 .lyrics-text {
   white-space: pre-wrap;
+}
+
+.anno-main-bucket{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  background: green;
+  height: 400px;
+  width: 40%;
+
+  display: flex;
+  justify-content: center;
+}
+
+.anno-form-container {
+  width: 80%;
+  height: 300px;
+  background: yellow;
+}
+
+.anno-session {
+  padding: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  background: white;
 }
