@@ -18,6 +18,7 @@ class TrackShowMain extends React.Component {
     };
 
     this.handleSelection = this.handleSelection.bind(this);
+    this.clearState = this.clearState.bind(this);
   };
 
   componentDidMount() {
@@ -43,6 +44,19 @@ class TrackShowMain extends React.Component {
       }
     };
   };
+
+  clearState(e) {
+    this.state = {
+      songId: this.props.track.id,
+      startIndex: null,
+      endIndex: null,
+      openAnno: false,
+      selection: "",
+      annoSelected: false,
+      annoId: null,
+      eventCounter: 0
+    };
+  }
   
   handleSelection(e) {
 
@@ -96,7 +110,7 @@ class TrackShowMain extends React.Component {
     const annoProps = merge({}, this.state)
   
     return (
-      <div className="track-show-content" onMouseUp={this.handleSelection}>
+      <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>
 
         <div className="track-main-bucket">
           <h3 className="lyrics-header">{this.props.track.title} LYRICS</h3>
