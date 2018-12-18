@@ -14,7 +14,9 @@ class TrackShowMain extends React.Component {
       startIndex: null,
       endIndex: null,
       openAnno: false,
-      selection: ""
+      selection: "",
+      annoSelected: false,
+      annoId: null
     };
 
     this.handleSelection = this.handleSelection.bind(this);
@@ -23,13 +25,17 @@ class TrackShowMain extends React.Component {
   componentDidMount() {
     this.props.fetchAnnotations(this.props.track.id);
   };
-  
+
   //this.props.annotations[e.target.dataset.idx]
   componentDidUpdate(prevProps) {
     const annotations = document.getElementsByClassName("annotation");
     const cb = (e) => {
-      debugger
-      console.log(e.target.data)
+      this.setState({
+        annoSelected: true,
+        annoId: e.target.dataset.idx
+      })
+      // debugger
+      // console.log(e.target.data)
     }
 
     for (let i = 0; i < annotations.length; i++) {
@@ -42,12 +48,8 @@ class TrackShowMain extends React.Component {
     const sel = window.getSelection().toString();
     
     // increase to 20
-    if ( (e.target.className === "lyrics-text") && (sel.length > 0) ) {
+    if ( (e.target.className === "lyrics-text") && (sel.length > 10) ) {
       const text = window.getSelection();
-      // const annoStart = text.anchorOffset;
-      // const annoEnd = text.focusOffset;
-      console.log("Start and End: ", annoStart, annoEnd)
-      console.log(text.toString());
 
       const annoText = text.toString();
       const annoStart = this.props.track.lyrics.indexOf(annoText)
@@ -65,7 +67,9 @@ class TrackShowMain extends React.Component {
         startIndex: null,
         endIndex: null,
         openAnno: false,
-        selection: ""
+        selection: "",
+        annoSelected: false,
+        annoId: null
       })
     }
   };

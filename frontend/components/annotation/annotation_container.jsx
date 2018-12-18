@@ -12,6 +12,8 @@ const msp = (state, ownProps) => {
   const start_index = ownProps.lyrics.startIndex;
   const end_index = ownProps.lyrics.endIndex;
   const loggedIn = !!(state.session.id);
+  const annoSelected = ownProps.lyrics.annoSelected;
+  const annoId = ownProps.lyrics.annoId;
   
   return {
     open: openAnno,
@@ -20,7 +22,9 @@ const msp = (state, ownProps) => {
     endIndex: end_index,
     loggedIn: loggedIn,
     currentUser: state.session.id,
-    track_id: ownProps.lyrics.track_id
+    track_id: ownProps.lyrics.track_id,
+    annoSelected,
+    annoId
   }
 };
 

@@ -77,12 +77,22 @@ class Annotation extends React.Component {
       )
     };
 
+    const displaySingleAnnotation = () => {
+      return (
+        <div>
+          {this.props.annotations[this.props.annoId].body}
+        </div>
+      )
+    }
+
     if (this.props.open && this.props.loggedIn) {
       return annoForm();
     } else if (this.props.open && !this.props.loggedIn) {
       return loginPrompt();
+    } else if ( this.props.annoSelected )  {
+      return displaySingleAnnotation();
     } else {
-      return annoList();
+      return null;
     }
   }
 };
