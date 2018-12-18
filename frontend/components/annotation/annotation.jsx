@@ -45,6 +45,8 @@ class Annotation extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
+    debugger
+
     this.props.deleteAnnotation(this.props.annoId)
       .then(() => window.location.reload() )
   };
@@ -98,9 +100,9 @@ class Annotation extends React.Component {
     // };
 
     const displaySingleAnnotation = () => {
-      
-      const allowChange = this.props.annotations[this.props.annoId].user_id === this.props.currentUser;
-      const singleAnno = this.props.annotations[this.props.annoId];
+
+      const singleAnno = this.props.singleAnnotation;
+      const allowChange = singleAnno.user_id === this.props.currentUser;
 
       if (allowChange) {
         return (

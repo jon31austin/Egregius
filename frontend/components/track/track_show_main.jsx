@@ -13,8 +13,7 @@ class TrackShowMain extends React.Component {
       openAnno: false,
       selection: "",
       annoSelected: false,
-      annoId: null,
-      eventCounter: 0
+      annoId: null
     };
 
     this.handleSelection = this.handleSelection.bind(this);
@@ -33,7 +32,7 @@ class TrackShowMain extends React.Component {
     const cb = (e) => {
       this.setState({
         annoSelected: true,
-        annoId: e.target.dataset.idx
+        annoId: e.target.dataset.id
       })
     };
 
@@ -46,17 +45,18 @@ class TrackShowMain extends React.Component {
   };
 
   clearState(e) {
-    this.state = {
-      songId: this.props.track.id,
-      startIndex: null,
-      endIndex: null,
-      openAnno: false,
-      selection: "",
-      annoSelected: false,
-      annoId: null,
-      eventCounter: 0
+    if (e.target.className === "lyrics-text") {
+      this.setState({
+        songId: this.props.track.id,
+        startIndex: null,
+        endIndex: null,
+        openAnno: false,
+        selection: "",
+        annoSelected: false,
+        annoId: null
+      });
     };
-  }
+  };
   
   handleSelection(e) {
 
@@ -95,8 +95,8 @@ class TrackShowMain extends React.Component {
 
     let formatted = this.props.track.lyrics
 
-    this.props.annotations.forEach((ann, idx) => {
-      let sub = `<span class="annotation" data-bool=${false} data-idx=${idx}>${formatted.slice(ann.start_index, ann.end_index + 1)}</span>`
+    this.props.annotations.forEach((ann) => {
+      let sub = `<span class="annotation" data-bool=${false} data-id=${ann.id}>${formatted.slice(ann.start_index, ann.end_index + 1)}</span>`
       formatted = formatted.slice(0, ann.start_index) + sub + formatted.slice(ann.end_index + 1)
     });
     

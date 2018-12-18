@@ -16,6 +16,7 @@ const msp = (state, ownProps) => {
   const loggedIn = !!(state.session.id);
   const annoSelected = ownProps.lyrics.annoSelected;
   const annoId = ownProps.lyrics.annoId;
+  const singleAnnotation = ownProps.annotations.filter(ann => ann.id == annoId)[0];
   
   return {
     open: openAnno,
@@ -26,7 +27,8 @@ const msp = (state, ownProps) => {
     currentUser: state.session.id,
     track_id: ownProps.lyrics.track_id,
     annoSelected,
-    annoId
+    annoId,
+    singleAnnotation
   }
 };
 
