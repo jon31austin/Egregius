@@ -13,3 +13,19 @@ export const fetchAnnotations = (trackId) => {
     data: { track_id: trackId }
   })
 };
+
+export const updateAnnotation = (ann) => {
+  return $.ajax({
+    method: "PATCH",
+    url: `api/annotation/${ann.id}`,
+    data: { ann }
+  })
+};
+
+export const deleteAnnotation = (id) => {
+  debugger
+  return $.ajax({
+    method: "DELETE",
+    url: `api/annotations/${id}`
+  })
+};

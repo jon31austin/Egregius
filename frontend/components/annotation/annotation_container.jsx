@@ -4,7 +4,9 @@ import { withRouter } from "react-router"
 
 import Annotation from "./annotation";
 import { openModal } from "../../actions/modal_actions";
-import { createAnnotation } from "../../actions/annotation_actions";
+import { createAnnotation, 
+  deleteAnnotation,  
+  updateAnnotation } from "../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
   const openAnno = ownProps.lyrics.openAnno;
@@ -32,7 +34,9 @@ const mdp = (dispatch) => {
 
   return {
     openModal: (field) => dispatch(openModal(field)),
-    submitAnnotation: (anno) => dispatch(createAnnotation(anno))
+    submitAnnotation: (anno) => dispatch(createAnnotation(anno)),
+    deleteAnnotation: (annoId) => dispatch(deleteAnnotation(annoId)),
+    updateAnnotation: (ann) => dispatch(updateAnnotation(ann))
   }
 };
 

@@ -10,10 +10,13 @@ class Annotation extends React.Component {
       start_index: null,
       end_index: null, 
       track_id: this.props.lyrics.songId,
-      user_id: this.props.currentUser
+      user_id: this.props.currentUser,
+      updateForm: false,
+      open: this.props.open
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
   };
 
   handleSubmit(e) {
@@ -26,14 +29,33 @@ class Annotation extends React.Component {
       user_id: this.props.currentUser
     }, 
       () => this.props.submitAnnotation(this.state)
-        .then(() => window.location.reload())
+        .then(() => this.setState({open: false}) )
     );
 
+  };
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.annotations.length !== this.props.annotations.length) {
+      this.setState({ open: false })
+    } else if (prevProps.open !== this.props.open) {
+      this.setState({ open: this.props.open })
+    }
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+
+    this.props.deleteAnnotation(this.props.annoId)
+      .then(() => window.location.reload() )
   };
 
   update() {
     return (e) => this.setState({ body: e.target.value })
   };
+
+  // handleDelete(e) {
+
+  // }
   
   render() {
     const annoForm = () => {
@@ -61,33 +83,46 @@ class Annotation extends React.Component {
       )
     };
 
-    const annoList = () => {
-      const trackAnnos = this.props.annotations.map(ann => {
-        return (
-          <AnnotationIndexItem key={ann.id} ann={ann} />
-        )
-      });
+    // const annoList = () => {
+    //   const trackAnnos = this.props.annotations.map(ann => {
+    //     return (
+    //       <AnnotationIndexItem key={ann.id} ann={ann} />
+    //     )
+    //   });
 
-      return (
-        <div>
-          {trackAnnos}
-        </div>
-      )
-    };
+    //   return (
+    //     <div>
+    //       {trackAnnos}
+    //     </div>
+    //   )
+    // };
 
     const displaySingleAnnotation = () => {
+      
+      const allowChange = this.props.annotations[this.props.annoId].user_id === this.props.currentUser;
       const singleAnno = this.props.annotations[this.props.annoId];
-      return (
-        <div className="annotation-index-item">
-          <h2>{singleAnno.username} said:</h2>
-          <p>{singleAnno.body}</p>
-        </div>
-      )
+
+      if (allowChange) {
+        return (
+          <div className="annotation-index-item">
+            <h2 className="anno-author-header">You said:</h2>
+            <p className="single-anno-body">{singleAnno.body}</p>
+            <input type="submit" value="Delete" onClick={this.handleDelete} />
+          </div>
+        )
+      } else {
+        return (
+          <div className="annotation-index-item">
+            <h2 className="anno-author-header">{singleAnno.username} said:</h2>
+            <p className="single-anno-body">{singleAnno.body}</p>
+          </div>
+        )
+      }
     }
 
-    if (this.props.open && this.props.loggedIn) {
+    if (this.state.open && this.props.loggedIn) {
       return annoForm();
-    } else if (this.props.open && !this.props.loggedIn) {
+    } else if (this.state.open && !this.props.loggedIn) {
       return loginPrompt();
     } else if ( this.props.annoSelected )  {
       return displaySingleAnnotation();

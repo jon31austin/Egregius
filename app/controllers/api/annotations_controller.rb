@@ -16,11 +16,20 @@ class Api::AnnotationsController < ApplicationController
   end 
 
   def update
+    @annotation = Annotation.find_by(id: params[:annotation][:id])
+    @annotation.body = params[:annotation][:body]
 
+    if @annotation.save
+      render "api/annotations/show"
+    else 
+      render json: @annotation.errors.full_messages, status: 401
+    end
   end
 
   def destroy
+    @annotation = Annotation.find_by(id: params[:id])
 
+    @annotation.destroy
   end
 
   private

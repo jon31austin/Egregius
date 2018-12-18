@@ -2,9 +2,6 @@ import React from "react";
 import Annotation from "../annotation/annotation_container";
 import merge from "lodash/merge";
 
-// Need this for AnnotationModal;
-// import { openModal } from "../../actions/modal_actions";
-
 class TrackShowMain extends React.Component {
   constructor(props) {
     super(props);
@@ -16,7 +13,8 @@ class TrackShowMain extends React.Component {
       openAnno: false,
       selection: "",
       annoSelected: false,
-      annoId: null
+      annoId: null,
+      eventCounter: 0
     };
 
     this.handleSelection = this.handleSelection.bind(this);
@@ -26,10 +24,11 @@ class TrackShowMain extends React.Component {
     this.props.fetchAnnotations(this.props.track.id);
   };
 
-  //this.props.annotations[e.target.dataset.idx]
-  componentDidUpdate(prevProps) {
+  componentDidUpdate() {
+
+    // SETTING EVENT LISTENERS
     const annotations = document.getElementsByClassName("annotation");
-    
+
     const cb = (e) => {
       this.setState({
         annoSelected: true,
@@ -38,9 +37,12 @@ class TrackShowMain extends React.Component {
     };
 
     for (let i = 0; i < annotations.length; i++) {
-      annotations[i].addEventListener('click', cb.bind(this))
-    }
-  }
+      if (annotations[i].dataset.bool === "false" ) {
+        annotations[i].addEventListener('click', cb.bind(this))
+        annotations[i].dataset.bool = "true";
+      }
+    };
+  };
   
   handleSelection(e) {
 
@@ -80,7 +82,7 @@ class TrackShowMain extends React.Component {
     let formatted = this.props.track.lyrics
 
     this.props.annotations.forEach((ann, idx) => {
-      let sub = `<span class="annotation" data-idx=${idx}>${formatted.slice(ann.start_index, ann.end_index + 1)}</span>`
+      let sub = `<span class="annotation" data-bool=${false} data-idx=${idx}>${formatted.slice(ann.start_index, ann.end_index + 1)}</span>`
       formatted = formatted.slice(0, ann.start_index) + sub + formatted.slice(ann.end_index + 1)
     });
     
@@ -102,7 +104,7 @@ class TrackShowMain extends React.Component {
         </div>
 
         <div className="anno-main-bucket">
-          <Annotation lyrics={annoProps} annotations={this.props.annotations}/>
+          <Annotation lyrics={annoProps} annotations={this.props.annotations} fetchAnnotations={this.props.fetchAnnotations} />
         </div>
 
       </div>

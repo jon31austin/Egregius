@@ -1,11 +1,25 @@
 .annotation-index-item {
-  width:80%;
-  padding: 40px;
+  width: 30%;
+  padding: 20px;
   margin: 10px;
   border: 1px solid $genius-blue;
+
+  position: fixed;
+  top: 0px;
+  margin-top: 321px;
 }
 
 .annotation {
   background-color: $genius-yellow;
   cursor: pointer;
 }
+
+.anno-author-header {
+  margin: 10px;
+}
+
+.single-anno-body {
+  margin: 20px;
+  margin-left: 50px;
+}
+
