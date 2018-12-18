@@ -19,8 +19,6 @@ class Annotation extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
 
-    debugger
-
     this.setState({
       start_index: this.props.startIndex,
       end_index: this.props.endIndex,

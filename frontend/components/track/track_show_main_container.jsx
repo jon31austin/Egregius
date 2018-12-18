@@ -19,8 +19,6 @@ const msp = (state, ownProps) => {
   const trackAnnos = Object.values(state.entities.annotations)
     .filter(ann => ann.track_id === ownProps.track.id)
     .sort(compare);
-
-    debugger
     
   return {
     annotations: trackAnnos
