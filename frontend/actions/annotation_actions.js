@@ -2,7 +2,7 @@ import * as AnnotationApiUtil from "../util/annotation_api_util";
 
 export const RECEIVE_ANNOTATIONS = "RECEIVE_ANNOTATIONS";
 export const RECEIVE_ANNOTATIONS_ERRORS = "RECEIVE_ANNOTATIONS_ERRORS";
-export const DELETED_ANNOTATION = "DELETED_ANNOTATION";
+export const RECEIVE_DELETION = "RECEIVE_DELETION";
 
 const receiveAnnotations = (annotations) => {
   return {
@@ -20,7 +20,8 @@ const receiveErrors = (errors) => {
 
 const receiveDeletion = (ann) => {
   return {
-    type: DELETED_ANNOTATION
+    type: RECEIVE_DELETION,
+    annotationId: Object.keys(ann)[0]
   }
 };
 
@@ -43,5 +44,5 @@ export const updateAnnotation = (ann) => dispatch => {
 
 export const deleteAnnotation = (id) => dispatch => {
   return AnnotationApiUtil.deleteAnnotation(id)
-    .then(ann => dispatch(deleteAnnotation(ann)))
+    .then(ann => dispatch(receiveDeletion(ann)))
 };

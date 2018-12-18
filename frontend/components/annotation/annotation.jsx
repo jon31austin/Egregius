@@ -45,10 +45,8 @@ class Annotation extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    debugger
-
     this.props.deleteAnnotation(this.props.annoId)
-      .then(() => window.location.reload() )
+      .then(() => this.setState({ open: false }))
   };
 
   update() {
@@ -126,7 +124,7 @@ class Annotation extends React.Component {
       return annoForm();
     } else if (this.state.open && !this.props.loggedIn) {
       return loginPrompt();
-    } else if ( this.props.annoSelected )  {
+    } else if ( this.props.annoSelected && this.props.singleAnnotation )  {
       return displaySingleAnnotation();
     } else {
       return null;

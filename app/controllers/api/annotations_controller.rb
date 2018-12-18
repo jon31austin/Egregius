@@ -27,12 +27,9 @@ class Api::AnnotationsController < ApplicationController
   end
 
   def destroy
-    debugger
-    #
-
     @annotation = Annotation.find_by(id: params[:id])
     @annotation.destroy
-    render json: {}
+    render "api/annotations/show"
   end
 
   private
