@@ -14,7 +14,7 @@ class Annotation extends React.Component {
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
+  };
 
   handleSubmit(e) {
     e.preventDefault();
@@ -28,7 +28,7 @@ class Annotation extends React.Component {
       user_id: this.props.currentUser
     }, 
       () => this.props.submitAnnotation(this.state)
-        .then(this.props.history.push(`/tracks/${this.props.lyrics.songId}`))
+        .then(() => window.location.reload())
     );
 
   };

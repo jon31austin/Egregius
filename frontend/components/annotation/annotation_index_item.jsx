@@ -2,7 +2,7 @@ import React from "react";
 
 const AnnotationIndexItem = (props) => {
   return (
-    <div>
+    <div className="annotation-index-item">
       {props.ann.body}
     </div>
   )
