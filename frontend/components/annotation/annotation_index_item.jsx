@@ -1,3 +1,5 @@
+//I don't need this file anymore
+
 import React from "react";
 
 const AnnotationIndexItem = (props) => {

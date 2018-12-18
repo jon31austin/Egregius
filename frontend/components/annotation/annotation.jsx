@@ -78,9 +78,11 @@ class Annotation extends React.Component {
     };
 
     const displaySingleAnnotation = () => {
+      const singleAnno = this.props.annotations[this.props.annoId];
       return (
-        <div>
-          {this.props.annotations[this.props.annoId].body}
+        <div className="annotation-index-item">
+          <h2>{singleAnno.username} said:</h2>
+          <p>{singleAnno.body}</p>
         </div>
       )
     }
