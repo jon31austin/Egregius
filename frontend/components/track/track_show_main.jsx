@@ -29,14 +29,13 @@ class TrackShowMain extends React.Component {
   //this.props.annotations[e.target.dataset.idx]
   componentDidUpdate(prevProps) {
     const annotations = document.getElementsByClassName("annotation");
+    
     const cb = (e) => {
       this.setState({
         annoSelected: true,
         annoId: e.target.dataset.idx
       })
-      // debugger
-      // console.log(e.target.data)
-    }
+    };
 
     for (let i = 0; i < annotations.length; i++) {
       annotations[i].addEventListener('click', cb.bind(this))
@@ -47,20 +46,22 @@ class TrackShowMain extends React.Component {
 
     const sel = window.getSelection().toString();
     
-    // increase to 20
-    if ( (e.target.className === "lyrics-text") && (sel.length > 10) ) {
+    // increase length of selection 
+    //because we are now searching track by indexOf(selection)
+    if ( (e.target.className === "lyrics-text") && (sel.length > 15) ) {
       const text = window.getSelection();
 
       const annoText = text.toString();
       const annoStart = this.props.track.lyrics.indexOf(annoText)
       const annoEnd = annoStart + annoText.length;
 
-      // debugger
       this.setState({ 
         startIndex: annoStart, 
         endIndex: annoEnd, 
         openAnno: true,
-        selection: text.toString()
+        selection: text.toString(),
+        annoSelected: false,
+        annoId: null
       });
     } else if (e.target.className === "lyrics-text"){
       this.setState({

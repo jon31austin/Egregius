@@ -7,11 +7,20 @@ import { fetchAnnotations } from "../../actions/annotation_actions";
 
 //Gets all the annotations from the Redux State that are specific to the specific track.
 const msp = (state, ownProps) => {
+
+  const compare = (a, b) => {
+    if (a.start_index < b.start_index)
+      return 1;
+    if (a.start_index > b.start_index)
+      return -1;
+    return 0;
+  };
+
   const trackAnnos = Object.values(state.entities.annotations)
     .filter(ann => ann.track_id === ownProps.track.id)
-    .sort((a, b) => {
-      a.start_index - b.start_index
-    }).reverse();
+    .sort(compare);
+
+    debugger
     
   return {
     annotations: trackAnnos
