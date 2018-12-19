@@ -12,6 +12,7 @@ const receiveAnnotations = (annotations) => {
 };
 
 const receiveErrors = (errors) => {
+  debugger
   return {
     type: RECEIVE_ANNOTATIONS_ERRORS,
     errors

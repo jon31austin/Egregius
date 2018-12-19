@@ -4,12 +4,12 @@ import { connect } from "react-redux";
 import { closeModal } from '../../actions/modal_actions';
 
 const AnnotationFormErrorModal = ({ modal, closeModal, errors }) => {
-  
-  debugger
-  
+
   if (!modal) {
     return null
   } else if (modal === "annotation_form_error") {
+
+    debugger
 
     const listedErrors = errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>

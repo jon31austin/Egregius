@@ -24,8 +24,43 @@ class Annotation extends React.Component {
     this.submitEdit = this.submitEdit.bind(this);
   };
 
+  componentDidUpdate(prevProps, prevState) {
+    // once a new annotation is created, the annotation box should close, and reset the body
+    if (prevProps.annotations.length !== this.props.annotations.length) {
+      this.setState({ open: false, body: "" })
+    } else if (prevProps.open !== this.props.open) {
+      this.setState({ open: this.props.open, body: "" })
+    }
+
+    // If you click out of the edit box, it shouldn't come back when you
+    // go back to the annotation
+    if (this.props.editing === false && prevState.editing === true && this.state.body === "") {
+      this.setState({ editing: false })
+    }
+  };
+
   handleSubmit(e) {
     e.preventDefault();
+
+    // trying to fix error messages
+
+    // if the body exists
+    // if (this.state.body !== "") {
+    //   this.setState({
+    //     start_index: this.props.startIndex,
+    //     end_index: this.props.endIndex,
+    //     track_id: this.props.lyrics.songId,
+    //     user_id: this.props.currentUser
+    //   },
+    //     () => this.props.submitAnnotation(this.state)
+    //       .then(() => this.setState({ open: false })
+    //       )
+    //   )
+    // } else {
+    //   this.props.openModal("annotation_form_error")
+    // }
+
+    //COMMENTED OUT WHILE I TEST THE ABOVE
 
     this.setState({
       start_index: this.props.startIndex,
@@ -45,26 +80,15 @@ class Annotation extends React.Component {
     debugger;
     //THE PROBLEM IS HERE. IT SHUTS THE EDIT PAGE BEFORE THE MODAL CAN FIRE
 
-    this.props.updateAnnotation({body: this.state.body, id: this.props.annoId})
-      .then(() => this.setState({ open: false, editing: false }),
-        () => dispatch(openModal("annotation_form_error"))
-      )
+    this.props.updateAnnotation({ body: this.state.body, id: this.props.annoId })
+      .then(() => {
+        this.setState({ open: false, editing: false })
+      })
+    
+      // tried to use this as a failure callback but it's fucking up
+     // () => this.props.openModal("annotation_form_error")
   };
 
-  componentDidUpdate(prevProps, prevState) {
-    // once a new annotation is created, the annotation box should close
-    if (prevProps.annotations.length !== this.props.annotations.length) {
-      this.setState({ open: false })
-    } else if (prevProps.open !== this.props.open) {
-      this.setState({ open: this.props.open })
-    }
-
-    // If you click out of the edit box, it shouldn't come back when you
-    // go back to the annotation
-    if (this.props.editing === false && prevState.editing === true && this.state.body === "") {
-      this.setState({ editing: false })
-    }
-  };
 
   handleDelete(e) {
     e.preventDefault();
@@ -99,9 +123,10 @@ class Annotation extends React.Component {
     )
   };
 
-
-
   //RENDER METHOD BELOW ///////////////////////////////////////////////////////
+
+  //  <AnnotationFormErrorModal errors={this.props.errors} />
+  // this component is fucking things up, used to be in annoForm and editForm
   
   render() {
 
@@ -109,7 +134,7 @@ class Annotation extends React.Component {
     const annoForm = () => {
       return (
         <div className="anno-fixed anno-form-container">
-          <AnnotationFormErrorModal errors={this.props.errors} />
+          {this.formatErrors()}
           <h1>Your comments for the lyrics:</h1>
           <h3>"{this.props.selection}"</h3>
           <form onSubmit={this.handleSubmit}>  
@@ -184,7 +209,7 @@ class Annotation extends React.Component {
       if (allowChange) {
         return (
           <div className="anno-fixed annotation-index-item">
-            <AnnotationFormErrorModal errors={this.props.errors} />
+            {this.formatErrors()}
             <h1>Edit your annotation for:</h1>
             <h3>"{singleAnno.body}"</h3>
             <form onSubmit={this.submitEdit}>
