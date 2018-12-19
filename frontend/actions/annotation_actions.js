@@ -39,7 +39,7 @@ export const fetchAnnotations = (trackId) => dispatch => {
 
 export const updateAnnotation = (ann) => dispatch => {
   return AnnotationApiUtil.updateAnnotation(ann)
-    .then(ann => dispatch(receiveDeletion(ann)))
+    .then(ann => dispatch(receiveAnnotations(ann)))
 };
 
 export const deleteAnnotation = (id) => dispatch => {

@@ -13,7 +13,8 @@ class TrackShowMain extends React.Component {
       openAnno: false,
       selection: "",
       annoSelected: false,
-      annoId: null
+      annoId: null,
+      editing: false
     };
 
     this.handleSelection = this.handleSelection.bind(this);
@@ -45,6 +46,8 @@ class TrackShowMain extends React.Component {
   };
 
   clearState(e) {
+    e.stopPropagation();
+
     if (e.target.className === "lyrics-text") {
       this.setState({
         songId: this.props.track.id,
@@ -53,7 +56,8 @@ class TrackShowMain extends React.Component {
         openAnno: false,
         selection: "",
         annoSelected: false,
-        annoId: null
+        annoId: null,
+        editing: false,
       });
     };
   };
@@ -77,7 +81,8 @@ class TrackShowMain extends React.Component {
         openAnno: true,
         selection: text.toString(),
         annoSelected: false,
-        annoId: null
+        annoId: null,
+        editing: false,
       });
     } else if (e.target.className === "lyrics-text"){
       this.setState({
@@ -86,7 +91,8 @@ class TrackShowMain extends React.Component {
         openAnno: false,
         selection: "",
         annoSelected: false,
-        annoId: null
+        annoId: null,
+        editing: false,
       })
     }
   };
@@ -107,7 +113,7 @@ class TrackShowMain extends React.Component {
 
   render() {
 
-    const annoProps = merge({}, this.state)
+    // const annoProps = merge({}, this.state)
   
     return (
       <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>
@@ -118,7 +124,7 @@ class TrackShowMain extends React.Component {
         </div>
 
         <div className="anno-main-bucket">
-          <Annotation lyrics={annoProps} annotations={this.props.annotations} fetchAnnotations={this.props.fetchAnnotations} />
+          <Annotation lyrics={this.state} annotations={this.props.annotations} fetchAnnotations={this.props.fetchAnnotations} />
         </div>
 
       </div>
