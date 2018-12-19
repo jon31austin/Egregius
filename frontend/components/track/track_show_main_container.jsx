@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 
 import TrackShowMain from "./track_show_main";
-import { fetchAnnotations } from "../../actions/annotation_actions";
+import { fetchAnnotations, clearSelection, setSelection } from "../../actions/annotation_actions";
 
 
 //Gets all the annotations from the Redux State that are specific to the specific track.
@@ -21,14 +21,17 @@ const msp = (state, ownProps) => {
     .sort(compare);
     
   return {
-    annotations: trackAnnos
+    annotations: trackAnnos,
+    trackId: ownProps.track.id
   };
 };
 
 //Fetches all track-specific annotations from database.
 const mdp = (dispatch) => {
   return {
-    fetchAnnotations: (trackId) => dispatch(fetchAnnotations(trackId))
+    fetchAnnotations: (trackId) => dispatch(fetchAnnotations(trackId)),
+    clearSelection: () => dispatch(clearSelection()),
+    setSelection: (sel) => dispatch(setSelection(sel))
   };
 };
 

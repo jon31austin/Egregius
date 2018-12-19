@@ -6,17 +6,6 @@ class TrackShowMain extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {
-      songId: this.props.track.id,
-      startIndex: null,
-      endIndex: null,
-      openAnno: false,
-      selection: "",
-      annoSelected: false,
-      annoId: null,
-      editing: false
-    };
-
     this.handleSelection = this.handleSelection.bind(this);
     this.clearState = this.clearState.bind(this);
   };
@@ -31,9 +20,9 @@ class TrackShowMain extends React.Component {
     const annotations = document.getElementsByClassName("annotation");
 
     const cb = (e) => {
-      this.setState({
-        annoSelected: true,
-        annoId: e.target.dataset.id
+      this.props.setSelection({
+        selected: true,
+        id: e.target.dataset.id
       })
     };
 
@@ -43,24 +32,12 @@ class TrackShowMain extends React.Component {
         annotations[i].dataset.bool = "true";
       }
     };
-
-    debugger
   };
 
   clearState(e) {
     e.stopPropagation();
-
     if (e.target.className === "lyrics-text") {
-      this.setState({
-        songId: this.props.track.id,
-        startIndex: null,
-        endIndex: null,
-        openAnno: false,
-        selection: "",
-        annoSelected: false,
-        annoId: null,
-        editing: false,
-      });
+      this.props.clearSelection();
     };
   };
   
@@ -77,25 +54,17 @@ class TrackShowMain extends React.Component {
       const annoStart = this.props.track.lyrics.indexOf(annoText)
       const annoEnd = annoStart + annoText.length;
 
-      this.setState({ 
+      this.props.setSelection({ 
         startIndex: annoStart, 
         endIndex: annoEnd, 
-        openAnno: true,
+        open: true,
         selection: text.toString(),
-        annoSelected: false,
-        annoId: null,
+        selected: false,
+        id: null,
         editing: false,
       });
     } else if (e.target.className === "lyrics-text"){
-      this.setState({
-        startIndex: null,
-        endIndex: null,
-        openAnno: false,
-        selection: "",
-        annoSelected: false,
-        annoId: null,
-        editing: false,
-      })
+      this.props.clearSelection();
     }
   };
 
@@ -126,7 +95,7 @@ class TrackShowMain extends React.Component {
         </div>
 
         <div className="anno-main-bucket">
-          <Annotation lyrics={this.state} annotations={this.props.annotations} fetchAnnotations={this.props.fetchAnnotations} />
+          <Annotation trackId={this.props.trackId} annotations={this.props.annotations} />
         </div>
 
       </div>

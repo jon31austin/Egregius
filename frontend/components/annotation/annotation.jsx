@@ -9,12 +9,6 @@ class Annotation extends React.Component {
 
     this.state = {
       body: "",
-      start_index: null,
-      end_index: null, 
-      track_id: this.props.lyrics.songId,
-      user_id: this.props.currentUser,
-      open: this.props.open,
-      editing: this.props.editing
     };
 
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -26,9 +20,9 @@ class Annotation extends React.Component {
   componentDidUpdate(prevProps, prevState) {
     // once a new annotation is created, the annotation box should close, and reset the body
     if (prevProps.annotations.length !== this.props.annotations.length) {
-      this.setState({ open: false, body: "" })
+      this.props.setSelection({ open: false, body: "" })
     } else if (prevProps.open !== this.props.open) {
-      this.setState({ open: this.props.open, body: "" })
+      this.props.setSelection({ open: this.props.open, body: "" })
     }
 
     // If you click out of the edit box, it shouldn't come back when you
@@ -36,10 +30,10 @@ class Annotation extends React.Component {
 
     // || (this.props.lyrics.annoSelected !== false) ) 
 
-    if (this.props.lyrics.annoId && prevProps.lyrics.annoId && this.props.lyrics.annoId !== prevProps.lyrics.annoId) {
-      this.setState({ editing: false })
+    const { id } = this.props.lyricSelection;
+    if (id && prevProps.lyricSelection.id && id !== prevProps.lyricSelection.id) {
+      this.props.setSelection({ editing: false })
     };
-        // this.setState({ editing: false })
     
 
     // BUT THIS ALSO CLOSES OUT THE EDITING BOX UPON SUBMISSIN WITH EMPTY FIELD
@@ -47,55 +41,36 @@ class Annotation extends React.Component {
     //   this.setState({ editing: false })
     // }
 
-    debugger
   };
 
   handleSubmit(e) {
     e.preventDefault();
 
-    // trying to fix error messages
-
-    // if the body exists
-    // if (this.state.body !== "") {
-    //   this.setState({
-    //     start_index: this.props.startIndex,
-    //     end_index: this.props.endIndex,
-    //     track_id: this.props.lyrics.songId,
-    //     user_id: this.props.currentUser
-    //   },
-    //     () => this.props.submitAnnotation(this.state)
-    //       .then(() => this.setState({ open: false })
-    //       )
-    //   )
-    // } else {
-    //   this.props.openModal("annotation_form_error")
-    // }
-
-    //COMMENTED OUT WHILE I TEST THE ABOVE
-
-    this.setState({
-      start_index: this.props.startIndex,
-      end_index: this.props.endIndex,
-      track_id: this.props.lyrics.songId,
-      user_id: this.props.currentUser
-    }, 
-      () => this.props.submitAnnotation(this.state)
-        .then(() => this.setState({ open: false }),
-        () => dispatch(openModal("annotation_form_error")) )
-    );
+    this.props.submitAnnotation({
+      start_index: this.props.lyricSelection.startIndex,
+      end_index: this.props.lyricSelection.endIndex,
+      track_id: this.props.trackId,
+      user_id: this.props.currentUser,
+      body: this.state.body
+    }) 
+      .then(
+        () => this.props.clearSelection(),
+        () => dispatch(openModal("annotation_form_error"))
+      )
   };
 
   submitEdit(e) {
+
     e.preventDefault();
 
-    debugger;
     //THE PROBLEM IS HERE. IT SHUTS THE EDIT PAGE BEFORE THE MODAL CAN FIRE
-
-    this.props.updateAnnotation({ body: this.state.body, id: this.props.annoId })
-      .then(() => {
-        this.setState({ open: false, editing: false })
-      })
-    
+    this.props.updateAnnotation({ body: this.state.body, id: this.props.lyricSelection.id })
+      .then(
+        () => this.setState({ body: "" }, () => 
+          this.props.setSelection({ selected: true, editing: false })),
+        () => dispatch(openModal("annotation_form_error"))
+      )
+  
       // tried to use this as a failure callback but it's fucking up
      // () => this.props.openModal("annotation_form_error")
   };
@@ -104,8 +79,8 @@ class Annotation extends React.Component {
   handleDelete(e) {
     e.preventDefault();
 
-    this.props.deleteAnnotation(this.props.annoId)
-      .then(() => this.setState({ open: false }))
+    this.props.deleteAnnotation(this.props.lyricSelection.id)
+      .then(() => this.props.clearSelection() )
   };
 
   update() {
@@ -115,7 +90,7 @@ class Annotation extends React.Component {
   handleEdit(e) {
     e.preventDefault();
 
-    this.setState({
+    this.props.setSelection({
       editing: true
     })
   };
@@ -145,9 +120,9 @@ class Annotation extends React.Component {
     const annoForm = () => {
       return (
         <div className="anno-fixed anno-form-container">
-          {this.formatErrors()}
+          <AnnotationFormErrorModal errors={this.props.errors} />
           <h1>Your comments for the lyrics:</h1>
-          <h3>"{this.props.selection}"</h3>
+          <h3>"{this.props.lyricSelection.selection}"</h3>
           <form onSubmit={this.handleSubmit}>  
             <textarea
               className="anno-textarea"
@@ -220,7 +195,7 @@ class Annotation extends React.Component {
       if (allowChange) {
         return (
           <div className="anno-fixed annotation-index-item">
-            {this.formatErrors()}
+            <AnnotationFormErrorModal errors={this.props.errors} />
             <h1>Edit your annotation for:</h1>
             <h3>"{singleAnno.body}"</h3>
             <form onSubmit={this.submitEdit}>
@@ -230,7 +205,7 @@ class Annotation extends React.Component {
                 onChange={this.update()}
               />
               <input className="submit" value="Submit Edit" type="submit" />
-              <button className="submit" onClick={() => this.setState({editing: false})}>Cancel Edit</button>
+              <button className="submit" onClick={() => this.props.setSelection({editing: false})}>Cancel Edit</button>
             </form>
           </div>
         )
@@ -239,19 +214,22 @@ class Annotation extends React.Component {
       }
     };
 
+    const { lyricSelection, loggedIn, singleAnnotation } = this.props;
+    const { open, selected, editing } = lyricSelection;
+
     // if the window has a selection over 15 chars and the user is logged in
-    if (this.state.open && this.props.loggedIn) {
+    if (open && loggedIn) {
       return annoForm();
     // if the window has a selection over 15 chars, but the user is not logged in
-    } else if (this.state.open && !this.props.loggedIn) {
+    } else if (open && !loggedIn) {
       return loginPrompt();
     // if one of the annotations was clicked, and it wasn't just deleted, 
     // and it's not currently being edited
-    } else if ( this.props.annoSelected && this.props.singleAnnotation && !this.state.editing)  {
+    } else if ( selected && singleAnnotation && !editing)  {
       return displaySingleAnnotation();
     //if one of the annotations was clicked
     // and it is currently being edited
-    } else if (this.props.annoSelected && this.props.singleAnnotation && this.state.editing) {
+    } else if (selected && singleAnnotation && editing) {
       return editSingleAnnotation();
     } else {
       return null;

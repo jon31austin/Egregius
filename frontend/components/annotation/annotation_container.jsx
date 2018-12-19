@@ -6,34 +6,22 @@ import Annotation from "./annotation";
 import { openModal } from "../../actions/modal_actions";
 import { createAnnotation, 
   deleteAnnotation,  
-  updateAnnotation } from "../../actions/annotation_actions";
+  updateAnnotation,
+  clearSelection,
+  setSelection } from "../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
 
-  const openAnno = ownProps.lyrics.openAnno;
-  const annoSelection = ownProps.lyrics.selection;
-  const start_index = ownProps.lyrics.startIndex;
-  const end_index = ownProps.lyrics.endIndex;
+  const lyricSelection = state.ui.lyrics;
   const loggedIn = !!(state.session.id);
-  const annoSelected = ownProps.lyrics.annoSelected;
-  const annoId = ownProps.lyrics.annoId;
-  const singleAnnotation = ownProps.annotations.filter(ann => ann.id == annoId)[0];
-  const editing = ownProps.lyrics.editing;
-
-  const errors = state.errors.annotations
+  const singleAnnotation = ownProps.annotations.filter(ann => ann.id == lyricSelection.id)[0];
+  const errors = state.errors.annotations;
   
   return {
-    open: openAnno,
-    selection: annoSelection,
-    startIndex: start_index,
-    endIndex: end_index,
-    loggedIn: loggedIn,
-    currentUser: state.session.id,
-    track_id: ownProps.lyrics.track_id,
-    annoSelected,
-    annoId,
+    lyricSelection,
+    loggedIn, 
     singleAnnotation,
-    editing,
+    currentUser: state.session.id,
     errors
   }
 };
@@ -44,7 +32,9 @@ const mdp = (dispatch) => {
     openModal: (field) => dispatch(openModal(field)),
     submitAnnotation: (anno) => dispatch(createAnnotation(anno)),
     deleteAnnotation: (annoId) => dispatch(deleteAnnotation(annoId)),
-    updateAnnotation: (ann) => dispatch(updateAnnotation(ann))
+    updateAnnotation: (ann) => dispatch(updateAnnotation(ann)),
+    setSelection: (sel) => dispatch(setSelection(sel)),
+    clearSelection: () => dispatch(clearSelection())
   }
 };
 

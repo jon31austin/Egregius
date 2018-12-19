@@ -3,6 +3,8 @@ import * as AnnotationApiUtil from "../util/annotation_api_util";
 export const RECEIVE_ANNOTATIONS = "RECEIVE_ANNOTATIONS";
 export const RECEIVE_ANNOTATIONS_ERRORS = "RECEIVE_ANNOTATIONS_ERRORS";
 export const RECEIVE_DELETION = "RECEIVE_DELETION";
+export const RECEIVE_SELECTION = "RECEIVE_SELECTION";
+export const CLEAR_SELECTION = "CLEAR_SELECTION";
 
 const receiveAnnotations = (annotations) => {
   return {
@@ -12,7 +14,6 @@ const receiveAnnotations = (annotations) => {
 };
 
 const receiveErrors = (errors) => {
-  debugger
   return {
     type: RECEIVE_ANNOTATIONS_ERRORS,
     errors
@@ -23,6 +24,19 @@ const receiveDeletion = (ann) => {
   return {
     type: RECEIVE_DELETION,
     annotationId: Object.keys(ann)[0]
+  }
+};
+
+export const setSelection = (sel) => {
+  return {
+    type: RECEIVE_SELECTION,
+    selection: sel
+  }
+};
+
+export const clearSelection = () => {
+  return {
+    type: CLEAR_SELECTION
   }
 };
 
