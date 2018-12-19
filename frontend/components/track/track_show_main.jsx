@@ -15,13 +15,12 @@ class TrackShowMain extends React.Component {
   };
 
   componentDidUpdate() {
-
-    // SETTING EVENT LISTENERS
     const annotations = document.getElementsByClassName("annotation");
 
     const cb = (e) => {
       this.props.setSelection({
         selected: true,
+        open: false,
         id: e.target.dataset.id
       })
     };
@@ -44,9 +43,8 @@ class TrackShowMain extends React.Component {
   handleSelection(e) {
 
     const sel = window.getSelection().toString();
-    
-    // increase length of selection 
-    //because we are now searching track by indexOf(selection)
+    //for selection to register:
+    //lyrics selected must be >15 chars because we search track by indexOf(selection)
     if ( (e.target.className === "lyrics-text") && (sel.length > 15) ) {
       const text = window.getSelection();
 

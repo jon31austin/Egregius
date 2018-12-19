@@ -1,12 +1,10 @@
 import React from "react";
 import AnnotationFormErrorModal from "../../modal/annotation_form_error_modal";
 
-// have to pass in trackId as ownProps
-
 class AnnotationForm extends React.Component {
   constructor(props){
     super(props)
-    this.state = { body: "" }
+    this.state = { body: "" };
     this.handleSubmit = this.handleSubmit.bind(this)
   }
 
@@ -45,6 +43,10 @@ class AnnotationForm extends React.Component {
             onChange={this.update()}
           />
           <input className="submit" type="submit" />
+          <button className="submit" 
+                  value="Cancel Annotation" 
+                  onClick={() => this.props.setSelection({ open: false }) }
+          >Cancel Annotation</button>
         </form>
       </div>
     )

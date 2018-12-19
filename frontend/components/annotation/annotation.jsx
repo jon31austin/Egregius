@@ -1,10 +1,12 @@
 import React from "react";
+
 import LoginPrompt from "./annotation_components/login_prompt";
 import AnnotationForm from "./annotation_components/annotation_form_container";
-import EditSingleAnnotation from "./annotation_components/annotation_edit";
+import AnnotationShow from "./annotation_components/annotation_show_container";
+import AnnotationEdit from "./annotation_components/annotation_edit_container";
 // import AnnotationIndexItem from "./annotation_index_item";
-import AnnotationFormErrorModal from "../modal/annotation_form_error_modal";
-import { openModal } from "../../actions/modal_actions";
+// import AnnotationFormErrorModal from "../modal/annotation_form_error_modal";
+// import { openModal } from "../../actions/modal_actions";
 
 class Annotation extends React.Component {
   constructor(props) {
@@ -121,98 +123,76 @@ class Annotation extends React.Component {
   render() {
 
 
-    const displaySingleAnnotation = () => {
+    // const displaySingleAnnotation = () => {
 
-      const singleAnno = this.props.singleAnnotation;
-      const allowChange = singleAnno.user_id === this.props.currentUser;
+    //   const singleAnno = this.props.singleAnnotation;
+    //   const allowChange = singleAnno.user_id === this.props.currentUser;
 
-      if (allowChange) {
-        return (
-          <div className="anno-fixed annotation-index-item">
-            <div className="anno-author-header"><span style={{color: "#ff1464"}}>You</span> said:</div>
-            <p className="single-anno-body">{singleAnno.body}</p>
-            <div className="edit-buttons-container">
-              <input className="change-submit" type="submit" value="Delete Annotation" onClick={this.handleDelete} />
-              <input className="change-submit" type="submit" value="Edit Annotation" onClick={this.handleEdit} />
-            </div>
+    //   if (allowChange) {
+    //     return (
+    //       <div className="anno-fixed annotation-index-item">
+    //         <div className="anno-author-header"><span style={{color: "#ff1464"}}>You</span> said:</div>
+    //         <p className="single-anno-body">{singleAnno.body}</p>
+    //         <div className="edit-buttons-container">
+    //           <input className="change-submit" type="submit" value="Delete Annotation" onClick={this.handleDelete} />
+    //           <input className="change-submit" type="submit" value="Edit Annotation" onClick={this.handleEdit} />
+    //         </div>
       
-          </div>
-        )
-      } else {
-        return (
-          <div className="anno-fixed annotation-index-item">
-            <h2 className="anno-author-header"><span style={{ color: "#ff1464" }}>{singleAnno.username}</span> said:</h2>
-            <p className="single-anno-body">{singleAnno.body}</p>
-          </div>
-        )
-      }
-    }
+    //       </div>
+    //     )
+    //   } else {
+    //     return (
+    //       <div className="anno-fixed annotation-index-item">
+    //         <h2 className="anno-author-header"><span style={{ color: "#ff1464" }}>{singleAnno.username}</span> said:</h2>
+    //         <p className="single-anno-body">{singleAnno.body}</p>
+    //       </div>
+    //     )
+    //   }
+    // }
 
-    const editSingleAnnotation = () => {
+    // const editSingleAnnotation = () => {
 
-      const singleAnno = this.props.singleAnnotation;
-      const allowChange = singleAnno.user_id === this.props.currentUser;
+    //   const singleAnno = this.props.singleAnnotation;
+    //   const allowChange = singleAnno.user_id === this.props.currentUser;
 
-      // edit form only pops up if the current user wrote the selected annotation
-      if (allowChange) {
-        return (
-          <div className="anno-fixed annotation-index-item">
-            <AnnotationFormErrorModal errors={this.props.errors} />
-            <h1>Edit your annotation for:</h1>
-            <h3>"{singleAnno.body}"</h3>
-            <form onSubmit={this.submitEdit}>
-              <textarea
-                className="anno-textarea"
-                placeholder={singleAnno.body}
-                onChange={this.update()}
-              />
-              <input className="submit" value="Submit Edit" type="submit" />
-              <button className="submit" onClick={() => this.props.setSelection({editing: false})}>Cancel Edit</button>
-            </form>
-          </div>
-        )
-      } else {
-        return displaySingleAnnotation();
-      }
-    };
+    //   // edit form only pops up if the current user wrote the selected annotation
+    //   if (allowChange) {
+    //     return (
+    //       <div className="anno-fixed annotation-index-item">
+    //         <AnnotationFormErrorModal errors={this.props.errors} />
+    //         <h1>Edit your annotation for:</h1>
+    //         <h3>"{singleAnno.body}"</h3>
+    //         <form onSubmit={this.submitEdit}>
+    //           <textarea
+    //             className="anno-textarea"
+    //             placeholder={singleAnno.body}
+    //             onChange={this.update()}
+    //           />
+    //           <input className="submit" value="Submit Edit" type="submit" />
+    //           <button className="submit" onClick={() => this.props.setSelection({editing: false})}>Cancel Edit</button>
+    //         </form>
+    //       </div>
+    //     )
+    //   } else {
+    //     return displaySingleAnnotation();
+    //   }
+    // };
 
     const { lyricSelection, loggedIn, singleAnnotation } = this.props;
     const { open, selected, editing } = lyricSelection;
 
-    // if the window has a selection over 15 chars and the user is logged in
-    if (open && loggedIn) {
-      return <AnnotationForm trackId={this.props.trackId} />
-
-
-    // if the window has a selection over 15 chars, but the user is not logged in
-    } else if (open && !loggedIn) {
+    if (open && !loggedIn) {
       return <LoginPrompt openModal={this.props.openModal} />
-
-
-    // if one of the annotations was clicked, and it wasn't just deleted, 
-    // and it's not currently being edited
-    } else if ( selected && singleAnnotation && !editing)  {
-      return displaySingleAnnotation();
-
-
-    //if one of the annotations was clicked
-    // and it is currently being edited
+    } else if (open && loggedIn) {
+      return <AnnotationForm trackId={this.props.trackId} />
+    } else if (selected && singleAnnotation && !editing) {
+      return <AnnotationShow annotation={this.props.singleAnnotation} />
     } else if (selected && singleAnnotation && editing) {
-      // return editSingleAnnotation();
-      return (
-        <EditSingleAnnotation
-          singleAnno={singleAnnotation}
-          allowChange={singleAnnotation.user_id === this.props.currentUser}
-          errors={this.props.errors}
-          setSelection={this.props.setSelection}
-          submitEdit={this.submitEdit}
-          update={this.update}
-        />
-      )
+      return <AnnotationEdit /> 
     } else {
       return null;
     }
-  }
+  };
 };
 
 export default Annotation;
