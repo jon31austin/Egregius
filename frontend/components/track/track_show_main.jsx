@@ -43,6 +43,8 @@ class TrackShowMain extends React.Component {
         annotations[i].dataset.bool = "true";
       }
     };
+
+    debugger
   };
 
   clearState(e) {

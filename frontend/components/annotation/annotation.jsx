@@ -13,7 +13,6 @@ class Annotation extends React.Component {
       end_index: null, 
       track_id: this.props.lyrics.songId,
       user_id: this.props.currentUser,
-      updateForm: false,
       open: this.props.open,
       editing: this.props.editing
     };
@@ -34,9 +33,21 @@ class Annotation extends React.Component {
 
     // If you click out of the edit box, it shouldn't come back when you
     // go back to the annotation
-    if (this.props.editing === false && prevState.editing === true && this.state.body === "") {
+
+    // || (this.props.lyrics.annoSelected !== false) ) 
+
+    if (this.props.lyrics.annoId && prevProps.lyrics.annoId && this.props.lyrics.annoId !== prevProps.lyrics.annoId) {
       this.setState({ editing: false })
-    }
+    };
+        // this.setState({ editing: false })
+    
+
+    // BUT THIS ALSO CLOSES OUT THE EDITING BOX UPON SUBMISSIN WITH EMPTY FIELD
+    // if (this.props.editing === false && prevState.editing === true && this.state.body === "") {
+    //   this.setState({ editing: false })
+    // }
+
+    debugger
   };
 
   handleSubmit(e) {
