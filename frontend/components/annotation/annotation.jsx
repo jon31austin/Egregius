@@ -1,5 +1,6 @@
 import React from "react";
 import LoginPrompt from "./annotation_components/login_prompt";
+import AnnotationForm from "./annotation_components/annotation_form_container";
 import EditSingleAnnotation from "./annotation_components/annotation_edit";
 // import AnnotationIndexItem from "./annotation_index_item";
 import AnnotationFormErrorModal from "../modal/annotation_form_error_modal";
@@ -120,48 +121,6 @@ class Annotation extends React.Component {
   render() {
 
 
-    const annoForm = () => {
-      return (
-        <div className="anno-fixed anno-form-container">
-          <AnnotationFormErrorModal errors={this.props.errors} />
-          <h1>Your comments for the lyrics:</h1>
-          <h3>"{this.props.lyricSelection.selection}"</h3>
-          <form onSubmit={this.handleSubmit}>  
-            <textarea
-              className="anno-textarea"
-              placeholder="Don't just put the lyric in your own words — drop some knowledge!"
-              onChange={this.update()}
-            />
-            <input className="submit" type="submit" />
-          </form>
-        </div>
-      )
-    };
-
-    const loginPrompt = () => {
-      return (
-        <div className="anno-fixed">
-          <h2 className="anno-session" onClick={() => this.props.openModal("signup")}>
-            Sign Up to Start Annotating
-          </h2>
-        </div>
-      )
-    };
-
-    // const annoList = () => {
-    //   const trackAnnos = this.props.annotations.map(ann => {
-    //     return (
-    //       <AnnotationIndexItem key={ann.id} ann={ann} />
-    //     )
-    //   });
-
-    //   return (
-    //     <div>
-    //       {trackAnnos}
-    //     </div>
-    //   )
-    // };
-
     const displaySingleAnnotation = () => {
 
       const singleAnno = this.props.singleAnnotation;
@@ -217,30 +176,25 @@ class Annotation extends React.Component {
       }
     };
 
-    // singleAnno = this.props.singleAnnotation
-    // allowChange = singleAnno.user_id === this.props.currentUser;
-    // errors = this.props.errors
-    // setSelection
-    // <EditSingleAnnotation 
-    //   singleAnno={this.props.singleAnnotation}
-    //   allowChange={singleAnno.user_id === this.props.currentUser}
-    //   errors={this.props.errors}
-    //   setSelection={this.props.setSelection}
-    // />
-
     const { lyricSelection, loggedIn, singleAnnotation } = this.props;
     const { open, selected, editing } = lyricSelection;
 
     // if the window has a selection over 15 chars and the user is logged in
     if (open && loggedIn) {
-      return annoForm();
+      return <AnnotationForm trackId={this.props.trackId} />
+
+
     // if the window has a selection over 15 chars, but the user is not logged in
-    } else if (open && !loggedIn) 
+    } else if (open && !loggedIn) {
       return <LoginPrompt openModal={this.props.openModal} />
+
+
     // if one of the annotations was clicked, and it wasn't just deleted, 
     // and it's not currently being edited
     } else if ( selected && singleAnnotation && !editing)  {
       return displaySingleAnnotation();
+
+
     //if one of the annotations was clicked
     // and it is currently being edited
     } else if (selected && singleAnnotation && editing) {
@@ -261,5 +215,4 @@ class Annotation extends React.Component {
   }
 };
 
-
-export default Annotation
+export default Annotation;

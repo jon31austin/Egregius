@@ -9,8 +9,6 @@ const AnnotationFormErrorModal = ({ modal, closeModal, errors }) => {
     return null
   } else if (modal === "annotation_form_error") {
 
-    debugger
-
     const listedErrors = errors.map((error, i) => (
       <li key={`error-${i}`}>{error}</li>
     ));
