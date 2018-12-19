@@ -1,4 +1,6 @@
 import React from "react";
+import LoginPrompt from "./annotation_components/login_prompt";
+import EditSingleAnnotation from "./annotation_components/annotation_edit";
 // import AnnotationIndexItem from "./annotation_index_item";
 import AnnotationFormErrorModal from "../modal/annotation_form_error_modal";
 import { openModal } from "../../actions/modal_actions";
@@ -84,6 +86,7 @@ class Annotation extends React.Component {
   };
 
   update() {
+    debugger
     return (e) => this.setState({ body: e.target.value })
   };
 
@@ -201,7 +204,7 @@ class Annotation extends React.Component {
             <form onSubmit={this.submitEdit}>
               <textarea
                 className="anno-textarea"
-                placeholder={this.props.singleAnnotation.body}
+                placeholder={singleAnno.body}
                 onChange={this.update()}
               />
               <input className="submit" value="Submit Edit" type="submit" />
@@ -214,6 +217,17 @@ class Annotation extends React.Component {
       }
     };
 
+    // singleAnno = this.props.singleAnnotation
+    // allowChange = singleAnno.user_id === this.props.currentUser;
+    // errors = this.props.errors
+    // setSelection
+    // <EditSingleAnnotation 
+    //   singleAnno={this.props.singleAnnotation}
+    //   allowChange={singleAnno.user_id === this.props.currentUser}
+    //   errors={this.props.errors}
+    //   setSelection={this.props.setSelection}
+    // />
+
     const { lyricSelection, loggedIn, singleAnnotation } = this.props;
     const { open, selected, editing } = lyricSelection;
 
@@ -221,8 +235,8 @@ class Annotation extends React.Component {
     if (open && loggedIn) {
       return annoForm();
     // if the window has a selection over 15 chars, but the user is not logged in
-    } else if (open && !loggedIn) {
-      return loginPrompt();
+    } else if (open && !loggedIn) 
+      return <LoginPrompt openModal={this.props.openModal} />
     // if one of the annotations was clicked, and it wasn't just deleted, 
     // and it's not currently being edited
     } else if ( selected && singleAnnotation && !editing)  {
@@ -230,7 +244,17 @@ class Annotation extends React.Component {
     //if one of the annotations was clicked
     // and it is currently being edited
     } else if (selected && singleAnnotation && editing) {
-      return editSingleAnnotation();
+      // return editSingleAnnotation();
+      return (
+        <EditSingleAnnotation
+          singleAnno={singleAnnotation}
+          allowChange={singleAnnotation.user_id === this.props.currentUser}
+          errors={this.props.errors}
+          setSelection={this.props.setSelection}
+          submitEdit={this.submitEdit}
+          update={this.update}
+        />
+      )
     } else {
       return null;
     }
