@@ -15,7 +15,6 @@ export const fetchAnnotations = (trackId) => {
 };
 
 export const updateAnnotation = (ann) => {
-  debugger
   return $.ajax({
     method: "PATCH",
     url: `api/annotations/${ann.id}`,

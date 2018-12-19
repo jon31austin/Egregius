@@ -1,25 +1,117 @@
-.annotation-index-item {
-  width: 30%;
-  padding: 20px;
-  margin: 10px;
-  border: 1px solid $genius-blue;
-
-  position: fixed;
-  top: 0px;
-  margin-top: 321px;
+.anno-main-bucket{
+  width: 40%;
+  display: flex;
+  justify-content: center;
 }
 
+// background on annotations
 .annotation {
   background-color: $genius-yellow;
   cursor: pointer;
 }
 
+//classname for floating annotation items
+.anno-fixed {
+  position: fixed;
+  top: 0;
+  margin-top: 350px;
+  margin-bottom: 200px;
+}
+
+// SIGN UP TO START ANNOTATING
+.anno-session {
+  padding: 5px;
+  border: 1px solid black;
+  cursor: pointer;
+  background: white;
+}
+
+.anno-session:hover {
+  background-color: $genius-lightgray;
+}
+//////////////////////////////
+
+//ANNOTATION FORM SUBMISSION 
+.anno-form-container {
+  width: 30%;
+  height: 300px;
+  margin-bottom: 1000px;
+  box-sizing: border-box;
+}
+
+.anno-textarea {
+  width: 100%;
+  height: 150px;
+  margin-top: 15px;
+  padding: 10px;
+  border: 1px solid $genius-blue;
+  background: #f7f7f7;
+}
+
+.anno-form-container > h1 {
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.anno-form-container > h3 {
+  border-top: 1px solid $genius-blue;
+  border-bottom: 1px solid $genius-blue;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+/////////////////////////////
+
+.annotation-index-item {
+  width: 30%;
+  padding: 20px;
+  background-color: $genius-lightgray;
+  border: 1px solid $genius-blue;
+}
+
+// ANNOTATION VIEW 
 .anno-author-header {
   margin: 10px;
 }
 
 .single-anno-body {
+  border-top: 1px solid $genius-blue;
+  border-bottom: 1px solid $genius-blue;
   margin: 20px;
   margin-left: 50px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
 
+.edit-button-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.change-submit {
+  padding: 5px;
+  margin-top: 15px;
+  margin-right: 15px;
+  border: 2px solid black;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.change-submit:hover {
+  background-color: gray;
+}
+////////////////////////////
+
+//ANNOTATION EDIT 
+.annotation-index-item > h1 {
+  font-weight: 800;
+  font-size: 12px;
+}
+
+.annotation-index-item > h3 {
+  border-top: 1px solid $genius-blue;
+  border-bottom: 1px solid $genius-blue;
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+//////////////////

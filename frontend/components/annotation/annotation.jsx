@@ -55,7 +55,6 @@ class Annotation extends React.Component {
     // If you click out of the edit box, it shouldn't come back when you
     // go back to the annotation
     if (this.props.editing === false && prevState.editing === true && this.state.body === "") {
-      debugger
       this.setState({ editing: false })
     }
   };
@@ -85,9 +84,9 @@ class Annotation extends React.Component {
   render() {
     const annoForm = () => {
       return (
-        <div className="anno-form-container">
+        <div className="anno-fixed anno-form-container">
           <h1>Your comments for the lyrics:</h1>
-          <h3>{this.props.selection}</h3>
+          <h3>"{this.props.selection}"</h3>
           <form onSubmit={this.handleSubmit}>  
             <textarea
               className="anno-textarea"
@@ -102,7 +101,7 @@ class Annotation extends React.Component {
 
     const loginPrompt = () => {
       return (
-        <div>
+        <div className="anno-fixed">
           <h2 className="anno-session" onClick={() => this.props.openModal("signup")}>
             Sign Up to Start Annotating
           </h2>
@@ -131,17 +130,20 @@ class Annotation extends React.Component {
 
       if (allowChange) {
         return (
-          <div className="annotation-index-item">
-            <h2 className="anno-author-header">You said:</h2>
+          <div className="anno-fixed annotation-index-item">
+            <div className="anno-author-header"><span style={{color: "#ff1464"}}>You</span> said:</div>
             <p className="single-anno-body">{singleAnno.body}</p>
-            <input type="submit" value="Delete Annotation" onClick={this.handleDelete} />
-            <input type="submit" value="Edit Annotation" onClick={this.handleEdit} />
+            <div className="edit-buttons-container">
+              <input className="change-submit" type="submit" value="Delete Annotation" onClick={this.handleDelete} />
+              <input className="change-submit" type="submit" value="Edit Annotation" onClick={this.handleEdit} />
+            </div>
+      
           </div>
         )
       } else {
         return (
-          <div className="annotation-index-item">
-            <h2 className="anno-author-header">{singleAnno.username} said:</h2>
+          <div className="anno-fixed annotation-index-item">
+            <h2 className="anno-author-header"><span style={{ color: "#ff1464" }}>{singleAnno.username}</span> said:</h2>
             <p className="single-anno-body">{singleAnno.body}</p>
           </div>
         )
@@ -156,8 +158,9 @@ class Annotation extends React.Component {
       // edit form only pops up if the current user wrote the selected annotation
       if (allowChange) {
         return (
-          <div className="annotation-index-item">
-            <h1>Edit your annotation!</h1>
+          <div className="anno-fixed annotation-index-item">
+            <h1>Edit your annotation for:</h1>
+            <h3>"{singleAnno.body}"</h3>
             <form onSubmit={this.submitEdit}>
               <textarea
                 className="anno-textarea"
