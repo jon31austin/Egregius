@@ -1,5 +1,7 @@
 import React from "react";
-import AnnotationIndexItem from "./annotation_index_item";
+// import AnnotationIndexItem from "./annotation_index_item";
+import AnnotationFormErrorModal from "../modal/annotation_form_error_modal";
+import { openModal } from "../../actions/modal_actions";
 
 class Annotation extends React.Component {
   constructor(props) {
@@ -32,15 +34,20 @@ class Annotation extends React.Component {
       user_id: this.props.currentUser
     }, 
       () => this.props.submitAnnotation(this.state)
-        .then(() => this.setState({open: false}) )
+        .then(() => this.setState({ open: false }),
+        () => dispatch(openModal("annotation_form_error")) )
     );
   };
 
   submitEdit(e) {
     e.preventDefault();
 
+    debugger;
+    //THE PROBLEM IS HERE. IT SHUTS THE EDIT PAGE BEFORE THE MODAL CAN FIRE
+
     this.props.updateAnnotation({body: this.state.body, id: this.props.annoId})
-      .then(() => this.setState({ open: false, editing: false })
+      .then(() => this.setState({ open: false, editing: false }),
+        () => dispatch(openModal("annotation_form_error"))
       )
   };
 
@@ -76,15 +83,33 @@ class Annotation extends React.Component {
     this.setState({
       editing: true
     })
+  };
 
-  }
+  formatErrors() {
+    const annoErrors = this.props.errors.map((err, i) => (
+      <li key={`key-${i}`}>{err}</li>
+    ));
+
+    return (
+      <div className="anno-errors-display">
+        <ul>
+          {annoErrors}
+        </ul>
+      </div>
+    )
+  };
+
+
 
   //RENDER METHOD BELOW ///////////////////////////////////////////////////////
   
   render() {
+
+
     const annoForm = () => {
       return (
         <div className="anno-fixed anno-form-container">
+          <AnnotationFormErrorModal errors={this.props.errors} />
           <h1>Your comments for the lyrics:</h1>
           <h3>"{this.props.selection}"</h3>
           <form onSubmit={this.handleSubmit}>  
@@ -159,6 +184,7 @@ class Annotation extends React.Component {
       if (allowChange) {
         return (
           <div className="anno-fixed annotation-index-item">
+            <AnnotationFormErrorModal errors={this.props.errors} />
             <h1>Edit your annotation for:</h1>
             <h3>"{singleAnno.body}"</h3>
             <form onSubmit={this.submitEdit}>

@@ -19,6 +19,8 @@ const msp = (state, ownProps) => {
   const annoId = ownProps.lyrics.annoId;
   const singleAnnotation = ownProps.annotations.filter(ann => ann.id == annoId)[0];
   const editing = ownProps.lyrics.editing;
+
+  const errors = state.errors.annotations
   
   return {
     open: openAnno,
@@ -31,7 +33,8 @@ const msp = (state, ownProps) => {
     annoSelected,
     annoId,
     singleAnnotation,
-    editing
+    editing,
+    errors
   }
 };
 

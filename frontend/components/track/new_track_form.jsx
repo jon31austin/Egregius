@@ -42,6 +42,9 @@ class NewTrackForm extends React.Component {
   }
 
   render() {
+    const annoErrors = this.props.errors.map(err => {
+      <li>{err}</li>
+    });
 
     return (
 

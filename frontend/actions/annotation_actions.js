@@ -34,15 +34,21 @@ export const createAnnotation = (annotation) => dispatch => {
 
 export const fetchAnnotations = (trackId) => dispatch => {
   return AnnotationApiUtil.fetchAnnotations(trackId)
-    .then(anns => dispatch(receiveAnnotations(anns)))
+    .then(anns => dispatch(receiveAnnotations(anns)),
+      err => dispatch(receiveErrors(err.responseJSON))
+    )
 };
 
 export const updateAnnotation = (ann) => dispatch => {
   return AnnotationApiUtil.updateAnnotation(ann)
-    .then(ann => dispatch(receiveAnnotations(ann)))
+    .then(ann => dispatch(receiveAnnotations(ann)),
+      err => dispatch(receiveErrors(err.responseJSON))
+    )
 };
 
 export const deleteAnnotation = (id) => dispatch => {
   return AnnotationApiUtil.deleteAnnotation(id)
-    .then(ann => dispatch(receiveDeletion(ann)))
+    .then(ann => dispatch(receiveDeletion(ann)),
+      err => dispatch(receiveErrors(err.responseJSON))
+    )
 };
