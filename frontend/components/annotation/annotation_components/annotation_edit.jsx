@@ -27,8 +27,6 @@ class AnnotationEdit extends React.Component {
   render() {
     const { annotation, errors, lyricSlice, setSelection } = this.props;
 
-    debugger;
-
     return (
       <div className="anno-fixed annotation-index-item">
         <AnnotationFormErrorModal errors={errors} />
