@@ -1,6 +1,7 @@
 import * as AnnotationApiUtil from "../util/annotation_api_util";
 
 export const RECEIVE_ANNOTATIONS = "RECEIVE_ANNOTATIONS";
+export const RECEIVE_SINGLE_ANNOTATION = "RECEIVE_SINGLE_ANNOTATION";
 export const RECEIVE_ANNOTATIONS_ERRORS = "RECEIVE_ANNOTATIONS_ERRORS";
 export const RECEIVE_DELETION = "RECEIVE_DELETION";
 export const RECEIVE_SELECTION = "RECEIVE_SELECTION";
@@ -10,6 +11,13 @@ const receiveAnnotations = (annotations) => {
   return {
     type: RECEIVE_ANNOTATIONS,
     annotations
+  }
+};
+
+const receiveSingleAnnotation = (annotation) => {
+  return {
+    type: RECEIVE_SINGLE_ANNOTATION,
+    annotation
   }
 };
 
@@ -42,7 +50,7 @@ export const clearSelection = () => {
 
 export const createAnnotation = (annotation) => dispatch => {
   return AnnotationApiUtil.createAnnotation(annotation)
-    .then(ann => dispatch(receiveAnnotations(ann)),
+    .then(ann => dispatch(receiveSingleAnnotation(ann)),
       err => dispatch(receiveErrors(err.responseJSON))
     )
 };

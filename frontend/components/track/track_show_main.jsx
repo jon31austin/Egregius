@@ -61,7 +61,7 @@ class TrackShowMain extends React.Component {
         id: null,
         editing: false,
       });
-    } else if (e.target.className === "lyrics-text"){
+    } else if (e.target.className === "lyrics-text" || e.target.className === "annotation"){
       this.props.clearSelection();
     }
   };

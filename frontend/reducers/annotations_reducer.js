@@ -1,14 +1,14 @@
-import merge from "lodash/merge";
 import { RECEIVE_ANNOTATIONS, RECEIVE_DELETION } from "../actions/annotation_actions";
 
 const annotationsReducer = (state = {}, action) => {
   Object.freeze(state);
   switch (action.type) {
+    case RECEIVE_SINGLE_ANNOTATION:
+      return Object.assign({}, state, action.annotation);
     case RECEIVE_ANNOTATIONS:
-      const newState = merge({}, state, action.annotations);
-      return newState;
+      return Object.assign({}, state, action.annotations);
     case RECEIVE_DELETION:
-      const newState2 = merge({}, state);
+      const newState2 = Object.assign({}, state);
       delete newState2[action.annotationId]
       return newState2;
     default:

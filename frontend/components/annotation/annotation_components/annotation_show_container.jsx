@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import AnnotationShow from "./annotation_show";
 
-import { createAnnotation, clearSelection, setSelection, deleteAnnotation } from "../../../actions/annotation_actions";
+import { clearSelection, setSelection, deleteAnnotation } from "../../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
   return {

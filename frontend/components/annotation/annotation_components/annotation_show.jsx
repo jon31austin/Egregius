@@ -18,7 +18,7 @@ class AnnotationShow extends React.Component {
     e.preventDefault();
 
     this.props.deleteAnnotation(this.props.lyricSelection.id)
-      .then(() => this.props.clearSelection())
+      .then(() => this.props.clearSelection() )
   };
   
   render() {

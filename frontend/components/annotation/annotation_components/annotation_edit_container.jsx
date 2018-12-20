@@ -6,7 +6,6 @@ import { updateAnnotation, clearSelection, setSelection } from "../../../actions
 
 const msp = (state, ownProps) => {
   const lyricSelection = state.ui.lyrics;
-
   const { start_index, end_index } = state.entities.annotations[state.ui.lyrics.id];
   const lyricSlice = state.entities.tracks[ownProps.trackId].lyrics.slice(start_index, end_index);
 
