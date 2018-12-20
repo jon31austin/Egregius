@@ -1,3 +1,8 @@
+.home-page {
+  display: flex;
+  justify-content: center;
+}
+
 .track-index-header {
   padding: 10px;
   border-bottom: 2px solid black;
@@ -11,12 +16,22 @@
   margin-left: 40px;
   margin-right: 40px;
   padding-bottom: 40px;
+  width: 50%;
+  max-width: 500px;
 }
 
 .track-index-item {
   box-sizing: border-box;
   padding: 10px;
   border-bottom: 1px solid gray;
+}
+
+.track-index-item > h2 {
+  margin-left: 25px;
+}
+
+.track-index-item > h4 {
+  margin-left: 25px;
 }
 
 .track-index-item:hover {

@@ -3,7 +3,7 @@ import TrackIndex from "./track_index_container";
 
 const HomePage = () => {
   return (
-    <div>
+    <div className="home-page">
       <TrackIndex />
     </div>
   )

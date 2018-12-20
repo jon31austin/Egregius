@@ -1,0 +1,3 @@
+Api::SearchesController < ApplicationController 
+  
+end
