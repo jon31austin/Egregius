@@ -1,4 +1,5 @@
 //I don't need this file anymore
+//maybe when I display the most popular annotations by default instead of null?
 
 import React from "react";
 

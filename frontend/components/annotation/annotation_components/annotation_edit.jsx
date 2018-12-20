@@ -19,11 +19,7 @@ class AnnotationEdit extends React.Component {
 
     updateAnnotation({ body: this.state.body, id: lyricSelection.id })
       .then(
-        () => this.setState({ body: "" }, () => {
-          debugger
-          return setSelection({ editing: false })
-        }
-              ),
+        () => this.setState({ body: "" }, () => setSelection({ editing: false }) ),
         () => dispatch(openModal("annotation_form_error"))
       )
   };

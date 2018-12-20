@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import AnnotationForm from "./annotation_form";
 import { openModal } from "../../../actions/modal_actions";
-import { createAnnotation, clearSelection, setSelection } from "../../../actions/annotation_actions";
+import { createAnnotation, setSelection } from "../../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
   return {
@@ -17,7 +17,6 @@ const mdp = (dispatch) => {
   return {
     openModal: (field) => dispatch(openModal(field)),
     submitAnnotation: (anno) => dispatch(createAnnotation(anno)),
-    clearSelection: () => dispatch(clearSelection()),
     setSelection: (sel) => dispatch(setSelection(sel))
   }
 };

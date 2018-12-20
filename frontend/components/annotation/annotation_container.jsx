@@ -4,9 +4,6 @@ import { openModal } from "../../actions/modal_actions";
 
 
 const msp = (state, ownProps) => {
-
-  debugger;
-
   const lyricSelection = state.ui.lyrics;
   const loggedIn = !!(state.session.id);
   const annotation = ownProps.annotations.filter(ann => ann.id == lyricSelection.id)[0];

@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 
 import AnnotationEdit from "./annotation_edit";
 import { openModal } from "../../../actions/modal_actions";
-import { updateAnnotation, clearSelection, setSelection } from "../../../actions/annotation_actions";
+import { updateAnnotation, setSelection } from "../../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
   const lyricSelection = state.ui.lyrics;
@@ -21,7 +21,6 @@ const mdp = (dispatch) => {
   return {
     openModal: (field) => dispatch(openModal(field)),
     updateAnnotation: (anno) => dispatch(updateAnnotation(anno)),
-    clearSelection: () => dispatch(clearSelection()),
     setSelection: (sel) => dispatch(setSelection(sel))
   }
 };

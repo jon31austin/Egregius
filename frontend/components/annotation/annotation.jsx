@@ -15,7 +15,6 @@ class Annotation extends React.Component {
     } else if (open && loggedIn) {
       return <AnnotationForm trackId={trackId} />
     } else if (selected && !editing) {
-      debugger;
       return <AnnotationShow annotation={annotation} />
     } else if (selected && editing) {
       return <AnnotationEdit annotation={annotation} trackId={trackId}/>
