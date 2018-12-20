@@ -7,7 +7,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :tracks, only: [:index, :show, :create]
     resources :annotations, only: [:index, :create, :destroy, :update]
-    resources :search, only: :index
+    # resources :search, only: :index
   end
   
 end
