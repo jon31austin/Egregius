@@ -61,13 +61,12 @@ class TrackShowMain extends React.Component {
         id: null,
         editing: false,
       });
-    } else if (e.target.className === "lyrics-text" || e.target.className === "annotation"){
+    } else if (e.target.className === "lyrics-text"){
       this.props.clearSelection();
     }
   };
 
   formatLyrics() {
-
     let formatted = this.props.track.lyrics
 
     this.props.annotations.forEach((ann) => {

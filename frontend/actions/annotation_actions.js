@@ -64,7 +64,7 @@ export const fetchAnnotations = (trackId) => dispatch => {
 
 export const updateAnnotation = (ann) => dispatch => {
   return AnnotationApiUtil.updateAnnotation(ann)
-    .then(ann => dispatch(receiveAnnotations(ann)),
+    .then(ann => dispatch(receiveSingleAnnotation(ann)),
       err => dispatch(receiveErrors(err.responseJSON))
     )
 };

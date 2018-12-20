@@ -23,7 +23,7 @@ class AnnotationForm extends React.Component {
       body: this.state.body
     })
       .then(
-        () => this.props.clearSelection(),
+        (ann) => this.props.setSelection({ selected: true, id: Object.keys(action.annotation)[0] }),
         () => dispatch(this.props.openModal("annotation_form_error"))
       )
   };

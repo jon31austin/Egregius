@@ -11,6 +11,7 @@ const msp = (state, ownProps) => {
 
   return {
     lyricSelection,
+    annotation: ownProps.annotation,
     errors: state.errors.annotations,
     lyricSlice
   }

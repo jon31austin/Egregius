@@ -21,8 +21,11 @@ const lyricsReducer = (state = defaultState, action) => {
       delete newState.id 
       return Object.assign({}, state, newState);
     case RECEIVE_SINGLE_ANNOTATION:
-      //FIX THIS
-      return null
+      const newState1 = Object.assign({}, defaultState);
+      //now it'll stay open after submission, edit forms are closed
+      newState1.selected = true;
+      newState1.id = Object.keys(action.annotation)[0]
+      return newState1;
     case RECEIVE_SELECTION:
       return Object.assign({}, state, action.selection);
     case RECEIVE_DELETION:
