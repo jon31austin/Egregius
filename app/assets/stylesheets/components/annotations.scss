@@ -84,7 +84,7 @@
 }
 
 .edit-buttons-container {
-  width: 100%;
+  max-width: 100%;
   display: flex;
   justify-content: space-between;
 }
@@ -116,4 +116,6 @@
   margin-bottom: 15px;
   white-space: pre-wrap;
 }
+
+
 //////////////////

@@ -12,7 +12,7 @@ import Footer from "./footer/footer";
 
 
 const App = () => (
-  <div>
+  <div className="app-container">
 
     <Modal />
     <Header />
