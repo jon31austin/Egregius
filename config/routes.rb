@@ -9,6 +9,5 @@ Rails.application.routes.draw do
     resources :annotations, only: [:index, :create, :destroy, :update]
     resources :search, only: :index
   end
-
   
 end

@@ -22,4 +22,12 @@ class Track < ApplicationRecord
     Track.includes(:artist, :album).limit(6).offset(offset)
   end
 
+  def self.search_by_string(str)
+    Track.select("tracks.title, artists.name, albums.name")
+         .joins(:artist, :album)
+         .where("UPPER(tracks.title) LIKE UPPER('#{str}%')")
+         .limit(20)
+         .pluck("tracks.title", "artists.name", "albums.name")
+  end
+
 end

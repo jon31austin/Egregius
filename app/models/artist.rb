@@ -13,5 +13,13 @@ class Artist < ApplicationRecord
 
   has_many :albums
   has_many :tracks
+
+  def self.search_by_string(str)
+    Artist.select("tracks.title, artists.name, albums.name")
+         .joins(:tracks, :albums)
+         .where("UPPER(artists.name) LIKE UPPER('#{str}%')")
+         .limit(20)
+         .pluck("tracks.title", "artists.name", "albums.name")
+  end
   
 end
