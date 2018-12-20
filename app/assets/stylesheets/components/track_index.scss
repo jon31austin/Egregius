@@ -5,7 +5,12 @@
 }
 
 .track-index {
-  margin: 5% 10%;
+  // the below line was causing whitespace to appear below footer in HTML container
+  // margin: 40px 40px;
+  margin-top: 40px;
+  margin-left: 40px;
+  margin-right: 40px;
+  padding-bottom: 40px;
 }
 
 .track-index-item {

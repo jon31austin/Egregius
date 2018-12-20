@@ -7,6 +7,6 @@ const HomePage = () => {
       <TrackIndex />
     </div>
   )
-}
+};
 
 export default HomePage;
