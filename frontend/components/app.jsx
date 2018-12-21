@@ -4,6 +4,7 @@ import { AuthRoute } from "../util/route_util";
 
 import Modal from "./modal/modal";
 import Header from "./header/header";
+// import Search from "./search/search_container";
 import HomePage from "./home/home_page";
 import TrackShow from "./track/track_show_container";
 import NewTrackForm from "./track/new_track_form_container";
@@ -16,6 +17,7 @@ const App = () => (
 
     <Modal />
     <Header />
+    {/* <Search /> */}
 
     <Switch>
       <Route exact path="/" component={HomePage} />

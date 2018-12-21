@@ -4,10 +4,10 @@ const searchReducer = (state = [], action) => {
   Object.freeze(state);
   switch(action.type){
     case RECEIVE_SEARCH_RESULTS:
-      return Object.assign({}, action.results)
+      return action.results
     default:
       return state
   }
-}
+};
 
 export default searchReducer;

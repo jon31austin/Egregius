@@ -1,17 +1,18 @@
 import { connect } from "react-redux";
 
 import Search from "./search";
-import {  } from "../../actions/______";
+import { getSearchResults } from "../../actions/search_actions";
 
 const msp = (state) => {
+
   return {
-  
+
   };
 };
 
 const mdp = (dispatch) => {
   return {
-   
+    getSearchResults: (params) => dispatch(getSearchResults(params))
   };
 };
 
