@@ -1,6 +1,5 @@
 import React from "react";
 import Annotation from "../annotation/annotation_container";
-import merge from "lodash/merge";
 
 class TrackShowMain extends React.Component {
   constructor(props) {
@@ -82,6 +81,7 @@ class TrackShowMain extends React.Component {
   render() {
 
     // const annoProps = merge({}, this.state)
+    debugger;
   
     return (
       <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>

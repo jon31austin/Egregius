@@ -22,6 +22,7 @@ class AnnotationShow extends React.Component {
   };
   
   render() {
+    debugger;
     const allowChange = this.props.annotation.user_id === this.props.currentUser
     
     if (allowChange) {

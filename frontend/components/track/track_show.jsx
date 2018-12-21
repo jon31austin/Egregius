@@ -15,12 +15,12 @@ class TrackShow extends React.Component{
   componentDidUpdate(prevProps) {
     if (prevProps.match.params.trackId !== this.props.match.params.trackId) {
       this.props.getSingleTrack(this.props.match.params.trackId);
+      this.props.clearSelection()
     }
   }
   
   render() {
     if (!this.props.track) return null;
-
 
     return(
       <div>

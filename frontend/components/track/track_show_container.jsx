@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 
 import TrackShow from "./track_show";
 import { getSingleTrack } from "../../actions/track_actions";
+import { clearSelection } from "../../actions/annotation_actions";
 
 const msp = (state, ownProps) => {
   return {
@@ -12,7 +13,8 @@ const msp = (state, ownProps) => {
 
 const mdp = (dispatch) => {
   return {
-    getSingleTrack: (id) => dispatch(getSingleTrack(id))
+    getSingleTrack: (id) => dispatch(getSingleTrack(id)),
+    clearSelection: () => dispatch(clearSelection())
   };
 };
 

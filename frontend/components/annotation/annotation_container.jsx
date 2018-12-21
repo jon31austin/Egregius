@@ -1,6 +1,8 @@
 import { connect } from "react-redux";
 import Annotation from "./annotation";
 import { openModal } from "../../actions/modal_actions";
+import { clearSelection } from "../../actions/annotation_actions";
+import { withRouter } from "react-router";
 
 
 const msp = (state, ownProps) => {
@@ -19,7 +21,8 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     openModal: (field) => dispatch(openModal(field)),
+    clearSelection: () => dispatch(clearSelection())
   }
 };
 
-export default connect(msp, mdp)(Annotation);
+export default withRouter(connect(msp, mdp)(Annotation));

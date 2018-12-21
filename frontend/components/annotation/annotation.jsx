@@ -5,6 +5,10 @@ import AnnotationShow from "./annotation_components/annotation_show_container";
 import AnnotationEdit from "./annotation_components/annotation_edit_container";
 
 class Annotation extends React.Component {
+
+  componentWillUnmount() {
+    this.props.clearSelection();
+  }
  
   render() {
     const { lyricSelection, loggedIn, annotation, trackId, openModal } = this.props;
@@ -14,9 +18,9 @@ class Annotation extends React.Component {
       return <LoginPrompt openModal={openModal} />
     } else if (open && loggedIn) {
       return <AnnotationForm trackId={trackId} />
-    } else if (selected && !editing) {
+    } else if (selected && !editing && annotation) {
       return <AnnotationShow annotation={annotation} />
-    } else if (selected && editing) {
+    } else if (selected && editing && annotation) {
       return <AnnotationEdit annotation={annotation} trackId={trackId}/>
     } else {
       return null;

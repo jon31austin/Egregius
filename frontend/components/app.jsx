@@ -10,23 +10,28 @@ import NewTrackForm from "./track/new_track_form_container";
 import NoMatch from "./no_match/no_match";
 import Footer from "./footer/footer";
 
+import { clearSelection } from "../actions/annotation_actions";
 
-const App = () => (
-  <div className="app-container">
 
-    <Modal />
-    <Header />
+const App = () => {
 
-    <Switch>
-      <Route exact path="/" component={HomePage} />
-      <Route path="/tracks/new" component={NewTrackForm} />
-      <Route path="/tracks/:trackId" component={TrackShow} />
-      <Route path="*" component={NoMatch} />
-    </Switch>
+  return (
+    <div className="app-container">
 
-    <Footer />
-  </div>
-);
+      <Modal />
+      <Header />
+
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/tracks/new" component={NewTrackForm} />
+        <Route path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()}/>
+        <Route path="*" component={NoMatch} />
+      </Switch>
+
+      <Footer />
+    </div>
+  )
+};
 
 export default App;
 
