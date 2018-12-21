@@ -1,0 +1,19 @@
+.subheader {
+  height: 41px;
+  width: 100%;
+  background: black;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.subheader-links {
+  color: $genius-yellow;
+  margin-left: 15px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+

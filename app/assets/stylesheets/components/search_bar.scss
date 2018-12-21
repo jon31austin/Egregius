@@ -6,6 +6,12 @@
 
   margin-left: 5px;
   margin-top: 5px;
+
+  display: flex;
+  justify-content: space-between;
+
+  position: absolute;
+  left: 0;
 }
 
 .search-input {
@@ -23,13 +29,15 @@
 
 .hidden-search {
   position: absolute;
+  top: 3px;
+  left: 225px;
+
   visibility: hidden;
   background: white;
   border: 1px solid black;
 
   width: 225px;
   height: 100%;
-  background: purple;
 }
 
 .search-bar:focus-within > .hidden-search {
@@ -53,10 +61,14 @@
 .search-radio-label {
   height: 100%;
   width: 33%;
+  input[type=radio] {
+    border: 0px;
+    width: 100%;
+    height: 1.5em;
+  }
 }
 
 .search-radio-label label {
-  background: red;
   height: 41px;
   width: 100%;
 }
@@ -85,6 +97,7 @@
 }
 
 .dropdown-error {
+  margin-top: 7px;
   color: $genius-pink;
   font-size: 12px;
 }
