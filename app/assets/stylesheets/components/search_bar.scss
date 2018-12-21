@@ -2,23 +2,22 @@
   background: white;
   display: inline-block;
   width: 225px;
-  height: 35px;
+  height: 31px;
 
-  padding-left: 3px;
-  padding-top: 3px;
-
-  // display: flex;
-  // justify-content: center;
-  // align-items: center;
+  margin-left: 5px;
+  margin-top: 5px;
 }
 
 .search-input {
   background: white;
   width: 100%;
   height: 100%;
+  padding: 3px;
+  box-sizing: border-box;
   input {
     width: 100%;
     height: 100%;
+    font-size: 13px;
   }
 }
 
@@ -27,6 +26,10 @@
   visibility: hidden;
   background: white;
   border: 1px solid black;
+
+  width: 225px;
+  height: 100%;
+  background: purple;
 }
 
 .search-bar:focus-within > .hidden-search {
@@ -38,10 +41,54 @@
 // }
 
 .search-field {
+  background: $genius-lightgray;
+  width: 100%;
+  height: 100%;
 
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.search-radio-label {
+  height: 100%;
+  width: 33%;
+}
+
+.search-radio-label label {
+  background: red;
+  height: 41px;
+  width: 100%;
 }
 
 .hidden-search.hide {
   visibility: hidden !important;
 }
+
+.dropdown-results {
+  background: white;
+}
+
+// SEARCH INDEX ITEM
+.search-index-item {
+  height: 25px;
+  border: 1px solid black;
+  padding: 10px;
+}
+
+.search-index-item > h4 {
+  font-size: 12px;
+}
+
+.search-index-item:hover {
+  background-color: $genius-lightgray;
+}
+
+.dropdown-error {
+  color: $genius-pink;
+  font-size: 12px;
+}
+//////////// ABOVE SEARCH INDEX ITEM
+
+
 

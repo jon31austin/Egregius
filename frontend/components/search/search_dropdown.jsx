@@ -4,11 +4,22 @@ import SearchListItem from "./search_list_item";
 class SearchDropDown extends React.Component {
   render() {
     const { string, field, searchResults, addHiddenClass } = this.props;
-    debugger;
-    //
+
     if (string === "" || field === "" ) {
       return null;
-    } else {
+    } else if (string && field && searchResults.length === 0 ) {
+      debugger;
+      return (
+        <div className="dropdown-results" onClick={addHiddenClass}>
+          <ul>
+            <div className="search-index-item">
+              <h2 className="dropdown-error">Sorry, no results match your query!</h2>
+            </div>
+          </ul>
+        </div>
+      )
+    } else if (string && field) {
+      debugger
       const formattedSearchResults = searchResults.map(res => {
         return <SearchListItem key={`result-${res[0]}`} songInfoArray={res}/>
       });

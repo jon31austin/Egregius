@@ -26,7 +26,9 @@ class Search extends React.Component {
     // )
 
     this.setState({ searchString: e.currentTarget.value }, () => {
-      return this.props.getSearchResults(this.state)
+      if (this.state.searchField !== "") {
+        return this.props.getSearchResults(this.state)
+      }
     })
 
 
@@ -36,17 +38,15 @@ class Search extends React.Component {
   };
 
   handleClick(e) {
-    this.setState({
-      searchField: e.currentTarget.value
+    this.setState({ searchField: e.currentTarget.value}, () => {
+      if (this.state.searchString !== "") {
+        return this.props.getSearchResults(this.state)
+      }
     })
   };
 
   addHiddenClass() {
-    this.setState({hide: true}, () => {
-      debugger 
-      //
-    }
-    )
+    this.setState({ hide: true })
   }
 
   removeHiddenClass() {
@@ -68,18 +68,26 @@ class Search extends React.Component {
     
         <div className={ this.state.hide ? "hidden-search hide" : "hidden-search"}>
           <div className="search-field">
-            <label>
-              Track
-          <input type="radio" name="search" onClick={this.handleClick} value="track" />
-            </label>
-            <label>
-              Artist
-          <input type="radio" name="search" onClick={this.handleClick} value="artist" />
-            </label>
-            <label>
-              Album
-          <input type="radio" name="search" onClick={this.handleClick} value="album" />
-            </label>
+            <div className="search-radio-label">
+              <label>
+                Track
+              <input type="radio" name="search" onClick={this.handleClick} value="track" />
+              </label>
+            </div>
+
+            <div className="search-radio-label">
+              <label>
+                Artist
+              <input type="radio" name="search" onClick={this.handleClick} value="artist" />
+              </label>
+            </div>
+            
+            <div className="search-radio-label">
+              <label>
+                Album
+              <input type="radio" name="search" onClick={this.handleClick} value="album" />
+              </label>
+            </div>
           </div>
 
           <SearchDropDown string={this.state.searchString} field={this.state.searchField} addHiddenClass={this.addHiddenClass}/>
