@@ -7,6 +7,7 @@ import Root from "./components/root";
 import { signup, login, logout } from "./actions/session_actions";
 import { getTracks } from "./actions/track_actions";
 import { createAnnotation } from "./actions/annotation_actions";
+import { getSearchResults } from "./actions/search_actions";
 //ENDING HERE
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -36,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.dispatch = store.dispatch;
   window.getTracks = getTracks;
   window.createAnnotation = createAnnotation;
+  window.getSearchResults = getSearchResults;
   // ENDING HERE
 
   ReactDOM.render(< Root store={store} />, root);

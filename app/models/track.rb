@@ -23,11 +23,12 @@ class Track < ApplicationRecord
   end
 
   def self.search_by_string(str)
-    Track.select("tracks.title, artists.name, albums.name")
+    Track.select("*")
          .joins(:artist, :album)
          .where("UPPER(tracks.title) LIKE UPPER('#{str}%')")
          .limit(20)
-         .pluck("tracks.title", "artists.name", "albums.name")
+         .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
+
   end
 
 end

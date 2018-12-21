@@ -18,11 +18,11 @@ class Album < ApplicationRecord
   belongs_to :artist
 
   def self.search_by_string(str)
-    Album.select("tracks.title, artists.name, albums.name")
+    Album.select("*")
          .joins(:tracks, :artist)
          .where("UPPER(albums.name) LIKE UPPER('#{str}%')")
          .limit(20)
-         .pluck("tracks.title", "artists.name", "albums.name")
+         .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
   end
   
 end
