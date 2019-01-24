@@ -16,6 +16,7 @@ class Track < ApplicationRecord
 
   belongs_to :artist 
   belongs_to :album
+  has_one_attached :photo # for AWS local storage
   #has_many :annotations
 
   def self.get_top_songs(offset)
