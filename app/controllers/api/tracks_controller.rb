@@ -37,6 +37,8 @@ class Api::TracksController < ApplicationController
       album = Album.create(name: album_name, artist_id: artist.id, year: params[:track][:year]) 
       @track.album_id = album.id
     end
+
+    @track.photo = params[:track][:photo] #AWS takes care of this
     
     if @track.save 
       render "api/tracks/show"
@@ -48,7 +50,7 @@ class Api::TracksController < ApplicationController
 
   private
   def track_params
-    params.require(:track).permit(:title, :lyrics, :artist, :album, :year)
+    params.require(:track).permit(:title, :lyrics, :artist, :album, :year, :photo)
   end
 
 end

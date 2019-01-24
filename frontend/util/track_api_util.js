@@ -13,10 +13,14 @@ export const getSingleTrack = (id) => {
   })
 };
 
-export const createTrack = (track) => {
+export const createTrack = (formData) => {
   return $.ajax({
     method: "POST",
     url: "api/tracks",
-    data: { track }
+    data: formData,
+    contentType: false,
+    processData: false
   })
 };
+
+// used to have { track } nested

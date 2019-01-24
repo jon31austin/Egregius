@@ -14,7 +14,8 @@ class NewTrackForm extends React.Component {
       artist: "",
       album: "",
       year: "",
-      lyrics: ""
+      lyrics: "",
+      photoFile: null
     }
   }
 
@@ -30,9 +31,22 @@ class NewTrackForm extends React.Component {
     }  
   }
 
+  handleFile(e) {
+    this.setState({ photoFile: e.currentTarget.files[0] })
+  }
+
   handleSubmit(e) {
     e.preventDefault();
-    this.props.createTrack(this.state)
+
+    const formData = new FormData(); // need to use FormData because of photo and AWS
+    formData.append('track[title]', this.state.title);
+    formData.append('track[artist]', this.state.artist);
+    formData.append('track[album]', this.state.album);
+    formData.append('track[year]', this.state.year);
+    formData.append('track[lyrics]', this.state.lyrics);
+    formData.append('track[photo]', this.state.photoFile);
+
+    this.props.createTrack(formData) // formData instead of this.state for photo compatibility
       .then( (action) => {
         const id = Object.keys(action.tracks)[0];
         return this.props.history.push(`/tracks/${id}`)
@@ -42,9 +56,9 @@ class NewTrackForm extends React.Component {
   }
 
   render() {
-    const annoErrors = this.props.errors.map(err => {
-      <li>{err}</li>
-    });
+    // const annoErrors = this.props.errors.map(err => {
+    //   <li>{err}</li>
+    // });
 
     return (
 
@@ -67,6 +81,8 @@ class NewTrackForm extends React.Component {
           <div>
             <h3>Album</h3>
             <input onChange={this.update("album")} type="text" value={this.state.album} />
+            <input type="file" 
+                onChange={this.handleFile.bind(this)} />
           </div>
           <div>
             <h3>Year Released</h3>
