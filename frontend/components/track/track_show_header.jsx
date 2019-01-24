@@ -1,12 +1,13 @@
 import React from "react";
 
 const TrackShowHeader = ({ track }) => {
+  debugger;
   return (
     <div>
       <div className="track-info-bar">
         <div className="track-detail-bucket">
           <div className="album-image">
-            <h3>No Photo Yet</h3>
+            <img src={track.photoUrl} />
           </div>
           <div className="track-info">
             <h1>{track.title}</h1>

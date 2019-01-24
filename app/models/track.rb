@@ -13,6 +13,7 @@
 
 class Track < ApplicationRecord 
   validates :title, :lyrics, :artist_id, :album_id, presence: true
+  validate :ensure_photo
 
   belongs_to :artist 
   belongs_to :album
@@ -30,6 +31,12 @@ class Track < ApplicationRecord
          .limit(20)
          .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
 
+  end
+
+  def ensure_photo
+    unless self.photo.attached?
+      errors[:photo] << "must be attached."
+    end
   end
 
 end

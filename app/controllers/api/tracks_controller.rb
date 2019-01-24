@@ -19,7 +19,7 @@ class Api::TracksController < ApplicationController
 
   def create
     @track = Track.new(title: params[:track][:title], lyrics: params[:track][:lyrics])
-    
+
     artist_name = params[:track][:artist]
     artist = Artist.find_by(name: artist_name)
     if artist 
@@ -38,7 +38,9 @@ class Api::TracksController < ApplicationController
       @track.album_id = album.id
     end
 
-    @track.photo = params[:track][:photo] #AWS takes care of this
+    if params[:track][:photo] != "null"
+      @track.photo = params[:track][:photo]
+    end
     
     if @track.save 
       render "api/tracks/show"
