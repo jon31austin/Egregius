@@ -26,11 +26,10 @@ class Track < ApplicationRecord
 
   def self.search_by_string(str)
     Track.select("*")
-         .joins(:artist, :album)
+         .joins(:artist)
          .where("UPPER(tracks.title) LIKE UPPER('#{str}%')")
          .limit(20)
-         .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
-
+         .pluck("tracks.id", "tracks.title", "artists.name")
   end
 
   def ensure_photo
