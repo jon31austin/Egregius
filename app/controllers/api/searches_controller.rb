@@ -10,6 +10,7 @@ class Api::SearchesController < ApplicationController
       result_arr = Artist.search_by_string(string)
     end
 
+    # took this off because it did weird permutations with the third album joins
     # elsif field == "album"
     #   result_arr = Album.search_by_string(string)
     # end

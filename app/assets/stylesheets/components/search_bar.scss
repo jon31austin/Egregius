@@ -60,7 +60,9 @@
 
 .search-radio-label {
   height: 100%;
-  width: 33%;
+  width: 50%;
+  display: flex;
+  justify-content: center;
   input[type=radio] {
     border: 0px;
     width: 100%;
@@ -70,7 +72,7 @@
 
 .search-radio-label label {
   height: 41px;
-  width: 100%;
+  width: 40px;
 }
 
 .hidden-search.hide {

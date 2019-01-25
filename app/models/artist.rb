@@ -21,9 +21,11 @@ class Artist < ApplicationRecord
          .limit(20)
          .pluck("tracks.id", "tracks.title", "artists.name")
 
-    # Artist.select("*")
+    # had to take this off because it would do weird permutations with the second joins
+    # Artist.select("*") 
     #      .joins(:tracks, :albums)
     #      .where("UPPER(artists.name) LIKE UPPER('#{str}%')")
+    #      .group("tracks.id")
     #      .limit(20)
     #      .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
   end
