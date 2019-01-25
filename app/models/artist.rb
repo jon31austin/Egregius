@@ -16,10 +16,16 @@ class Artist < ApplicationRecord
 
   def self.search_by_string(str)
     Artist.select("*")
-         .joins(:tracks, :albums)
+         .joins(:tracks)
          .where("UPPER(artists.name) LIKE UPPER('#{str}%')")
          .limit(20)
-         .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
+         .pluck("tracks.id", "tracks.title", "artists.name")
+
+    # Artist.select("*")
+    #      .joins(:tracks, :albums)
+    #      .where("UPPER(artists.name) LIKE UPPER('#{str}%')")
+    #      .limit(20)
+    #      .pluck("tracks.id", "tracks.title", "artists.name", "albums.name")
   end
   
 end

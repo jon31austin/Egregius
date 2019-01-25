@@ -19,7 +19,7 @@ class Search extends React.Component {
   }
 
   handleInput(e) {
-    // debugger
+    
     // this.setState({ searchString: e.currentTarget.value}, () => {
     //   return this.props.getSearchResults(this.state)
     //   }

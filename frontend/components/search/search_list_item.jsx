@@ -7,7 +7,6 @@ const SearchListItem = ({ songInfoArray }) => {
       <Link to={`/tracks/${songInfoArray[0]}`}>
         <div className="search-index-item">
           <h2>{songInfoArray[1]} by {songInfoArray[2]}</h2>
-          <h4>Album: {songInfoArray[3]}</h4>
         </div>
       </Link>
     </li>

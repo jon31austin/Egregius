@@ -8,7 +8,6 @@ class SearchDropDown extends React.Component {
     if (string === "" || field === "" ) {
       return null;
     } else if (string && field && searchResults.length === 0 ) {
-      debugger;
       return (
         <div className="dropdown-results" onClick={addHiddenClass}>
           <ul>
@@ -19,8 +18,8 @@ class SearchDropDown extends React.Component {
         </div>
       )
     } else if (string && field) {
-      debugger
       const formattedSearchResults = searchResults.map(res => {
+        debugger;
         return <SearchListItem key={`result-${res[0]}`} songInfoArray={res}/>
       });
 

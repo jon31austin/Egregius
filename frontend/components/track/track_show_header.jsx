@@ -1,7 +1,6 @@
 import React from "react";
 
 const TrackShowHeader = ({ track }) => {
-  debugger;
   return (
     <div>
       <div className="track-info-bar">

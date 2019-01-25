@@ -81,7 +81,6 @@ class TrackShowMain extends React.Component {
   render() {
 
     // const annoProps = merge({}, this.state)
-    debugger;
   
     return (
       <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>

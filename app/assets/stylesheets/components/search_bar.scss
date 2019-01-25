@@ -79,6 +79,9 @@
 
 .dropdown-results {
   background: white;
+  max-height: 400px;
+  overflow: scroll;
+  border-bottom: 1px solid $genius-yellow;
 }
 
 // SEARCH INDEX ITEM
