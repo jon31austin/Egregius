@@ -5,6 +5,7 @@ import { AuthRoute } from "../util/route_util";
 import Modal from "./modal/modal";
 import Header from "./header/header";
 import HomePage from "./home/home_page";
+import Browse from "./browse/browse_container";
 import TrackShow from "./track/track_show_container";
 import NewTrackForm from "./track/new_track_form_container";
 import NoMatch from "./no_match/no_match";
@@ -23,8 +24,9 @@ const App = () => {
 
       <Switch>
         <Route exact path="/" component={HomePage} />
-        <Route path="/tracks/new" component={NewTrackForm} />
-        <Route path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()}/>
+        <Route exact path="/tracks/browse" component={Browse}/>
+        <Route exact path="/tracks/new" component={NewTrackForm} />
+        <Route exact path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()}/>
         <Route path="*" component={NoMatch} />
       </Switch>
 

@@ -4,7 +4,6 @@ import SearchDropDown from "./search_dropdown";
 
 const msp = (state, ownProps) => {
   const searchResults = state.entities.searchResults.sort(sorter)
-  debugger;
   return {
     string: ownProps.string,
     searchResults

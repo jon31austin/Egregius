@@ -18,6 +18,7 @@ const Header = () => {
       <div className="subheader">
         <div className="subheader-links">
           <Link to="/tracks/new">Submit New Song</Link>
+          <Link to="/tracks/browse">Browse All Songs</Link>
         </div>
       </div>
     </div>
