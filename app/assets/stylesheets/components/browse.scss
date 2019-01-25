@@ -1,4 +1,9 @@
-.browse-container {
+.browse-main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.alphabet-container {
   display: flex;
   justify-content: center;
 }
@@ -11,11 +16,16 @@
 }
 
 .browse-options {
- 
+  
 }
 
 .browse-1, .browse-2, .browse-3 {
+  margin: 0 auto;
   display: flex;
+}
+
+.browse-1 {
+  margin-left: 5px;
 }
 
 .browse-2-contain {
@@ -31,4 +41,27 @@
   cursor: pointer;
   color: $genius-blue;
 }
+
+.below-alphabet {
+  display: flex;
+  justify-content: space-around;
+
+  margin-left: 40px;
+  margin-top: 50px;
+}
+
+.below-alphabet a:hover {
+  cursor: pointer;
+  color: $genius-blue;
+}
+
+// .song-list-by-letter {
+//   margin-left: 40px;
+//   margin-top: 50px;
+// }
+
+.browse-letter-item {
+  margin: 10px;
+}
+
 

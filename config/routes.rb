@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :tracks, only: [:index, :show, :create]
     resources :annotations, only: [:index, :create, :destroy, :update]
     resources :searches, only: :index
+    get 'browse/:letter', :to => 'browse#songs_by_letter'
   end
   
 end

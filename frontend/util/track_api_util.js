@@ -24,3 +24,10 @@ export const createTrack = (formData) => {
 };
 
 // used to have { track } nested
+
+export const getLetterTracks = (letter) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/browse/${letter}`
+  })
+}

@@ -19,7 +19,6 @@ class SearchDropDown extends React.Component {
       )
     } else if (string && field) {
       const formattedSearchResults = searchResults.map(res => {
-        debugger;
         return <SearchListItem key={`result-${res[0]}`} songInfoArray={res}/>
       });
 

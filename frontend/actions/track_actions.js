@@ -38,3 +38,10 @@ export const createTrack = (track) => dispatch => {
         dispatch(receiveErrors(err.responseJSON))
       })
 };
+
+export const fetchLetterTracks = (letter) => dispatch => {
+  return TrackApiUtil.getLetterTracks(letter)
+    .then(tracks => dispatch(receiveTracks(tracks)),
+          err => dispatch(receiveErrors(err))
+          )
+}

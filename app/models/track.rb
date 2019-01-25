@@ -32,6 +32,11 @@ class Track < ApplicationRecord
          .pluck("tracks.id", "tracks.title", "artists.name")
   end
 
+  def self.letter_search(letter)
+    Track.includes(:artist).where("UPPER(tracks.title) LIKE UPPER('#{letter}%')")
+
+  end
+
   def ensure_photo
     unless self.photo.attached?
       errors[:photo] << "must be attached."
