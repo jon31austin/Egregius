@@ -69,17 +69,19 @@ class Search extends React.Component {
         <div className={ this.state.hide ? "hidden-search hide" : "hidden-search"}>
           <div className="search-field">
             <div className="search-radio-label">
-              <label>
-                Track
-              <input type="radio" name="search" onClick={this.handleClick} value="track" />
-              </label>
+              <div className="radio-label">Track</div>
+                <div className="radio-div">
+                  <input type="radio" name="search" onClick={this.handleClick} value="track" />
+                </div>
+              
             </div>
 
             <div className="search-radio-label">
-              <label>
-                Artist
-              <input type="radio" name="search" onClick={this.handleClick} value="artist" />
-              </label>
+                <div className="radio-label">Artist</div>
+                <div className="radio-div">
+                  <input type="radio" name="search" onClick={this.handleClick} value="artist" />
+                </div>
+              
             </div>
           </div>
 
