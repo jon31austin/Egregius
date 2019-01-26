@@ -13,9 +13,10 @@
 //classname for floating annotation items
 .anno-fixed {
   position: fixed;
-  top: 0;
-  margin-top: 350px;
-  margin-bottom: 200px;
+  top: 50%;
+  right: 10%;
+  margin-top: -125px; /* Negative half of height. */
+  background: white;
 }
 
 // SIGN UP TO START ANNOTATING
