@@ -11,6 +11,7 @@ import NewTrackForm from "./track/new_track_form_container";
 import NoMatch from "./no_match/no_match";
 import About from "./footer/about.jsx";
 import Guidelines from "./footer/guidelines";
+import Contact from "./footer/contact";
 import Footer from "./footer/footer";
 
 import { clearSelection } from "../actions/annotation_actions";
@@ -31,6 +32,7 @@ const App = () => {
         <Route exact path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()} />
         <Route exact path="/about" component={About} />
         <Route exact path="/guidelines" component={Guidelines} />
+        <Route exact path="/contact" component={Contact} />
         <Route path="*" component={NoMatch} />
       </Switch>
 
