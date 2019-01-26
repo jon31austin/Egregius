@@ -124,7 +124,6 @@ class Browse extends React.Component {
           </div>
         </div>
 
-
       </div>
       
     )

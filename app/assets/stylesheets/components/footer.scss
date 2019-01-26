@@ -24,3 +24,41 @@
 .footer-link:hover {
   color: #7d8fe8;
 }
+
+//ABOUT
+.about-center {
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.about-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 800px;
+}
+
+.about-main h1 {
+  text-transform: uppercase;
+  color: $genius-blue;
+  margin: 25px 0 25px 0;
+}
+
+.about-main p {
+  margin-bottom: 10px;
+}
+
+.about-the-app {
+  line-height: 1.5;
+}
+
+.about-the-app ul {
+  list-style-type: circle;
+}
+
+.about-the-app li {
+  margin-left: 50px;
+}
+
