@@ -63,7 +63,7 @@ class Search extends React.Component {
             type="text"
             onChange={this.handleInput}
             value={this.searchString}
-            placeholder='Search by track, artist or album...' />
+            placeholder='Search by track or artist...' />
           </div>
     
         <div className={ this.state.hide ? "hidden-search hide" : "hidden-search"}>

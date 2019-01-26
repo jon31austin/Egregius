@@ -99,7 +99,7 @@ class Browse extends React.Component {
 
         <div className="alphabet-container">
           <div className="alphabet-clicking">
-            <div className="browse-options">
+            <div>
               <div className="browse-1">{this.formatAlphabet()[0]}</div>
               <div className="browse-2-contain">
                 <div className="browse-2">{this.formatAlphabet()[1]}</div>
@@ -107,19 +107,20 @@ class Browse extends React.Component {
               <div className="browse-3">{this.formatAlphabet()[2]}</div>
             </div>
           </div>
+
+          <div className="alphabet-prompt">
+            <h1>Don't see what you're looking for?</h1>
+            <Link to="/tracks/new">Click here to submit a new song!</Link>
+          </div>
+
         </div>
 
 
         <div className="below-alphabet">
-          <div className="song-list-by-letter">
+          <div>
             <ul>
               {this.formatTracks()}
             </ul>
-          </div>
-
-          <div>
-            <h1>Don't see what you're looking for?</h1>
-            <Link to="/tracks/new">Click here to submit a new song!</Link>
           </div>
         </div>
 

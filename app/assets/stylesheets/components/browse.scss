@@ -13,10 +13,8 @@
   justify-content: center;
 
   margin-top: 25px;
-}
-
-.browse-options {
-  
+  padding-right: 50px;
+  border-right: 5px solid $genius-blue;
 }
 
 .browse-1, .browse-2, .browse-3 {
@@ -42,11 +40,28 @@
   color: $genius-blue;
 }
 
-.below-alphabet {
+.alphabet-prompt {
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
-  margin-left: 40px;
+  margin-left: 50px;
+}
+
+.alphabet-prompt h1 {
+  margin-bottom: 10px;
+}
+
+.alphabet-prompt a:hover {
+  cursor: pointer;
+  color: $genius-blue;
+}
+
+
+// BELOW THE ALPHABET HERE
+.below-alphabet {
+  margin-left: 100px;
   margin-top: 50px;
 }
 
@@ -55,13 +70,8 @@
   color: $genius-blue;
 }
 
-// .song-list-by-letter {
-//   margin-left: 40px;
-//   margin-top: 50px;
-// }
-
-.browse-letter-item {
-  margin: 10px;
+.below-alphabet li {
+  margin-bottom: 10px;
 }
 
 
