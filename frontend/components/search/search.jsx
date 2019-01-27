@@ -9,7 +9,8 @@ class Search extends React.Component {
     this.state = {
       searchString: "",
       searchField: "",
-      hide: false
+      hide: false,
+      loading: false
     };
 
     this.handleInput = this.handleInput.bind(this);
@@ -19,28 +20,27 @@ class Search extends React.Component {
   }
 
   handleInput(e) {
-    
-    // this.setState({ searchString: e.currentTarget.value}, () => {
-    //   return this.props.getSearchResults(this.state)
-    //   }
-    // )
-
-    this.setState({ searchString: e.currentTarget.value }, () => {
+    this.setState({ 
+      searchString: e.currentTarget.value,
+      loading: true }, () => {
       if (this.state.searchField !== "") {
         return this.props.getSearchResults(this.state)
+                  .then(res => {
+                    setTimeout( () => this.setState({ loading: false }), 500)
+                  })
       }
     })
-
-
-    // do I do my
-    // this.props.getSearchResults(this.state) ?
-    // do I need another slice of state to keep track of whether or not a search is underway?
   };
 
   handleClick(e) {
-    this.setState({ searchField: e.currentTarget.value}, () => {
+    this.setState({ 
+      searchField: e.currentTarget.value,
+      loading: true }, () => {
       if (this.state.searchString !== "") {
         return this.props.getSearchResults(this.state)
+                  .then(res => {
+                    setTimeout( () => this.setState({ loading: false }), 500)
+                  })
       }
     })
   };
@@ -50,7 +50,7 @@ class Search extends React.Component {
   }
 
   removeHiddenClass() {
-    this.setState({hide: false})
+    this.setState({ hide: false })
   }
 
   render() {
@@ -85,7 +85,11 @@ class Search extends React.Component {
             </div>
           </div>
 
-          <SearchDropDown string={this.state.searchString} field={this.state.searchField} addHiddenClass={this.addHiddenClass}/>
+          <SearchDropDown string={this.state.searchString} 
+                          field={this.state.searchField} 
+                          addHiddenClass={this.addHiddenClass}
+                          loading={this.state.loading}
+          />
         </div>
 
       </div>
