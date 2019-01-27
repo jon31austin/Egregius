@@ -1,37 +1,49 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
+import Loading from "./loading";
+
 class Browse extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      searchLetter: "A"
+      searchLetter: "A",
+      loading: true
     }
 
     this.handleButton = this.handleButton.bind(this);
   }
 
-  componentDidMount() {
-    this.props.fetchLetterTracks(this.state.searchLetter)
+  componentWillMount() {
+    this.setState({ loading: true }, () => {
+      return this.props.fetchLetterTracks(this.state.searchLetter)
+                .then(res => {
+                  setTimeout(() => this.setState({ loading: false }), 500)
+                })
+    })
   }
 
   handleButton(e) {
-    debugger;
     const letter = e.target.innerText;
-    this.setState({ searchLetter: letter }, () => {
-      debugger;
-      this.props.fetchLetterTracks(this.state.searchLetter)
-    }
-    )
+
+    this.setState({ 
+      loading: true, 
+      searchLetter: letter }, () => {
+        return this.props.fetchLetterTracks(this.state.searchLetter)
+          .then(res => {
+            setTimeout(() => this.setState({ loading: false }), 500)
+          })
+    })
   }
 
   formatTracks() {
+    debugger;
+
     const letterTracks = this.props.tracks.filter(
       track => track.title[0].toUpperCase() === this.state.searchLetter
       )
     
-    debugger; 
     let formattedTracks;
     if (letterTracks.length === 0) {
       formattedTracks = [
@@ -49,7 +61,6 @@ class Browse extends React.Component {
       })
     }
 
-    debugger;
     return formattedTracks;
   }
 
@@ -93,7 +104,8 @@ class Browse extends React.Component {
   }
 
   render() {
-    
+    debugger;
+
     return(
       <div className="browse-main">
 
@@ -119,7 +131,7 @@ class Browse extends React.Component {
         <div className="below-alphabet">
           <div>
             <ul>
-              {this.formatTracks()}
+              {this.state.loading ? <Loading /> : this.formatTracks()}
             </ul>
           </div>
         </div>
