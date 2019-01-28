@@ -330,3 +330,29 @@ Annotation.create!({"start_index"=>"955", "end_index"=>"1058", "track_id"=>"22",
 Annotation.create!({"start_index"=>"789", "end_index"=>"824", "track_id"=>"22", "user_id"=>greg.id, "body"=>"This seems to be a pretty popular time frame."})
 Annotation.create!({"start_index"=>"1161", "end_index"=>"1192", "track_id"=>"22", "user_id"=>fiona.id, "body"=>"\"Oh no\" is absolutely right, Michael."})
 Annotation.create!{"start_index"=>"1387", "end_index"=>"1418", "track_id"=>"22", "user_id"=>edward.id, "body"=>"Perfume is powerful stuff, man."}
+
+# men in black
+Annotation.create!({"start_index"=>"132", "end_index"=>"159", "track_id"=>"20", "user_id"=>brittany.id, "body"=>"Am I the only person who had NO IDEA that this is what they were saying all along? This might just be the missing puzzle piece to my childhood, brb"})
+Annotation.create!({"start_index"=>"406", "end_index"=>"442", "track_id"=>"20", "user_id"=>hank.id, "body"=>"When I make it to the Pearly Gates, my first order of business will be to ask just how much RayBan benefitted from having this product placement. Can you imagine if Oakley had taken the slot instead? The world would have slid down a totally different timeline. Wake up, people!"})
+Annotation.create!({"start_index"=>"195", "end_index"=>"237", "track_id"=>"20", "user_id"=>georgina.id, "body"=>"The... Grim Reaper?"})
+Annotation.create!({"start_index"=>"516", "end_index"=>"607", "track_id"=>"20", "user_id"=>bob.id, "body"=>"So how do they get paid? And if they're volunteers, how do I weasel my way into the organization?"})
+Annotation.create!({"start_index"=>"945", "end_index"=>"985", "track_id"=>"20", "user_id"=>evie.id, "body"=>"Sounds gloomy, but I think there could be a few more superlatives in there to really set the scene."})
+Annotation.create!({"start_index"=>"2414", "end_index"=>"2494", "track_id"=>"20", "user_id"=>adam.id, "body"=>"\"Need not\" or \"not allowed to?\" Because if it's optional, I definitely want to see some more alien stuff. Maybe spend an afternoon with those coffee pouring guys. They seemed pretty fun."})
+
+# like a prayer
+Annotation.create!({"start_index"=>"26", "end_index"=>"51", "track_id"=>"3", "user_id"=>isabelle.id, "body"=>"I'll stand with you, Madonna!"})
+Annotation.create!({"start_index"=>"323", "end_index"=>"349", "track_id"=>"3", "user_id"=>fiona.id, "body"=>"So even angels can be totally exasperated, huh? Hang on, let me go share the news with my husband!"})
+Annotation.create!({"start_index"=>"788", "end_index"=>"829", "track_id"=>"3", "user_id"=>greg.id, "body"=>"Dreams definitely have ends, though. That's the only reason why I'm free to leave this snarky comment!"})
+
+# four minutes
+Annotation.create!({"start_index"=>"65", "end_index"=>"96", "track_id"=>"4", "user_id"=>henrietta.id, "body"=>"I threw this into Google Translate, and I'm still not totally sure how to interpret it."})
+Annotation.create!({"start_index"=>"689", "end_index"=>"715", "track_id"=>"4", "user_id"=>ian.id, "body"=>"Seems like Timbaland was really stalling for time."})
+Annotation.create!({"start_index"=>"1721", "end_index"=>"1755", "track_id"=>"4", "user_id"=>jasmine.id, "body"=>"Hohoho! Wordplay!"})
+
+# i knew you were trouble
+Annotation.create!({"start_index"=>"19", "end_index"=>"55", "track_id"=>"41", "user_id"=>hank.id, "body"=>"I really like this way of judging the passage of time, though I suppose that would make me one of the oldest people on planet Earth."})
+Annotation.create!({"start_index"=>"136", "end_index"=>"185", "track_id"=>"41", "user_id"=>cassandra.id, "body"=>"Bad boys just have that magnetism. It's why they pierce their ears and wear those spiked leather jackets and stuff. Simple science!"})
+Annotation.create!({"start_index"=>"1466", "end_index"=>"1527", "track_id"=>"41", "user_id"=>cassandra.id, "body"=>"I mean, bad boys are often nihilists, too. See my comment above about simple science. It's all coming together!"})
+Annotation.create!({{"start_index"=>"624", "end_index"=>"695", "track_id"=>"41", "user_id"=>frank.id, "body"=>"Who else has seen that YouTube video where these lines are replaced with a bleating goat? Seriously, if you haven't, drop everything you're doing and watch it."}})
+Annotation.create!({"start_index"=>"319", "end_index"=>"351", "track_id"=>"41", "user_id"=>amanda.id, "body"=>"Taylor Swift always seems to get herself into dicey romantic situations, but I gotta give it to her: she's pretty darn good with the self-reflection."})
+
