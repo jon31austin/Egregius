@@ -11,6 +11,10 @@ const TrackIndexItem = ({ track, rank }) => {
           <div className="left-track-index">
             {trackRank(rank)}
 
+            <div className="index-album-cover">
+              <img src={track.photoUrl} />
+            </div>
+
             <div className="track-item-info" >
               <h2>{track.title}</h2>
               <h4>{track.artist}</h4>

@@ -19,8 +19,8 @@
   margin-left: 40px;
   margin-right: 40px;
   padding-bottom: 40px;
-  width: 50%;
-  max-width: 500px;
+  width: 60%;
+  max-width: 1000px;
 }
 
 .track-index-item {
@@ -39,6 +39,7 @@
 .track-item-info {
   display: flex;
   flex-direction: column;
+  justify-content: center;
 }
 
 .track-item-info > h2 {
@@ -82,7 +83,7 @@
 
 .num-annotations {
   height: 42px;
-  width: 10px;
+  width: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -90,5 +91,18 @@
 
 .show-more {
   cursor: pointer;
+  margin: 10px;
+
+  display: inline-block;
+}
+
+.show-more:hover {
+  padding-bottom: 5px;
+  border-bottom: 2px solid $genius-yellow;
+}
+
+.index-album-cover {
+  height: 70px;
+  width: 70px;
   margin: 10px;
 }

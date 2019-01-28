@@ -4,5 +4,6 @@
     json.artist track.artist.name
     json.album track.album.name
     json.annotations track.annotations.count
+    json.photoUrl url_for(track.photo)
   end
 end
