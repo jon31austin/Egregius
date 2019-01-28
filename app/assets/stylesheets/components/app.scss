@@ -1,3 +1,4 @@
+// try to make footer stay at bottom of page
 body, html {
   min-height: 100%;
 }
@@ -5,7 +6,6 @@ body, html {
 .app-container {
   // trying to make footer stick to the bottom
   min-height: calc(100vh - 82px);
-  position: relative;
 }
 
 .loader {

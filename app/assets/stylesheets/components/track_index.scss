@@ -7,6 +7,9 @@
   padding: 10px;
   border-bottom: 2px solid black;
   text-transform: uppercase;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .track-index {
@@ -24,13 +27,26 @@
   box-sizing: border-box;
   padding: 10px;
   border-bottom: 1px solid gray;
+
+  display: flex;
+  justify-content: space-between;
 }
 
-.track-index-item > h2 {
+.left-track-index {
+  display: flex;
+}
+
+.track-item-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.track-item-info > h2 {
   margin-left: 25px;
+   font-size: 30px;
 }
 
-.track-index-item > h4 {
+.track-item-info > h4 {
   margin-left: 25px;
 }
 
@@ -38,6 +54,41 @@
   background-color: gray;
 }
 
-.track-index-item > h2 {
-  font-size: 30px;
+.rank-holder {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-three-ranks {
+  border: 2px solid black;  
+}
+
+.all-track-ranks, .top-three-ranks {
+  box-sizing: border-box;
+  font-size: 20px;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right-track-index {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.num-annotations {
+  height: 42px;
+  width: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show-more {
+  cursor: pointer;
+  margin: 10px;
 }

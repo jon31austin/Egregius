@@ -18,12 +18,15 @@ class TrackIndex extends React.Component {
   }
 
   handleMore() {
+    let newOffset = this.state.offset + 6;
+
     this.setState({
-      loading: true,
-      offset: (this.state.offset + 6)
+      loading: true
     }, () => {
-        this.props.getTracks(this.state.offset)
-          .then(() => setTimeout(this.setState({ loading: false }), 500))
+        return this.props.getTracks(newOffset)
+          .then(res => {
+            setTimeout(() => this.setState({ loading: false, offset: newOffset }), 500)
+          })
     })
   }
 
@@ -35,27 +38,32 @@ class TrackIndex extends React.Component {
       if (a.annotations > b.annotations) return -1;
       return 0;
     })
-    
-    if (allTracks.length === 0) return null;
 
+    if (allTracks.length === 0) return null;
+    
     // only take songs in redux state that were requested, not all of them
     const trackList = allTracks.map( (track, i) => {
       if (i < (this.state.offset + 6)) {
         return (
-          <TrackIndexItem key={track.id} track={track} />
+          <TrackIndexItem key={track.id} track={track} rank={i+1} />
         )
       }
     });
 
     return (
       <div className="track-index">
-        <h2 className="track-index-header">Most Annotated Songs</h2> 
+        <div className="track-index-header">
+          <h2>Most Annotated Songs</h2>
+          <h2>Num. Annotations</h2>
+        </div>
+        
         <ul>
           {trackList}
         </ul>
 
-        {this.state.loading ? 
-          <div className="loader"></div> : <div onClick={this.handleMore}>Show More</div>
+        { this.state.loading ? 
+          <div className="loader"></div> : 
+          <div className="show-more" onClick={this.handleMore}>Show More</div>
         }
       </div>
     )
