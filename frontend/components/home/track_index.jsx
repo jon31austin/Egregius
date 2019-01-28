@@ -14,6 +14,7 @@ class TrackIndex extends React.Component {
 
   render() {
     const allTracks = this.props.tracks
+    debugger;
     if (allTracks.length === 0) return null;
 
     const trackList = allTracks.map( track => {
