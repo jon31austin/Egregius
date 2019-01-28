@@ -2,7 +2,8 @@ class Api::TracksController < ApplicationController
 
   def index
     offset = params[:offset]
-    @next_tracks = Track.get_top_songs(offset)
+    @ids = Track.get_top_song_ids(offset).map {|track| track.id }
+    @next_tracks = Track.get_top_songs(@ids)
     render "api/tracks/index"
   end
 

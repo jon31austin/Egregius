@@ -20,10 +20,27 @@ class Track < ApplicationRecord
   has_one_attached :photo # for AWS local storage
   has_many :annotations
 
-  def self.get_top_songs(offset)
-    # Track.includes(:artist, :album, :annotations).limit(6).offset(offset)
-    Track.joins(:annotations).group(:id).order('COUNT(annotations.id) DESC').limit(6).offset(offset)
+  # def self.get_top_songs(offset)
+  #   Track.select("*")
+  #        .joins(:annotations)
+  #        .includes(:artist, :album)
+  #        .with_attached_photo
+  #        .group("track.id").order('COUNT(annotations.id) DESC').limit(6).offset(offset)
+  # end
+
+  def self.get_top_song_ids(offset)
+    Track.joins(:annotations)
+         .group(:id)
+         .order('COUNT(annotations.id) DESC')
+         .limit(6).offset(offset)
   end
+
+  # eager load to prevent too many sql queries
+   def self.get_top_songs(ids)
+    Track.includes(:artist, :album, :annotations)
+         .where(id: ids)
+         .with_attached_photo
+   end
 
   def self.search_by_string(str)
     Track.select("*")
