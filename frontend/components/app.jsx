@@ -20,24 +20,27 @@ import { clearSelection } from "../actions/annotation_actions";
 const App = () => {
 
   return (
-    <div className="app-container">
+    <div>
+      <div className="app-container">
 
-      <Modal />
-      <Header />
+        <Modal />
+        <Header />
 
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route exact path="/tracks/browse" component={Browse}/>
-        <Route exact path="/tracks/new" component={NewTrackForm} />
-        <Route exact path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/guidelines" component={Guidelines} />
-        <Route exact path="/contact" component={Contact} />
-        <Route path="*" component={NoMatch} />
-      </Switch>
-
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route exact path="/tracks/browse" component={Browse} />
+          <Route exact path="/tracks/new" component={NewTrackForm} />
+          <Route exact path="/tracks/:trackId" component={TrackShow} onChange={() => clearSelection()} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/guidelines" component={Guidelines} />
+          <Route exact path="/contact" component={Contact} />
+          <Route path="*" component={NoMatch} />
+        </Switch>
+      </div>
+      
       <Footer />
     </div>
+    
   )
 };
 

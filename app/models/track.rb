@@ -22,7 +22,6 @@ class Track < ApplicationRecord
 
   def self.get_top_songs(offset)
     # Track.includes(:artist, :album, :annotations).limit(6).offset(offset)
-
     Track.joins(:annotations).group(:id).order('COUNT(annotations.id) DESC').limit(6).offset(offset)
   end
 

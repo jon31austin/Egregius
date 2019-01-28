@@ -1,6 +1,10 @@
+body, html {
+  min-height: 100%;
+}
+
 .app-container {
   // trying to make footer stick to the bottom
-  min-height: 100vh;
+  min-height: calc(100vh - 82px);
   position: relative;
 }
 
