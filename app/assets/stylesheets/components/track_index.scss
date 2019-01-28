@@ -1,6 +1,8 @@
 .home-page {
   display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .track-index-header {
@@ -90,6 +92,8 @@
 }
 
 .show-more {
+  box-sizing: border-box;
+  height: 30px;
   cursor: pointer;
   margin: 10px;
 
