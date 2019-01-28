@@ -12,16 +12,33 @@ User.create!(username: "Happy Wanderer", password: "justlooking!")
 # DON'T DELETE ABOVE
 
 #CREATE USERS
-User.create!(username: "Adam", password: "AdamPass")
-User.create!(username: "Bob", password: "BobPass")
-User.create!(username: "Charlie", password: "CharliePass")
-User.create!(username: "David", password: "DavidPass")
-User.create!(username: "Edward", password: "EdwardPass")
-User.create!(username: "Frank", password: "FrankPass")
-User.create!(username: "Greg", password: "GregPass")
-User.create!(username: "Henry", password: "HenryPass")
-User.create!(username: "Ian", password: "IanPass")
-User.create!(username: "Jack", password: "JackPass")
+users = [
+    adam = User.new(username: "Adam", password: "AdamPass"),
+    bob = User.new(username: "Bob", password: "BobPass"),
+    charlie = User.new(username: "Charlie", password: "CharliePass"),
+    david = User.new(username: "David", password: "DavidPass"),
+    edward = User.new(username: "Edward", password: "EdwardPass"),
+    frank = User.new(username: "Frank", password: "FrankPass"),
+    greg = User.new(username: "Greg", password: "GregPass"),
+    hank = User.new(username: "Hank", password: "HankPass"),
+    ian = User.new(username: "Ian", password: "IanPass"),
+    jack = User.new(username: "Jack", password: "JackPass"),
+    
+    amanda = User.new(username: "Amanda", password: "AmandaPass"),
+    brittany = User.new(username: "Brittany", password: "BrittanyPass"),
+    cassandra = User.new(username: "Cassandra", password: "CassandraPass"),
+    donna = User.new(username: "Donna", password: "DonnaPass"),
+    evie = User.new(username: "Evie", password: "EviePass"),
+    fiona = User.new(username: "Fiona", password: "FionaPass"),
+    georgina = User.new(username: "Georgina", password: "GeorginaPass"),
+    henrietta = User.new(username: "Henrietta", password: "HenriettaPass"),
+    isabelle = User.new(username: "Isabelle", password: "IsabellePass"),
+    jasmine = User.new(username: "Jasmine", password: "JasminePass")
+]
+
+users.each do |user|
+    user.save!
+end
 #END CREATE USERS
 
 #CREATE ARTISTS
@@ -165,7 +182,7 @@ tracks = [
         lyrics: "[Intro: Brian]\nYeah\n\n[Verse 1: Brian & Nick]\nYou are my fire\nThe one desire\nBelieve when I say\nI want it that way\nBut we are two worlds apart\nCan't reach to your heart\nWhen you say\nThat I want it that way\n\n[Chorus: Nick & All]\nTell me why\nAin't nothing but a heartache\nTell me why\nAin't nothing but a mistake\nTell me why\nI never want to hear you say\nI want it that way\n\n[Verse 2: AJ, with Brian]\nAm I your fire?\nYour one desire\nYes, I know it's too late\nBut I want it that way\n\n[Chorus: AJ, All & Brian]\nTell me why\nAin't nothing but a heartache\nTell me why\nAin't nothing but a mistake\nTell me why\nI never want to hear you say\nI want it that way\n\n[Bridge: Kevin]\nNow I can see that we're falling apart\nFrom the way that it used to be, yeah\nNo matter the distance, I want you to know\nThat deep down inside of me\n\n[Interlude: Howie]\nYou are my fire\nThe one desire\nYou are, you are, you are, you are\n\n[Bridge: Nick & All]\nDon't wanna hear you say\nAin't nothin' but a heartache\nAin't nothin' but a mistake (don't wanna hear you say)\nI never wanna hear you say (oh, yeah)\nI want it that way\n\n[Chorus: Brian, All, (Nick) & AJ]\nTell me why\nAin't nothing but a heartache\nTell me why\nAin't nothing but a mistake\nTell me why\nI never want to hear you say (don't want to hear you say)\nI want it that way\nTell me why\nAin't nothin' but a heartache\nAin't nothin' but a mistake\nTell me why\nI never want to hear you say never wanna hear you say\nI want it that way\n\n[Outro: AJ]\n'Cause I want it that way"),
     as_long_as = Track.new(title: "As Long As You Love Me", artist_id: backstreet_boys.id, album_id: backstreets_back.id,
         lyrics: "[Intro: All]\nAs long as you love me\n\n[Verse 1: Nick, with Brian]\nAlthough loneliness has always been a friend of mine\nI'm leaving my life in your hands\nPeople say I'm crazy and that I am blind\nRisking it all in a glance\nAnd how you got me blind is still a mystery\nI can't get you out of my head\nDon't care what is written in your history\nAs long as you're here with me\n\n[Chorus: All]\nI don't care, who you are, where you're from\nWhat you did as long as you love me\nWho you are, where you're from\nDon't care what you did as long as you love me\n\n[Verse 2: Brian with Kevin]\nEvery little thing that you have said and done\nFeels like it's deep within me, ooh, ooh, ooh\nDoesn't really matter if you're on the run\nIt seems like we're meant to be\n\n[Chorus: All & (Brian)]\nI don't care, who you are, where you're from (who you are, where you're from)\nWhat you did as long as you love me (I don't)\nWho you are, where you're from (who you are, where you're from)\nDon't care what you did as long as you love me (yeah)\nAs long as you love me\n\n[Bridge: Brian, All & Nick]\nI've tried to hide it so that no one knows\nBut I guess it shows when you look into my eyes\nWhat you did and where you're coming from\nI don't care as long as you love me, baby\nWoo, woo, woo, ooh\n\n[Chorus: All]\nI don't care, who you are, where you're from (who you are, where you're from)\nWhat you did as long as you love me (as long as you love me)\nWho you are where you're from as long as you love me\nDon't care what you did as long as you love me, yeah (as long as you love me)\n\n[Outro: All]\nWho you are (who you are) where you're from\nWhat you did as long as you love me\nWho you are (who you are) where you're from (where you're from)\nAs long as you love me\nWho you are, as long as you love me\nWhat you did (I don't care)\nAs long as you love me"),
-    everybody = Track.new(title: "Everybody (Backstreet's Back", artist_id: backstreet_boys.id, album_id: backstreets_back.id,
+    everybody = Track.new(title: "Everybody (Backstreet's Back)", artist_id: backstreet_boys.id, album_id: backstreets_back.id,
         lyrics: "[Intro: Brian & All]\nEverybody\nRock your body\nEverybody, rock your body right\nBackstreet's back, alright\nHey, yeah, oh\n\n[Verse 1: AJ]\nOh my God, we're back again\nBrothers, sisters, everybody sing\nGonna bring the flavor, show you how\nGotta question for you better answer now, yeah\n\n[Pre-Chorus: Nick, Brian, All]\nAm I original? Yeah\nAm I the only one? Yeah\nAm I sexual? Yeah\nAm I everything you need? You better rock your body now\n\n[Chorus: All]\nEverybody, yeah\nRock your body, yeah\nEverybody, rock your body right\nBackstreet's back, alright, alright\n\n[Verse 2: AJ]\nNow throw your hands up in the air\nWave them around like you just don't care\nIf you want to party, let me hear you yell\nBecause we got it going on again, yeah\n\n[Pre-Chorus: Nick, Brian, All]\nAm I original? Yeah\nAm I the only one? Yeah\nAm I sexual? Yeah\nAm I everything you need? You better rock your body now\n\n[Chorus: All]\nEverybody, yeah\nRock your body, yeah\nEverybody, rock your body right\nBackstreet's back, alright, alright\n\n[Instrumental Bridge]\n\n[Chorus: All]\nEverybody, yeah\nRock your body, yeah\nEverybody\nRock your body right (rock your body right), Backstreet's back\nEverybody (everybody), yeah (rock your body)\nRock your body (everybody), yeah (everybody rock your body)\nEverybody (everybody, rock your body), rock your body right (everybody)\nBackstreet's back, alright"),
     
     dreams = Track.new(title: "Dreams", artist_id: fleetwood_mac.id, album_id: rumours.id,
@@ -253,29 +270,63 @@ just_the_two.photo.attach(io: File.open("app/assets/images/tracks/wsmith_just_tw
 tracks.each do |track|
     track.save!
 end
-
-# Like A Virgin -- Album: Like a Virgin
-# Like A Prayer -- Like a Prayer
-# 4 Minutes -- Hard Candy
-# Hung Up -- Confessions on a Dance Floor
-# Vogue -- I'm Breathless
-# Don't Tell Me -- Music
-
-
-# Track.create!(title: "Senorita", lyrics: "[Intro: Pharrell & Justin Timberlake]\nLadies and gentlemen\nIt's my pleasure to introduce to you\nHe's a friend of mine\nYes, yes I am\nAnd he goes by the name... Justin\nWowoowoooo\nAll the way from Memphis, Tennessee\nAnd he's got somethin' special for y'all tonight\nHe's gonna sing a song for y'all about this girl\nCome in right here?\nYea, come on\n\n[Verse 1]\nOn that sunny day\nDidn't know I'd meet\nSuch a beautiful girl\nWalking down the street\nSeen those bright brown eyes\nWith tears coming down (So he said to himself)\nShe deserves a crown\nBut where is it now\nMamma listen\n\n[Hook 1]\nSenorita, I feel for you\nYou deal with things, that you don't have to\nHe doesn't love ya, I can tell by his charm\nBut you could feel this real love\nIf you just lay in my...\n\n[Verse 2]\nRunning fast in my mind\nGirl don't you slow it down\nIf we carry on this way\nThis thing might leave the ground\nHow would you like to fly?\nThat's how my queen should ride\nBut you still deserve the crown\nOr hasn't it been found?\nMamma listen\n\n[Hook 1]\nSenorita, I feel for you\nYou deal with things, that you don't have to\nHe doesn't love ya, I can tell by his charm\nBut you could feel this real love\nIf you just lay in my...\n\n[Hook 2]\nAh, ah, arms...\n(Won't you lay in my)\nAh, ah, arms...\n(Mama lay in my)\nAh, ah, arms...\n(Baby won't you lay in my)\nAh, ah, arms...\n\n[Bridge]\nWhen I look into your eyes (Just listen, baby)\nI see something that money can't buy (Just hear me, baby, oh)\nAnd I know if you give us a try (I want you, girl)\nI'll work harder for you girl (Whoa-oh)\nAnd no longer will you ever have to cry, yeah, yeah, yeah\n\n[Hook 1 & Hook 2]\nSenorita, I feel for you\nYou deal with things, that you don't have to\nHe doesn't love ya, I can tell by his charm\nBut you could feel this real love\nIf you just lay in my...\nAh, ah, arms...\n(Won't you lay in my)\nAh, ah, arms...\n(Mama lay in my)\nAh, ah, arms...\n(Baby won't you lay in my)\nAh, ah, arms...\n\n[Bridge]\nWhen I look into your eyes (Just listen, baby)\nI see something that money can't buy (Just hear me, baby, oh)\nAnd I know if you give us a try (I want you, girl)\nI'll work harder for you girl (Whoa-oh)\nAnd no longer will you ever have to cry\n\n[Outro:]\nNow listen\nI wanna try somethin' right now\nSee they don't do this anymore\nI'mma sing something\nAnd I want the guys to sing with me\nThey go\n\"It feels like something's heating up, can I leave with you?\"\nAnd then the ladies go\n\"I don't know but I'm thinking bout, really leaving with you\"\n\nGuys sing\nIt feels like something's heating up, can I leave with you?\nAnd ladies\nI don't know but I'm thinking bout, really leaving with you\nFeels good don't it, come on\nIt feels like something's heating up, can I leave with you?\nYea, ladies\nI don't know but I'm thinking bout, really leaving with you\nShow the good to me\n\nGentlemen, good night\nLadies, good mornig\nThat's it\n", 
-#     artist_id: 2, album_id: 2)
-# Track.create!(title: "Business", lyrics: "[Intro: Eminem & Dr. Dre]\nMarshall! Sounds like an SOS\nHoly wack unlyrical lyrics, Andre, you're fucking right!\nTo the Rapmobile—let's go!\n(Marshall! Marshall!)\nBitches and gentlemen! It's showtime!\nHurry hurry, step right up!\nIntroducing the star of our show\nHis name is (Marshall!)\nYou wouldn't wanna be\nAnywhere else in the world right now\nSo without further ado, I bring to you (Marshall!)\n\n[Verse 1: Eminem]\nYou're 'bout to witness hip-hop in its most purest\nMost rawest form, flow almost flawless\nMost hardest, most honest known artist\nChip off the old block, but old Doc is (back)\nLooks like Batman brought his own Robin\nOh God, Saddam's got his own Laden\nWith his own private plane, his own pilot\nSet to blow college dorm rooms doors off the hinges\nOranges, peach, pears, plums, syringes\nVrinn, vrinn! Yeah, here I come, I'm inches\nAway from you, dear, fear none\nHip-hop is in a state of 9-1-1, so\n\n[Hook: Eminem]\nLet's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\nLet's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\n\n[Verse 2: Eminem]\nQuick, gotta move fast, gotta perform miracles\nGee willikers Dre, \"Holy bat syllables!\"\nLook at all the bullshit that goes on\nIn Gotham when I'm gone\nTime to get rid of these rap criminals\nSo skip to your lou while I do what I do best\nYou ain't even impressed no more, you're used to it\nFlow's too wet, nobody close to it\nNobody says it but still everybody knows the shit\nThe most hated on out of all those who say they get hated on in eighty songs and exaggerate it all so much\nThey make it all up, there's no such thing\nLike a female with good looks who cooks and cleans\nIt just means so much more to so much more\nPeople when you're rappin' and you know what for\nThe show must go on; so I'd like to welcome y'all\nTo Marshall and Andre's carnival, c'mon!\n\n[Hook: Eminem]\nNow let's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\nLet's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\n\n[Verse 3: Eminem]\nIt's just like old times, the Dynamic Duo\nTwo old friends, why panic? You already know\nWho's fully capable, the two caped heroes\nDial straight down the center, eight-zero-zero\nYou can even call collect, the most feared duet\nSince me and Elton played career Russian Roulette\nAnd never even see me blink or get to bustin' a sweat\nPeople steppin' over people just to rush to the set\nJust to get to see an MC who breathes so freely\nEase over these beats and be so breezy\nJesus, how can shit be so easy?\nHow can one Chandra be so Levy?\nTurn on these beats, MCs don't see me\nBelieve me, BET and MTV\nAre gonna grieve when we leave, dog, fo' sheezy\nCan't leave rap alone, the game needs me\n'Til we grow beards, get weird and disappear\nInto the mountains, nothin' but clowns down here\nBut we ain't fuckin' around round here\nYo, Dre (What up?) Can I get a \"hell yeah\"? (Hell yeah!)\n\n[Hook: Eminem]\nNow let's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\nLet's get down to business\nI don't got no time to play around, what is this?\nMust be a circus in town, let's shut the shit down\nOn these clowns; can I get a witness? (Hell yeah!)\n\n[Outro: Eminem]\nSo there you have it, folks\n(Marshall!) has come to save the day\nBack with his friend Andre\nAnd to remind you that bullshit does not pay\nBecause (Marshall!) and Andre are here to stay\nAnd never go away, until our dying day\nUntil we're old and grey (Marshall!)\nSo until next time, friends\nSame blonde hair, same rap channel\nGood night, everyone! Thank you for coming!\nYour host for the evening (Marshall!)\nOh! Heh", 
-#     artist_id: 3, album_id: 3)
-# Track.create!(title: "Orinoco Flow", lyrics: "[Verse 1]\nLet me sail, let me sail, let the Orinoco flow\nLet me reach, let me beach on the shores of Tripoli\nLet me sail, let me sail, let me crash upon your shore\nLet me reach, let me beach far beyond the Yellow Sea\n\n[Interlude]\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\n\n[Chorus]\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\n\n[Verse 2]\nFrom Bissau to Palau in the shade of Avalon\nFrom Fiji to Tiree and the Isles of Ebony\nFrom Peru to Cebu feel the power of Babylon\nFrom Bali to Cali far beneath the Coral Sea\n\n[Interlude]\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\nDe-da, da-da-de\n\n[Bridge]\nTurn it up, turn it up, turn it up-up, adieu\nTurn it up, turn it up, turn it up-up, adieu\nTurn it up, turn it up, turn it up-up, adieu\n\n[Chorus]\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\n\n[Verse 3]\nFrom the North to the South, Ebudae unto Khartoum\nFrom the deep Sea of Clouds to the Island of the Moon\nCarry me on the waves to the lands I've never been\nCarry me on the waves to the lands I've never seen\n\n[Verse 4]\nWe can sail, we can sail with the Orinoco flow\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 5]\nWe can steer, we can near with Rob Dickins at the wheel\nWe can sigh, say Goodbye Ross and his dependency\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 6]\nWe can reach, we can beach\nOn the shores of Tripoli\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 7]\nFrom Bali to Cali far beneath the Coral Sea\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 8]\nFrom Bissau to Palau in the shade of Avalon\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 9]\nWe can reach, we can beach far beyond the Yellow Sea\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Verse 10]\nFrom Peru to Cebu feel the power of Babylon\nWe can sail, we can sail\nSail away, sail away, sail away\n\n[Interlude]\nWe can sail, we can sail\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\nSail away, sail away, sail away\n\n[Outro]\nAh, ah-ah\nAh, ah-ah\nAh", 
-#     artist_id: 5, album_id: 5)
-
-# Track.create!(title: "Come Together", lyrics: "[Intro: John Lennon]\nShoot me, shoot me, shoot me, shoot me\n\n[Verse 1: John Lennon]\nHere come old flat-top, he come groovin' up slowly\nHe got ju-ju eyeballs, he one holy roller\nHe got hair down to his knee\nGot to be a joker, he just do what he please\n\n[Interlude: John Lennon]\nShoot me, shoot me, shoot me, shoot me\n\n[Verse 2: John Lennon]\nHe wear no shoeshine, he got toe-jam football\nHe got monkey finger, he shoot Coca-Cola\nHe say, \"I know you, you know me\"\nOne thing I can tell you is you got to be free\n\n[Chorus: John Lennon]\nCome together, right now\nOver me\n\n[Verse 3: John Lennon]\nHe bag production, he got walrus gumboot\nHe got Ono sideboard, he one spinal cracker\nHe got feet down below his knee\nHold you in his armchair, you can feel his disease\n\n[Chorus: John Lennon]\nCome together, right now\nOver me\n\n[Interlude: John Lennon]\nShoot me, shoot me\nRight!\n\n[Guitar Solo]\n\n[Verse 4: John Lennon]\nHe roller-coaster, he got early warnin'\nHe got muddy water, he one mojo filter\nHe say, \"One and one and one is three\"\nGot to be good-lookin' 'cause he's so hard to see\n\n[Chorus: John Lennon]\nCome together, right now\nOver me\n\n[Interlude: John Lennon]\nShoot me, shoot me, shoot me, shoot me\nUgh!\n\n[Outro: John Lennon]\nCome together, yeah\nCome together, yeah\nCome together, yeah\nCome together, yeah\nCome together, yeah\nCome together, yeah\nCome together, yeah\nCome together, yeah\n[Fade-out]\nCome together, yeah\nCome together...")
-#     artist_id: 7, album_id: 7, photo: "app/assets/")
-# Track.create!(title: )
 #END CREATE TRACKS
 
+#CREATE ANNOTATIONS
 
+# backstreet's back
+Annotation.create!({"start_index"=>"78", "end_index"=>"104", "track_id"=>"29", "user_id"=>fiona.id, "body"=>"Were they ever gone, though? Backstreet Boys have always been relevant. So dreamy!"})
+Annotation.create!({"start_index"=>"196", "end_index"=>"218", "track_id"=>"29", "user_id"=>charlie.id, "body"=>"What... what does AJ even mean by that? It's a little disconcerting that this lyric was able to make the final version, past 10 pop-star eyeballs. C'mon, guys!"})
+Annotation.create!({"start_index"=>"565", "end_index"=>"641", "track_id"=>"29", "user_id"=>amanda.id, "body"=>"If they didn't care, why would they dedicate so much effort to the cause of not caring? If they truly didn't care, it seems like they would just... stand there. Or am I missing something?"})
 
-# 
-# 
+#senorita
+Annotation.create!("start_index"=>"262", "end_index"=>"310", "track_id"=>"8", "user_id"=>hank.id, "body"=>"UGH! I'm so envious. Or am I jealous? I don't even know which one it's supposed to be. All I know is that I want JT to serenade me."})
+Annotation.create!({"start_index"=>"516", "end_index"=>"556", "track_id"=>"8", "user_id"=>henrietta.id, "body"=>"We got rid of the monarchy in 1776, Justin. Let's not be in such a rush to bring it back, my man."})
+Annotation.create!({"start_index"=>"2315", "end_index"=>"2376", "track_id"=>"8", "user_id"=>cassandra.id, "body"=>"Not the smoothest line, but I guess courtship was still pretty unsophisticated way back in 2002."})
+Annotation.create!({"start_index"=>"1336", "end_index"=>"1419", "track_id"=>"8", "user_id"=>jack.id, "body"=>"Money can definitely buy eyes, though."})
+Annotation.create!({"start_index"=>"764", "end_index"=>"815", "track_id"=>"8", "user_id"=>donna.id, "body"=>"Didn't even say please... smh"})
 
+#love story
+Annotation.create!({"start_index"=>"50", "end_index"=>"91", "track_id"=>"39", "user_id"=>bob.id, "body"=>"She can do that on command? Pretty cool trick."})
+Annotation.create!({"start_index"=>"275", "end_index"=>"364", "track_id"=>"39", "user_id"=>edward.id, "body"=>"Think Shakespeare gets any royalties from this?"})
+Annotation.create!({"start_index"=>"365", "end_index"=>"441", "track_id"=>"39", "user_id"=>jasmine.id, "body"=>"How would Romeo hear her if she's on the staircase while he's still outside throwing pebbles? Plot hole!"})
+Annotation.create!({"start_index"=>"1765", "end_index"=>"1851", "track_id"=>"39", "user_id"=>frank.id, "body"=>"Wow, this is a much happier ending than the original. Props to Taylor for keeping it PG for all the kids out there."})
+Annotation.create!({"start_index"=>"1337", "end_index"=>"1400", "track_id"=>"39", "user_id"=>isabelle.id, "body"=>"To be completely fair, the lad was putting himself in mortal peril every time he came to see you, so you can't really be mad at his skittishness."})
+Annotation.create!({"start_index"=>"794", "end_index"=>"839", "track_id"=>"39", "user_id"=>georgina.id, "body"=>"Something tells me that Taylor doesn't really understand what scarlet letters were, but I guess that's what happens when you speed through high school!"})
+
+# our song
+Annotation.create!({"start_index"=>"80", "end_index"=>"148", "track_id"=>"42", "user_id"=>adam.id, "body"=>"At least he wasn't texting, I guess."})
+Annotation.create!({"start_index"=>"384", "end_index"=>"472", "track_id"=>"42", "user_id"=>evie.id, "body"=>"I always wondered why she didn't just use the word \"low\" here, which also rhymes with \"know.\" If they don't want his mama to know, speaking slowly doesn't really accomplish much if they're screaming, *shrugs*"})
+Annotation.create!({"start_index"=>"688", "end_index"=>"778", "track_id"=>"42", "user_id"=>david.id, "body"=>"Ooh! The rare double enjambment!"})
+Annotation.create!({"start_index"=>"1244", "end_index"=>"1266", "track_id"=>"42", "user_id"=>ian.id, "body"=>"Bold claim!"})
+Annotation.create!({"start_index"=>"1795", "end_index"=>"1854", "track_id"=>"42", "user_id"=>brittany.id, "body"=>"I can't imagine the frustrations of punching a pen through an old napkin while bumping down the highway at 60mph. Taylor's got dedication, that's for sure!"})
+
+#everywhere fleetwood
+Annotation.create!({"start_index"=>"0", "end_index"=>"24", "track_id"=>"32", "user_id"=>ian.id, "body"=>"She literally does the whole song."})
+Annotation.create!({"start_index"=>"315", "end_index"=>"394", "track_id"=>"32", "user_id"=>greg.id, "body"=>"One of the catchiest choruses of all time! The lyrics don't do it justice, though. Worth noting that it's more like: \"OOOOOOOH AHHHHHHHHHHHHHHHHHHHHH!\""})
+Annotation.create!({"start_index"=>"136", "end_index"=>"190", "track_id"=>"32", "user_id"=>frank.id, "body"=>"Most people just scream wordlessly."})
+
+# dreams
+Annotation.create!({"start_index"=>"369", "end_index"=>"407", "track_id"=>"30", "user_id"=>evie.id, "body"=>"The entirety of New England in August would like a word with you, Fleetwood Mac."})
+Annotation.create!({"start_index"=>"162", "end_index"=>"214", "track_id"=>"30", "user_id"=>adam.id, "body"=>"That's not very good advice to someone who's already lonely. Don't listen to that loneliness, people! Plug your ears!"})
+Annotation.create!({"start_index"=>"571", "end_index"=>"617", "track_id"=>"30", "user_id"=>hank.id, "body"=>"I just took a deep dive into Wikipedia and I still don't really understand what \"crystal visions\" are. This is beyond science."})
+
+# landslide
+Annotation.create!({"start_index"=>"206", "end_index"=>"247", "track_id"=>"33", "user_id"=>david.id, "body"=>"Rise above what, exactly?"})
+Annotation.create!({"start_index"=>"444", "end_index"=>"467", "track_id"=>"33", "user_id"=>henrietta.id, "body"=>"Honest hunch: they just really needed a line to rhyme with \"bolder\" because, yeah, this is kind of a platitude."})
+
+# smooth criminal
+Annotation.create!({"start_index"=>"91", "end_index"=>"128", "track_id"=>"26", "user_id"=>cassandra.id, "body"=>"So he trailed blood INTO her apartment? Was that from crashing through the window, or from some misdeed prior to his encounter with Annie? I have so many questions!"})
+Annotation.create!({"start_index"=>"158", "end_index"=>"185", "track_id"=>"26", "user_id"=>bob.id, "body"=>"Unable to... what?"})
+Annotation.create!({"start_index"=>"37", "end_index"=>"63", "track_id"=>"26", "user_id"=>amanda.id, "body"=>"Isn't this redundant because a \"crescendo\" is a sound in the first place? "})
+Annotation.create!({"start_index"=>"766", "end_index"=>"803", "track_id"=>"26", "user_id"=>jack.id, "body"=>"Yikes, that's pretty bleak."})
+Annotation.create!({"start_index"=>"1299", "end_index"=>"1361", "track_id"=>"26", "user_id"=>jasmine.id, "body"=>"You don't see this kind of multi-syllabic rhyming much anymore. Amazing stuff. You're sorely missed, Michael!"})
+Annotation.create!({"start_index"=>"2534", "end_index"=>"2552", "track_id"=>"26", "user_id"=>greg.id, "body"=>"Haha, this is amazing."})
+
+# billie jean
+Annotation.create!({"start_index"=>"62", "end_index"=>"223", "track_id"=>"22", "user_id"=>donna.id, "body"=>"It's honestly a testament to Michael that he could turn these bizarre lyrics into such a catchy verse!"})
+Annotation.create!({"start_index"=>"584", "end_index"=>"616", "track_id"=>"22", "user_id"=>charlie.id, "body"=>"I'm sure there are a lot of people currently in penitentiary facilities around the world who wish this were the case."})
+Annotation.create!({"start_index"=>"955", "end_index"=>"1058", "track_id"=>"22", "user_id"=>isabelle.id, "body"=>"Well, which one is it?!"})
+Annotation.create!({"start_index"=>"789", "end_index"=>"824", "track_id"=>"22", "user_id"=>greg.id, "body"=>"This seems to be a pretty popular time frame."})
+Annotation.create!({"start_index"=>"1161", "end_index"=>"1192", "track_id"=>"22", "user_id"=>fiona.id, "body"=>"\"Oh no\" is absolutely right, Michael."})
+Annotation.create!{"start_index"=>"1387", "end_index"=>"1418", "track_id"=>"22", "user_id"=>edward.id, "body"=>"Perfume is powerful stuff, man."}
