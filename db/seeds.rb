@@ -280,7 +280,7 @@ Annotation.create!({"start_index"=>"196", "end_index"=>"218", "track_id"=>"29", 
 Annotation.create!({"start_index"=>"565", "end_index"=>"641", "track_id"=>"29", "user_id"=>amanda.id, "body"=>"If they didn't care, why would they dedicate so much effort to the cause of not caring? If they truly didn't care, it seems like they would just... stand there. Or am I missing something?"})
 
 #senorita
-Annotation.create!("start_index"=>"262", "end_index"=>"310", "track_id"=>"8", "user_id"=>hank.id, "body"=>"UGH! I'm so envious. Or am I jealous? I don't even know which one it's supposed to be. All I know is that I want JT to serenade me."})
+Annotation.create!({"start_index"=>"262", "end_index"=>"310", "track_id"=>"8", "user_id"=>hank.id, "body"=>"UGH! I'm so envious. Or am I jealous? I don't even know which one it's supposed to be. All I know is that I want JT to serenade me."})
 Annotation.create!({"start_index"=>"516", "end_index"=>"556", "track_id"=>"8", "user_id"=>henrietta.id, "body"=>"We got rid of the monarchy in 1776, Justin. Let's not be in such a rush to bring it back, my man."})
 Annotation.create!({"start_index"=>"2315", "end_index"=>"2376", "track_id"=>"8", "user_id"=>cassandra.id, "body"=>"Not the smoothest line, but I guess courtship was still pretty unsophisticated way back in 2002."})
 Annotation.create!({"start_index"=>"1336", "end_index"=>"1419", "track_id"=>"8", "user_id"=>jack.id, "body"=>"Money can definitely buy eyes, though."})
@@ -329,7 +329,7 @@ Annotation.create!({"start_index"=>"584", "end_index"=>"616", "track_id"=>"22", 
 Annotation.create!({"start_index"=>"955", "end_index"=>"1058", "track_id"=>"22", "user_id"=>isabelle.id, "body"=>"Well, which one is it?!"})
 Annotation.create!({"start_index"=>"789", "end_index"=>"824", "track_id"=>"22", "user_id"=>greg.id, "body"=>"This seems to be a pretty popular time frame."})
 Annotation.create!({"start_index"=>"1161", "end_index"=>"1192", "track_id"=>"22", "user_id"=>fiona.id, "body"=>"\"Oh no\" is absolutely right, Michael."})
-Annotation.create!{"start_index"=>"1387", "end_index"=>"1418", "track_id"=>"22", "user_id"=>edward.id, "body"=>"Perfume is powerful stuff, man."}
+Annotation.create!({"start_index"=>"1387", "end_index"=>"1418", "track_id"=>"22", "user_id"=>edward.id, "body"=>"Perfume is powerful stuff, man."})
 
 # men in black
 Annotation.create!({"start_index"=>"132", "end_index"=>"159", "track_id"=>"20", "user_id"=>brittany.id, "body"=>"Am I the only person who had NO IDEA that this is what they were saying all along? This might just be the missing puzzle piece to my childhood, brb"})
@@ -353,6 +353,6 @@ Annotation.create!({"start_index"=>"1721", "end_index"=>"1755", "track_id"=>"4",
 Annotation.create!({"start_index"=>"19", "end_index"=>"55", "track_id"=>"41", "user_id"=>hank.id, "body"=>"I really like this way of judging the passage of time, though I suppose that would make me one of the oldest people on planet Earth."})
 Annotation.create!({"start_index"=>"136", "end_index"=>"185", "track_id"=>"41", "user_id"=>cassandra.id, "body"=>"Bad boys just have that magnetism. It's why they pierce their ears and wear those spiked leather jackets and stuff. Simple science!"})
 Annotation.create!({"start_index"=>"1466", "end_index"=>"1527", "track_id"=>"41", "user_id"=>cassandra.id, "body"=>"I mean, bad boys are often nihilists, too. See my comment above about simple science. It's all coming together!"})
-Annotation.create!({{"start_index"=>"624", "end_index"=>"695", "track_id"=>"41", "user_id"=>frank.id, "body"=>"Who else has seen that YouTube video where these lines are replaced with a bleating goat? Seriously, if you haven't, drop everything you're doing and watch it."}})
+Annotation.create!({"start_index"=>"624", "end_index"=>"695", "track_id"=>"41", "user_id"=>frank.id, "body"=>"Who else has seen that YouTube video where these lines are replaced with a bleating goat? Seriously, if you haven't, drop everything you're doing and watch it."})
 Annotation.create!({"start_index"=>"319", "end_index"=>"351", "track_id"=>"41", "user_id"=>amanda.id, "body"=>"Taylor Swift always seems to get herself into dicey romantic situations, but I gotta give it to her: she's pretty darn good with the self-reflection."})
 
