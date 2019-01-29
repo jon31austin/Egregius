@@ -66,7 +66,7 @@ Egregius takes your security very seriously! We would never think of storing you
   end
 ```
 
-### Future Goals
+# Future Goals
 There is always more to do! On the horizon are the following projects:
 * Likes: Agree with an annotation? Like it. Otherwise let it feel the wrath of your thumb down!
 * Comments: Sometimes, your sentiment doesn't belong to a particular lyric. Leave your comment at the bottom of the track's page!
