@@ -1,5 +1,6 @@
 import React from 'react';
 import TrackIndexItem from "./track_index_item";
+import { Link } from "react-router-dom";
 
 class TrackIndex extends React.Component {
   constructor(props){
@@ -63,6 +64,11 @@ class TrackIndex extends React.Component {
 
         { this.state.loading ? 
           <div className="loader"></div> : 
+          (trackList.length < this.state.offset) ? 
+          <div className="no-more-annotations">
+            <h1>Sorry, but there aren't any more annotated tracks!</h1>
+              <Link to="/tracks/browse">Click here</Link> to browse and create annotations of your own!
+          </div> :
           <div className="show-more" onClick={this.handleMore}>Show More</div>
         }
       </div>

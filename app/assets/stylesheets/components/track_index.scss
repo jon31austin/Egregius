@@ -110,3 +110,11 @@
   width: 70px;
   margin: 10px;
 }
+
+.no-more-annotations {
+  margin-top: 10px;
+}
+
+.no-more-annotations > a:hover {
+  color: $genius-blue;
+}
