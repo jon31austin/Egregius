@@ -10,14 +10,28 @@ const News = () => {
       </div>
 
       <div className="news-content">
-        <div className="news-left-pic"></div>
-
-        <div className="news-right">
-          <div className="news-right-top"></div>
-          <div className="news-right-bottom"></div>
+        <div className="news-left-pic">
+          <h1>Lyrics that are out of this world!</h1>
         </div>
 
-        <div className="latest-news"></div>
+        <div className="news-right">
+          <div className="news-right-top">
+            <h1>Get some water!</h1>
+            <h2>It's lit!</h2>
+          </div>
+          <div className="news-right-bottom">
+            <h1>Disappear into the words...</h1>
+          </div>
+        </div>
+
+        <div className="latest-news">
+          
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+
+        </div>
       </div>
      
     </div>
