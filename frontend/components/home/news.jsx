@@ -5,8 +5,8 @@ const News = () => {
     <div className="news">
 
       <div className="news-headers">
-        <div className="featured-stories"><h1>Featured Stories</h1></div>
-        <div className="latest-news"><h1>Latest News</h1></div>
+        <div className="featured-stories-header"><h1>Featured Stories</h1></div>
+        <div className="latest-news-header"><h1>Latest News</h1></div>
       </div>
 
       <div className="news-content">
@@ -25,13 +25,35 @@ const News = () => {
         </div>
 
         <div className="latest-news">
-          
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+          <div className="latest-news-item">
+            <div className="latest-background-1"></div>
+            <div className="latest-news-info">
+              <p>The Red Shoulder Peacock is native to Lake Malawi, Africa.</p>
+            </div>
+          </div>
 
+          <div className="latest-news-item">
+            <div className="latest-background-2"></div>
+            <div className="latest-news-info">
+              <p>Angelfish are ambush predators that prey on small fish and macroinvertibrates!</p>
+            </div>
+          </div>
+
+          <div className="latest-news-item">
+            <div className="latest-background-3"></div>
+            <div className="latest-news-info">
+              <p>Butterfly fish are generally diurnal and don't frequent waters deeper than 60 feet!</p>
+            </div>
+          </div>
+
+          <div className="latest-news-item">
+            <div className="latest-background-4"></div>
+            <div className="latest-news-info">
+              <p>Dory from Finding Nemo is a Tang Fish! They don't all suffer from memory loss.</p>
+            </div>
+          </div>
         </div>
+
       </div>
      
     </div>
