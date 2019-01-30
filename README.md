@@ -16,7 +16,7 @@ Egregius is a song lyric annotation website built for people who people who have
 
 # Core Features
 ### Annotation
-While the lyrics always live on the left side of the screen, what appears on the right side of the screen depends on many factors —— whether the user is logged in and whether the annotation they want to view is their own, for example. By keeping track of those various factors in the Redux state shared among all components, I was able to use conditional rendering to create a smooth user experience fully dependent on the user's interaction with the webpage.
+While the lyrics always live on the left side of the screen, what appears on the right side of the screen depends on many factors — whether the user is logged in and whether the annotation they want to view is their own, for example. By keeping track of those various factors in the Redux state shared among all components, I was able to use conditional rendering to create a smooth user experience fully dependent on the user's interaction with the webpage.
 
 ```javascript
 if (open && !loggedIn) {
