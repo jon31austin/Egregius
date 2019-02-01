@@ -54,7 +54,8 @@
 }
 
 .track-index-item:hover {
-  background-color: gray;
+  background-color: $genius-lightgray;
+  transition: .3s;
 }
 
 .rank-holder {
