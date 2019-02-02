@@ -1,5 +1,6 @@
 import React from "react";
 import Annotation from "../annotation/annotation_container";
+import TrackComments from "./comments/track_comments";
 
 class TrackShowMain extends React.Component {
   constructor(props) {
@@ -83,17 +84,21 @@ class TrackShowMain extends React.Component {
     // const annoProps = merge({}, this.state)
   
     return (
-      <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>
+      <div>
+        <div className="track-show-content" onMouseUp={this.handleSelection} onMouseDown={this.clearState}>
 
-        <div className="track-main-bucket">
-          <h3 className="lyrics-header">{this.props.track.title} LYRICS</h3>
-            {this.formatLyrics()}
+          <div className="track-main-bucket">
+            <h3 className="lyrics-header">{this.props.track.title} LYRICS</h3>
+              {this.formatLyrics()}
+          </div>
+
+          <div className="anno-main-bucket">
+            <Annotation trackId={this.props.trackId} annotations={this.props.annotations} />
+          </div>
+
         </div>
 
-        <div className="anno-main-bucket">
-          <Annotation trackId={this.props.trackId} annotations={this.props.annotations} />
-        </div>
-
+        < TrackComments />
       </div>
     )
   }
