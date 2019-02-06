@@ -1,5 +1,5 @@
 import merge from "lodash/merge";
-import { RECEIVE_NEXT_TRACKS } from "../actions/track_actions";
+import { RECEIVE_NEXT_TRACKS } from "../../actions/track_actions";
 
 const tracksReducer = (state = {}, action) => {
   Object.freeze(state);
