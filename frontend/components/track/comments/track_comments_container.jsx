@@ -7,13 +7,13 @@ import { fetchTrackComments } from "../../../actions/track_comment_actions";
 
 
 const msp = (state, ownProps) => {
-  debugger;
+  let comments = Object.values(state.entities.trackComments)
   return {
+    comments
   }
 }
 
 const mdp = (dispatch) => {
-  debugger;
   return {
     fetchComments: (id) => dispatch(fetchTrackComments(id))
   }
