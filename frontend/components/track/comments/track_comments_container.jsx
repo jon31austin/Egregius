@@ -3,18 +3,19 @@ import { connect } from "react-redux";
 
 import TrackComments from "./track_comments";
 
-import { createTrack } from "../../actions/track_actions";
+import { fetchTrackComments } from "../../../actions/track_comment_actions";
 
 
-const msp = (state) => {
+const msp = (state, ownProps) => {
+  debugger;
   return {
-    ___
   }
 }
 
 const mdp = (dispatch) => {
+  debugger;
   return {
-    ___
+    fetchComments: (id) => dispatch(fetchTrackComments(id))
   }
 }
 

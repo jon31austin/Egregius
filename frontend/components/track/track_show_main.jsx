@@ -1,6 +1,6 @@
 import React from "react";
 import Annotation from "../annotation/annotation_container";
-import TrackComments from "./comments/track_comments";
+import TrackComments from "./comments/track_comments_container";
 
 class TrackShowMain extends React.Component {
   constructor(props) {
@@ -98,7 +98,7 @@ class TrackShowMain extends React.Component {
 
         </div>
 
-        < TrackComments />
+        <TrackComments trackId={this.props.track.id} />
 
       </div>
     )
