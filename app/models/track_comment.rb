@@ -3,4 +3,9 @@ class TrackComment < ApplicationRecord
 
   belongs_to :track 
   belongs_to :user
+
+  def self.search_by_track(id)
+    TrackComment.includes(:user).where("track_id = #{id}")
+  end
+  
 end

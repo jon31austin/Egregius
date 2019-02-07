@@ -28,3 +28,8 @@ export const createTrackComment = (comment) => dispatch => {
   return CommentsApiUtil.createTrackComment(comment)
             .then(comment => dispatch(receiveTrackComment(comment)))
 };
+
+export const fetchTrackComments = (track_id) => dispatch => {
+  return CommentsApiUtil.fetchTrackComments(track_id)
+            .then(comments => dispatch(receiveAllTrackComments(comments)))
+};

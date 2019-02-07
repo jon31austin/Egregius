@@ -1,5 +1,7 @@
 class Api::TrackCommentsController < ApplicationController 
   def index
+    @track_comments = TrackComment.search_by_track(params[:track_id])
+    render "api/track_comments/index"
   end 
 
   def create

@@ -8,7 +8,7 @@ import { signup, login, logout } from "./actions/session_actions";
 import { getTracks } from "./actions/track_actions";
 import { createAnnotation } from "./actions/annotation_actions";
 import { getSearchResults } from "./actions/search_actions";
-import { createTrackComment } from "./actions/track_comment_actions";
+import { createTrackComment, fetchTrackComments } from "./actions/track_comment_actions";
 //ENDING HERE
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -40,6 +40,7 @@ document.addEventListener('DOMContentLoaded', () => {
   window.createAnnotation = createAnnotation;
   window.getSearchResults = getSearchResults;
   window.createTrackComment = createTrackComment;
+  window.fetchTrackComments = fetchTrackComments;
   // ENDING HERE
 
   ReactDOM.render(< Root store={store} />, root);
