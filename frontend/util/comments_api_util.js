@@ -6,3 +6,10 @@ export const createTrackComment = (comment) => {
     data: { comment }
   })
 };
+
+export const receiveTrackComments = (track_id) => {
+  return $.ajax({
+    method: "GET",
+    url: `api/tracks/${track_id}/track_comments`
+  })
+};
