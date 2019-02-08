@@ -1,12 +1,34 @@
-.track-comments {
-  
-  height: 100px;
-  background: blueviolet;
+.track-comments-box {
+  background: $genius-lightgray;
 
   width: 40%;
-  height: 600px;
+  min-height: 600px;
+
+  padding: 20px;
   
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15%;
+}
+
+.track-comment-input {
+  width: 100%;
+  height: 30px;
+  box-sizing: border-box;
+
+  margin-bottom: 10px;
+  background: white;
+  padding: 5px;
+  border: 2px solid #cccccc;
+}
+
+.track-comment {
+  border-top: 1px solid $genius-blue;
+  padding-top: 20px;
+  min-height: 75px;
+}
+
+.track-comment-username {
+  font-weight: 800;
+  margin-bottom: 20px;
 }
