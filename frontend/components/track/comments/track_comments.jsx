@@ -4,6 +4,10 @@ class TrackComments extends React.Component {
   constructor(props){
     super(props)
 
+    this.state = ({ 
+      sortBy: date
+    })
+
     this.formatTrackComments = this.formatTrackComments.bind(this)
   }
 
@@ -11,11 +15,21 @@ class TrackComments extends React.Component {
     this.props.fetchComments(this.props.trackId);
   }
 
+  compare(a, b) {
+    if (a.created_at > b.created_a) return 1;
+    if (a.created_at < b.created_a) return -1;
+    return 0;
+  }
+
   formatTrackComments(trackId) {
-    const coms = this.props.comments.filter(com => {
+    let coms = this.props.comments.filter(com => {
       debugger;
       return (com.track_id === trackId)
-    }).map(com => (
+    })
+    
+    coms = coms.sort(this.compare)
+    
+    coms = coms.map(com => (
       <li className="track-comment">
         <div>
           <h1 className="track-comment-username">{com.username}</h1>
