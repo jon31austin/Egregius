@@ -16,8 +16,8 @@ class TrackComments extends React.Component {
   }
 
   compare(a, b) {
-    if (a.created_at > b.created_a) return -1;
-    if (a.created_at < b.created_a) return 1;
+    if (a.created_at > b.created_at) return -1;
+    if (a.created_at < b.created_at) return 1;
     return 0;
   }
 
@@ -27,7 +27,7 @@ class TrackComments extends React.Component {
     })
     
     coms = coms.sort(this.compare)
-    
+    debugger;
     coms = coms.map(com => (
       <li className="track-comment">
         <div>
