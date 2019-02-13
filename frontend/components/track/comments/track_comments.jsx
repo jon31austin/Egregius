@@ -70,6 +70,12 @@ class TrackComments extends React.Component {
       track_id: this.props.trackId,
       user_id: this.props.currentUser
     })
+      .then( () => this.setState({
+        clicked: false,
+      }))
+    
+    document.getElementsByClassName("track-comment-input")[0]
+      .value = ""
   }
 
   commentPrompt() {
