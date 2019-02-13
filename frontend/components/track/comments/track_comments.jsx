@@ -6,7 +6,8 @@ class TrackComments extends React.Component {
 
     this.state = ({ 
       sortBy: "date",
-      comment: ""
+      comment: "",
+      clicked: false
     })
 
     this.formatTrackComments = this.formatTrackComments.bind(this)
@@ -68,20 +69,39 @@ class TrackComments extends React.Component {
     })
   }
 
+  commentPrompt() {
+    if (this.state.clicked) {
+      if (this.props.loggedIn) {
+        return (
+          <input className="submit" type="submit" />
+        )
+      } else {
+        return (
+          <h1>Sign In to Leave Comment</h1>
+        )
+      }
+    } else {
+      return null;
+    }
+
+  }
+
   render() {
+    debugger; 
+    
     return(
       <div className="track-comments-box">
 
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInput}
+            onClick={() => this.setState({ clicked: true })}
             className="track-comment-input"
             type="text"
             value={this.state.comment} placeholder="Add a comment">
           </input>
 
-          {this.props.loggedIn ? <input className="submit" type="submit" />
-            : <h1>Please sign in to submit a comment!</h1>}
+          {this.commentPrompt()}
         </form>
         
         <ul>
