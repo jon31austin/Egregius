@@ -11,7 +11,9 @@ class TrackComments extends React.Component {
       clicked: false
     })
 
-    this.formatTrackComments = this.formatTrackComments.bind(this)
+    this.formatTrackComments = this.formatTrackComments.bind(this);
+    this.handleInput = this.handleInput.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
@@ -32,7 +34,7 @@ class TrackComments extends React.Component {
     coms = coms.sort(this.compare)
   
     coms = coms.map(com => (
-      <li className="track-comment">
+      <li key={com.id} className="track-comment">
         <div>
           <div className="track-date-container">
             <h1 className="track-comment-username">{com.username}</h1>
@@ -92,7 +94,7 @@ class TrackComments extends React.Component {
   }
 
   render() {
-    debugger; 
+    // value = { this.state.comment }
 
     return(
       <div className="track-comments-box">
@@ -103,7 +105,7 @@ class TrackComments extends React.Component {
             onClick={() => this.setState({ clicked: true })}
             className="track-comment-input"
             type="text"
-            value={this.state.comment} placeholder="Add a comment">
+            placeholder="Add a comment">
           </input>
 
           {this.commentPrompt()}
