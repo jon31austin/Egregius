@@ -1,4 +1,5 @@
 import React from "react";
+import { openModal } from "../../../actions/modal_actions";
 
 class TrackComments extends React.Component {
   constructor(props){
@@ -77,7 +78,11 @@ class TrackComments extends React.Component {
         )
       } else {
         return (
-          <h1>Sign In to Leave Comment</h1>
+          <div 
+            onClick={() => dispatch(openModal("login"))}
+            className="submit">
+            Sign In to Leave Comment
+          </div>
         )
       }
     } else {
@@ -88,7 +93,7 @@ class TrackComments extends React.Component {
 
   render() {
     debugger; 
-    
+
     return(
       <div className="track-comments-box">
 
