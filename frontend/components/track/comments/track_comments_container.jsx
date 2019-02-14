@@ -23,7 +23,7 @@ const mdp = (dispatch) => {
   return {
     fetchComments: (id) => dispatch(fetchTrackComments(id)),
     submitComment: (comment) => dispatch(createTrackComment(comment)),
-    deleteTrackComment: (id) => dispatch(deleteTrackComment(id))
+    deleteTrackComment: (trackId, commentId) => dispatch(deleteTrackComment(trackId, commentId))
   }
 }
 

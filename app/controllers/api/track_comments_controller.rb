@@ -14,10 +14,9 @@ class Api::TrackCommentsController < ApplicationController
     end
   end
 
-  def destroy 
-    debugger
-    @comment = TrackComment.find_by(id: params[:id])
-    @comment.destroy
+  def destroy
+    @track_comment = TrackComment.find_by(id: params[:id])
+    @track_comment.destroy
     render "api/track_comments/show"
   end
 
