@@ -28,6 +28,7 @@ class TrackComments extends React.Component {
 
   formatTrackComments(trackId) {
     let coms = this.props.comments.filter(com => {
+      debugger
       return (com.track_id === trackId)
     })
     
@@ -35,13 +36,22 @@ class TrackComments extends React.Component {
   
     coms = coms.map(com => (
       <li key={com.id} className="track-comment">
-        <div>
-          <div className="track-date-container">
+        <div className="track-comment-body">
+          <div>
             <h1 className="track-comment-username">{com.username}</h1>
-            <h2>{com.created_at.slice(0, 10)}</h2>
+            <p>{com.body}</p>
           </div>
           
-          <p>{com.body}</p>
+          <div className="comment-date-delete">
+            <div className="track-comment-date">{com.created_at.slice(0, 10)}</div>
+            {this.props.currentUser === com.user_id ? 
+              <div className="comment-delete" 
+                onClick={() => this.props.deleteTrackComment(trackId, com.id)}>
+                <h1>Delete</h1>
+              </div>
+              : null 
+            }
+          </div>
         </div>
       </li>
     ))
@@ -82,7 +92,7 @@ class TrackComments extends React.Component {
     if (this.state.clicked) {
       if (this.props.loggedIn) {
         return (
-          <input className="submit" type="submit" />
+          <input className="comment-submit" type="submit" />
         )
       } else {
         return (

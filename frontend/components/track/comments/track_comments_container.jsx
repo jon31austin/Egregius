@@ -5,7 +5,8 @@ import TrackComments from "./track_comments";
 
 import { 
   fetchTrackComments,
-  createTrackComment
+  createTrackComment,
+  deleteTrackComment
  } from "../../../actions/track_comment_actions";
 
 
@@ -21,7 +22,8 @@ const msp = (state, ownProps) => {
 const mdp = (dispatch) => {
   return {
     fetchComments: (id) => dispatch(fetchTrackComments(id)),
-    submitComment: (comment) => dispatch(createTrackComment(comment))
+    submitComment: (comment) => dispatch(createTrackComment(comment)),
+    deleteTrackComment: (id) => dispatch(deleteTrackComment(id))
   }
 }
 

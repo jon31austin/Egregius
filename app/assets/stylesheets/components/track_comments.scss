@@ -28,12 +28,50 @@
   min-height: 75px;
 }
 
+.track-comment-body {
+  display: flex;
+  justify-content: space-between;
+}
+
 .track-comment-username {
   font-weight: 800;
   margin-bottom: 20px;
 }
 
-.track-date-container {
+.track-comment-date {
   display: flex;
+  justify-content: flex-end;
+}
+
+.comment-delete {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 15px;
+  width: 50px;
+  padding: 5px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+
+.comment-submit {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  cursor: pointer;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.comment-delete:hover, .comment-submit:hover {
+  background-color: white;
+}
+
+.comment-date-delete {
+  display: flex;
+  flex-direction: column;
   justify-content: space-between;
+  align-items: flex-end;
 }

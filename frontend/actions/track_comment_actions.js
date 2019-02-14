@@ -42,7 +42,7 @@ export const fetchTrackComments = (track_id) => dispatch => {
             .then(comments => dispatch(receiveAllTrackComments(comments)))
 };
 
-export const deleteTrackComment = (track_comment_id) => dispatch => {
-  return CommentsApiUtil.deleteTrackComment(track_comment_id)
+export const deleteTrackComment = (trackId, commentId) => dispatch => {
+  return CommentsApiUtil.deleteTrackComment(trackId, commentId)
             .then(comment => dispatch(receiveDeletion(comment)))
 };

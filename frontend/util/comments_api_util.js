@@ -14,9 +14,10 @@ export const fetchTrackComments = (track_id) => {
   })
 };
 
-export const deleteTrackComment = (track_comment_id) => {
+export const deleteTrackComment = (trackId, commentId) => {
+  debugger
   return $.ajax({
     method: "DELETE",
-    url: `/api/tracks/:track_id/track_comments/${track_comment_id}`
+    url: `/api/tracks/${trackId}/track_comments/${commentId}`
   })
 };
