@@ -13,3 +13,10 @@ export const fetchTrackComments = (track_id) => {
     url: `api/tracks/${track_id}/track_comments`
   })
 };
+
+export const deleteTrackComment = (track_comment_id) => {
+  return $.ajax({
+    method: "DELETE",
+    url: `/api/tracks/:track_id/track_comments/${track_comment_id}`
+  })
+};

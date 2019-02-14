@@ -1,5 +1,6 @@
 import { RECEIVE_TRACK_COMMENT, 
-  RECEIVE_ALL_TRACK_COMMENTS } from "../../actions/track_comment_actions";
+  RECEIVE_ALL_TRACK_COMMENTS,
+  RECEIVE_DELETION } from "../../actions/track_comment_actions";
 
   const trackCommentsReducer = (state = {}, action) => {
     Object.freeze(state);
@@ -7,7 +8,11 @@ import { RECEIVE_TRACK_COMMENT,
       case RECEIVE_TRACK_COMMENT:
         return Object.assign({}, state, action.comment);
       case RECEIVE_ALL_TRACK_COMMENTS:
-        return Object.assign({}, state, action.comments)
+        return Object.assign({}, state, action.comments);
+      case RECEIVE_DELETION:
+        const newState = Object.assign({}, state);
+        delete newState[action.commentId]
+        return newState;
       default:
         return state;
     }
