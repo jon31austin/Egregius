@@ -6,7 +6,7 @@ class TrackComments extends React.Component {
     super(props)
 
     this.state = ({ 
-      sortBy: "date",
+      sortBy: "oldest",
       comment: "",
       clicked: false
     })
@@ -20,11 +20,30 @@ class TrackComments extends React.Component {
     this.props.fetchComments(this.props.trackId);
   }
 
-  compare(a, b) {
+  // Sort by newest first.
+  compareNew(a, b) {
     if (a.created_at > b.created_at) return -1;
     if (a.created_at < b.created_at) return 1;
     return 0;
   }
+
+  // Sort by oldest first.
+  compareOld(a, b) {
+    if (a.created_at > b.created_at) return 1;
+    if (a.created_at < b.created_at) return -1;
+    return 0;
+  }
+
+  sortComments(coms) {
+    switch (this.state.sortBy) {
+      case "newest":
+        return coms.sort(this.compareNew);
+      case "oldest":
+        return coms.sort(this.compareOld);
+    }
+  }
+
+
 
   formatTrackComments(trackId) {
     let coms = this.props.comments.filter(com => {
@@ -32,7 +51,7 @@ class TrackComments extends React.Component {
       return (com.track_id === trackId)
     })
     
-    coms = coms.sort(this.compare)
+    coms = this.sortComments(coms);
   
     coms = coms.map(com => (
       <li key={com.id} className="track-comment">
