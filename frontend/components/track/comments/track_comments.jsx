@@ -133,7 +133,11 @@ class TrackComments extends React.Component {
 
     return(
       <div className="track-comments-box">
-
+        <div>
+          <h1>Sort by:</h1>
+          <div onClick={() => this.setState({ sortBy: "newest" })}>Newest</div>
+          <div onClick={() => this.setState({ sortBy: "oldest" })}>Oldest</div>
+        </div>
         <form onSubmit={this.handleSubmit}>
           <input
             onChange={this.handleInput}
