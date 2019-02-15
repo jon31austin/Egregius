@@ -117,7 +117,7 @@ class TrackComments extends React.Component {
         return (
           <div 
             onClick={() => dispatch(openModal("login"))}
-            className="submit">
+            className="comment-submit">
             Sign In to Leave Comment
           </div>
         )
@@ -133,26 +133,30 @@ class TrackComments extends React.Component {
 
     return(
       <div className="track-comments-box">
-        <div>
+        <div className="track-comment-sort-options">
           <h1>Sort by:</h1>
           <div onClick={() => this.setState({ sortBy: "newest" })}>Newest</div>
           <div onClick={() => this.setState({ sortBy: "oldest" })}>Oldest</div>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            onChange={this.handleInput}
-            onClick={() => this.setState({ clicked: true })}
-            className="track-comment-input"
-            type="text"
-            placeholder="Add a comment">
-          </input>
 
-          {this.commentPrompt()}
-        </form>
-        
-        <ul>
-          {this.formatTrackComments(this.props.trackId)}
-        </ul>
+        <div className="track-comments-below-sort">
+          <form onSubmit={this.handleSubmit}>
+            <input
+              onChange={this.handleInput}
+              onClick={() => this.setState({ clicked: true })}
+              className="track-comment-input"
+              type="text"
+              placeholder="Add a comment">
+            </input>
+
+            {this.commentPrompt()}
+          </form>
+          
+          <ul>
+            {this.formatTrackComments(this.props.trackId)}
+          </ul>
+        </div>
+
       </div>
     )
   }

@@ -1,6 +1,4 @@
 .track-comments-box {
-  background: $genius-lightgray;
-
   width: 40%;
   min-height: 600px;
 
@@ -9,6 +7,26 @@
   margin-top: 20px;
   margin-bottom: 20px;
   margin-left: 15%;
+}
+
+.track-comments-below-sort {
+  background: $genius-lightgray;
+  padding: 20px;
+}
+
+.track-comment-sort-options {
+  display: flex;
+  margin-bottom: 5px;
+}
+
+.track-comment-sort-options > div {
+  padding: 0 5px;
+  margin: 0 5px;
+}
+
+.track-comment-sort-options > div:hover {
+  cursor: pointer;
+  color: $genius-blue;
 }
 
 .track-comment-input {
