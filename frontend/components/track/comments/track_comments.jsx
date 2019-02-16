@@ -6,7 +6,7 @@ class TrackComments extends React.Component {
     super(props)
 
     this.state = ({ 
-      sortBy: "oldest",
+      sortBy: "newest",
       comment: "",
       clicked: false
     })
