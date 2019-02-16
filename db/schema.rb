@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_02_03_022402) do
+ActiveRecord::Schema.define(version: 2019_02_16_061124) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,13 @@ ActiveRecord::Schema.define(version: 2019_02_03_022402) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_artists_on_name", unique: true
+  end
+
+  create_table "track_comment_likes", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "track_comment_id", null: false
+    t.integer "like_type", null: false
+    t.index ["user_id", "track_comment_id"], name: "index_track_comment_likes_on_user_id_and_track_comment_id", unique: true
   end
 
   create_table "track_comments", force: :cascade do |t|
